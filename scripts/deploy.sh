@@ -9,7 +9,7 @@ fi
 
 # 1. Carrega as variáveis do arquivo .env local
 if [ -f .env ]; then
-    export $(cat .env | grep -v '^#' | xargs)
+    export $(grep -v '^#' .env | xargs)
 fi
 
 echo "📦 1. Enviando alterações locais para o GitHub..."
