@@ -13,6 +13,10 @@ A **STAR INK** é uma marca de streetwear e moda contemporânea unissex, com ape
 * **Ink (Expressão & Arte):** A inteligência de impressão digital (DTG/DTF) transformando conceitos gráficos em vestuário real sem limites.
 * **Global & Unissex:** Conectando tendências internacionais a um público amplo (masculino e feminino).
 
+### 1.2. Monograma & Evolução da Identidade Visual
+* **Monograma do 'S' (Infinito / Alta Frequência):** A marca adota o 'S' deitado/rotacionado 90°, invocando o símbolo do infinito, a sinuosidade geométrica e o movimento contínuo da moda contemporânea.
+* **Evolução da Assinatura (S + INK ➔ Monograma Puro):** Fase 1 (S + INK) para consolidação do nome; Fase 2 com a transição orgânica para a presença soberana do monograma 'S' deitado em tags, etiquetas, bordados e mídias visuais.
+
 ---
 
 ## 2. Design System Estético (Tokens)

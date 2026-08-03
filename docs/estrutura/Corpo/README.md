@@ -22,24 +22,42 @@ Para garantir **máxima independência e reutilização de código**:
 
 ## 3. Planejamento do Painel de Controle Admin (`/admin`)
 
-O Painel Administrativo será o centro de comando do lojista:
+O Painel Administrativo será o centro de comando executivo da STAR INK, estruturado em **4 Módulos** e precedido pela **Página Inicial (Cockpit Executivo)**.
+
+### 3.1. Arquitetura de Navegação & Top Header
+* **Monograma STAR INK:** Monograma "S" deitado (Infinito / Alta Frequência) ancorando a marca no canto superior esquerdo.
+* **Tabs Mestres de Navegação:**
+  - `Dashboard` *(Home / Visão Geral)*
+  - `1. Atendimento` *(SAC & CRM Concierge)*
+  - `2. Produção` *(Esteira PoD / Reserva INK / Dimona)*
+  - `3. Catálogo & Mídias` *(Artes, Prompts, Mídias & Feed Meta)*
+  - `4. Financeiro` *(Margem Líquida & Bling ERP)*
+* **Command Palette (`Ctrl + K` / `Cmd + K`):** Barra de busca inteligente e atalhos globais.
+
+---
+
+### 3.2. Os 4 Blocos da Página Inicial (`/admin/dashboard`)
 
 ```
-+-----------------------------------------------------------------------+
-|  STAR INK ADMIN  |  [Vitrine]  [Estoque PoD]  [Agendamento]  [GEO]    |
-+-----------------------------------------------------------------------+
-|                                                                       |
-|  Painel de Gestão Print on Demand (PoD 2.0)                           |
-|  - Roteamento de Fornecedor por Item (Reserva INK / Dimona / Printful)|
-|  - Agendamento por Drops no Instagram com Liberação Automática        |
-|  - Gerenciador de Variáveis de Design System (Cores/Fontes)           |
-|  - Auditoria de Indexação de IA (GEO / JSON-LD / llms.txt)            |
-|                                                                       |
-+-----------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+| [∞ STAR INK]  Dashboard  Atendimento  Produção  Catálogo  Financeiro  [Buscar Ctrl+K] 🔔|
++-----------------------------------------------------------------------------------------+
+| [ Vendas Hoje: R$ 1.800 ] [ Lucro Real: R$ 1.250 ] [ PIX: 80% ] [ Em Produção: 12 pçs ] |
++----------------------------------------------------+------------------------------------+
+| 🚨 ALERTAS DE AÇÃO IMEDIATA                        | 🧭 ACESSO RÁPIDO AOS MÓDULOS       |
+| • 2 Pedidos PIX pendentes [Aprovar Pedido]         | [ Card 1: Atendimento Concierge ➔ ]|
+| • 1 Dúvida de Tamanho WhatsApp [Responder]         | [ Card 2: Produção PoD ➔          ]|
+|                                                    | [ Card 3: Catálogo & Mídias ➔     ]|
+|                                                    | [ Card 4: Financeiro & Bling ➔    ]|
++----------------------------------------------------+------------------------------------+
+| 📜 FEED DE ATIVIDADES EM TEMPO REAL (Activity Timeline)                                 |
+| • 15:39 — Novo pedido #1234 recebido via PIX.                                           |
+| • 15:38 — Peça 'Arte 02 - A Fada' enviada para impressão na Reserva INK.               |
+| • 15:34 — Catalog XML sincronizado com o Instagram Shopping (Meta Commerce).           |
++-----------------------------------------------------------------------------------------+
 ```
 
-### 3.1. Funcionalidades do Admin:
-1. **Cadastro e Roteamento de Produto:** Vincular o SKU ao fornecedor de manufatura correto.
-2. **Agendamento por Drops:** Programar a data de liberação do produto no site e no Instagram.
-3. **Gerenciador de Design System:** Ajustar cores e fontes do site sem relançar código.
-4. **Monitor de GEO:** Visualizar se o JSON-LD do produto está válido para buscadores por IA.
+1. **Bloco 1 (KPIs de Topo):** Vendas Hoje, Lucro Líquido Real (descontando custo fábrica R$ 49 e taxas), % PIX e Peças na Esteira.
+2. **Bloco 2 (Alertas de Ação Imediata):** Decisões críticas que exigem intervenção direta da diretoria.
+3. **Bloco 3 (Navegação Interativa):** Cards interativos para transição com 1-clique entre os 4 Módulos.
+4. **Bloco 4 (Activity Timeline):** Feed cronológico com logs do ecossistema (vendas, estoque, envios e Meta Commerce).
