@@ -10,19 +10,17 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background Image with 16:9 Aspect & Penumbra Light-to-Dark Vertical Gradient */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center bg-gradient-to-b from-zinc-700/30 via-zinc-950/70 to-black">
-        <div className="relative w-full h-[75vh] max-w-5xl px-8">
-          <Image
-            src="/imagens/hero_cap_blank.png"
-            alt="STAR INK Hero Cap"
-            fill
-            priority
-            className="object-contain object-center opacity-80"
-          />
-        </div>
-        {/* Soft Vertical Light-to-Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-300/10 via-transparent to-black pointer-events-none" />
+      {/* Full-bleed Widescreen Background Image with Light-to-Dark Vertical Gradient */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <Image
+          src="/imagens/hero_cap_blank.png"
+          alt="STAR INK Hero Cap"
+          fill
+          priority
+          className="object-cover object-center scale-90 opacity-75"
+        />
+        {/* Smooth Full-Bleed Penumbra Vertical Gradient Overlay (Light Top -> Dark Center -> Pure Black Bottom) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-800/40 via-black/40 to-black pointer-events-none" />
       </div>
 
       {/* Hero Content */}
