@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Search, Bell, ShieldCheck } from 'lucide-react';
+import { Search, Bell } from 'lucide-react';
 
 interface NavItem {
   name: string;
@@ -30,11 +31,16 @@ export default function AdminHeader() {
           {/* Brand Logo & Monogram */}
           <div className="flex items-center gap-3 shrink-0">
             <Link href="/admin/dashboard" className="flex items-center gap-3 group">
-              {/* Vector Monogram S Deitado / Infinito */}
-              <div className="w-9 h-9 rounded-lg bg-white/5 border border-[var(--border-subtle)] flex items-center justify-center group-hover:border-[var(--accent-cyan)] transition-colors">
-                <svg width="22" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6 1C3.23858 1 1 3.23858 1 6C1 8.76142 3.23858 11 6 11C8.76142 11 11 8.76142 11 6C11 3.23858 13.2386 1 16 1C18.7614 1 21 3.23858 21 6C21 8.76142 18.7614 11 16 11C13.2386 11 11 8.76142 11 6C11 3.23858 8.76142 1 6 1Z" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="text-white group-hover:text-[var(--accent-cyan)] transition-colors"/>
-                </svg>
+              {/* Logo Oficial STAR INK */}
+              <div className="h-10 w-auto flex items-center justify-center p-1 rounded-lg bg-white/5 border border-[var(--border-subtle)] group-hover:border-[var(--accent-cyan)] transition-colors">
+                <Image
+                  src="/imagens/LOGO/LOGO_VAZADA.png"
+                  alt="STAR INK Logo Oficial"
+                  width={40}
+                  height={40}
+                  className="h-8 w-auto object-contain invert brightness-200"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-[var(--font-heading)] font-bold text-lg tracking-wider text-white">STAR INK</span>
