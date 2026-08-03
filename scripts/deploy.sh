@@ -64,6 +64,7 @@ connect_ssh << 'EOF'
   
   # Força a atualização do repositório
   git reset --hard
+  git clean -fd
   git pull || { echo "❌ ERRO: Falha ao rodar git pull no VPS!"; exit 1; }
   
   # Criar ou atualizar o arquivo .env de produção na VPS
