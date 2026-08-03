@@ -98,10 +98,12 @@ ENV
       echo "📦 Compilando aplicação Next.js (Build)..."
       npm run build || { echo "❌ ERRO: Falha ao rodar npm run build no VPS!"; exit 1; }
       
-      echo "🔄 Iniciando/Reiniciando serviço Next.js com PM2 (Porta 3001)..."
-      pm2 restart star-ink --update-env || pm2 start npm --name "star-ink" -- start -- -p 3001 || {
+      echo "🔄 Atualizando serviço Next.js com PM2 (Porta 3001)..."
+      pm2 delete star-ink 2>/dev/null || true
+      pm2 start npm --name "star-ink" -- start -- -p 3001 || {
           echo "❌ ERRO: Falha ao gerenciar processo PM2!"; exit 1;
       }
+      pm2 save
   else
       echo "ℹ️ package.json ainda não criado. Repositório de documentação e banco de dados sincronizados."
   fi
