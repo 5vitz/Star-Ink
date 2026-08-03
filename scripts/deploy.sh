@@ -7,9 +7,11 @@ if command -v notify-send >/dev/null 2>&1; then
     notify-send "STAR INK" "Iniciando deploy automático na Contabo..."
 fi
 
-# 1. Carrega as variáveis do arquivo .env local
+# 1. Carrega as variáveis do arquivo .env local com segurança
 if [ -f .env ]; then
-    export $(grep -v '^#' .env | xargs)
+    set -a
+    source .env
+    set +a
 fi
 
 echo "📦 1. Enviando alterações locais para o GitHub..."
@@ -20,24 +22,18 @@ else
     echo "ℹ️ Nenhuma alteração pendente para commitar."
 fi
 
-if [ ! -z "$GITHUB_TOKEN" ]; then
-    echo "🔑 Autenticando com Token do GitHub..."
-    git push https://$GITHUB_TOKEN@github.com/5vitz/Star-Ink.git main
+if [ -n "$GITHUB_TOKEN" ]; then
+    echo "🔑 Autenticando e enviando para o GitHub..."
+    git push "https://${GITHUB_TOKEN}@github.com/5vitz/Star-Ink.git" main
     if [ $? -ne 0 ]; then
-        echo "❌ ERRO: Falha ao enviar alterações para o GitHub. Verifique se há conflitos!"
-        if command -v notify-send >/dev/null 2>&1; then
-            notify-send "STAR INK" "Erro no git push. Verifique o terminal."
-        fi
+        echo "❌ ERRO: Falha no git push. Verifique seu GITHUB_TOKEN no arquivo .env!"
         exit 1
     fi
 else
-    echo "⚠️ GITHUB_TOKEN não configurado no .env! Tentando push padrão..."
+    echo "⚠️ GITHUB_TOKEN não encontrado no .env. Executando git push padrão..."
     git push origin main
     if [ $? -ne 0 ]; then
-        echo "❌ ERRO: Falha ao enviar alterações para o GitHub!"
-        if command -v notify-send >/dev/null 2>&1; then
-            notify-send "STAR INK" "Erro no git push."
-        fi
+        echo "❌ ERRO: Falha no git push! Certifique-se de configurar GITHUB_TOKEN no .env."
         exit 1
     fi
 fi
