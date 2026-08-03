@@ -3,8 +3,13 @@ echo "🚀 INICIANDO DEPLOY AUTOMÁTICO — STAR INK (CONTABO)"
 echo "------------------------------------------------------------"
 
 # Notificação local de início
+LOGO_ICON="$PWD/public/LOGO/LOGO_REDONDA.png"
 if command -v notify-send >/dev/null 2>&1; then
-    notify-send "STAR INK" "Iniciando deploy automático na Contabo..."
+    if [ -f "$LOGO_ICON" ]; then
+        notify-send -i "$LOGO_ICON" "STAR INK" "Iniciando deploy automático na Contabo..."
+    else
+        notify-send "STAR INK" "Iniciando deploy automático na Contabo..."
+    fi
 fi
 
 # 1. Carrega as variáveis do arquivo .env local com segurança
@@ -111,13 +116,21 @@ EOF
 # Notificação local de conclusão e abertura de navegador
 if [ $? -eq 0 ]; then
   if command -v notify-send >/dev/null 2>&1; then
-    notify-send "STAR INK" "Deploy concluído com sucesso na Contabo!"
+    if [ -f "$LOGO_ICON" ]; then
+      notify-send -i "$LOGO_ICON" "STAR INK" "Deploy concluído com sucesso na Contabo!"
+    else
+      notify-send "STAR INK" "Deploy concluído com sucesso na Contabo!"
+    fi
   fi
   # Abre o site oficial seguro
   firefox "https://www.star-ink.com.br" &
 else
   if command -v notify-send >/dev/null 2>&1; then
-    notify-send "STAR INK" "Erro durante o deploy da Contabo. Verifique os logs."
+    if [ -f "$LOGO_ICON" ]; then
+      notify-send -i "$LOGO_ICON" "STAR INK" "Erro durante o deploy da Contabo. Verifique os logs."
+    else
+      notify-send "STAR INK" "Erro durante o deploy da Contabo. Verifique os logs."
+    fi
   fi
 fi
 

@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   keywords: ['Streetwear', 'Print on Demand', 'Oversized', 'Moda Autoral', 'STAR INK'],
   authors: [{ name: 'STAR INK Team' }],
   robots: 'index, follow',
+  icons: {
+    icon: '/LOGO/LOGO_REDONDA.png',
+    shortcut: '/LOGO/LOGO_REDONDA.png',
+    apple: '/LOGO/LOGO_REDONDA.png',
+  },
 };
 
 export default function RootLayout({
