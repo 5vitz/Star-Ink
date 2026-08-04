@@ -20,11 +20,11 @@ export default function Footer() {
                 />
               </div>
               <span className="text-xl font-bold tracking-tighter text-black">
-                STAR INK
+                StarINK
               </span>
             </Link>
             <p className="text-zinc-600 text-xs leading-relaxed max-w-md font-sans">
-              STAR INK — Startup D2C de Moda Contemporânea & Print on Demand 2.0. 
+              StarINK — Startup D2C de Moda Contemporânea & Print on Demand 2.0. 
               Visualização minimalista 9:16, inteligência de dados e otimização para buscadores por inteligência artificial (GEO).
             </p>
           </div>

@@ -25,7 +25,7 @@ export default function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold tracking-tighter text-white group-hover:text-zinc-200 transition-colors">
-                STAR INK
+                StarINK
               </span>
               <span className="text-[9px] font-mono tracking-[0.25em] text-zinc-400 uppercase">
                 PoD 2.0 • Luxe
