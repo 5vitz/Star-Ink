@@ -13,13 +13,16 @@ export default function HeroSection() {
     offset: ['start start', 'end start'],
   });
 
-  // Smooth scroll transformations for the hero cap image
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
-  const capOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 0.7, 0.15]);
-  const capBlur = useTransform(scrollYProgress, [0, 0.7, 1], ['blur(0px)', 'blur(4px)', 'blur(12px)']);
-  const particleIntensity = useTransform(scrollYProgress, [0, 1], [1, 3.5]);
+  // Scroll physics ONLY for the isolated Cap Layer
+  const capScale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
+  const capY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const capOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.6, 0.05]);
+  const capBlur = useTransform(scrollYProgress, [0, 0.6, 1], ['blur(0px)', 'blur(6px)', 'blur(20px)']);
 
-  // Canvas particle disintegration system
+  // Background gradient layer smooth transition
+  const bgOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.9, 0.7]);
+
+  // Particle Canvas System
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -38,16 +41,16 @@ export default function HeroSection() {
     };
     window.addEventListener('resize', handleResize);
 
-    // Generate Particle Swarm
-    const particleCount = 85;
+    // Particle Swarm
+    const particleCount = 90;
     const particles = Array.from({ length: particleCount }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: Math.random() * 2 + 0.8,
-      speedY: Math.random() * 1.2 + 0.4,
-      speedX: (Math.random() - 0.5) * 0.8,
-      alpha: Math.random() * 0.8 + 0.2,
-      color: Math.random() > 0.4 ? '#38bdf8' : Math.random() > 0.5 ? '#ffffff' : '#94a3b8',
+      size: Math.random() * 2.2 + 0.6,
+      speedY: Math.random() * 1.5 + 0.5,
+      speedX: (Math.random() - 0.5) * 0.9,
+      alpha: Math.random() * 0.85 + 0.15,
+      color: Math.random() > 0.35 ? '#38bdf8' : Math.random() > 0.5 ? '#ffffff' : '#94a3b8',
     }));
 
     const render = () => {
@@ -57,7 +60,6 @@ export default function HeroSection() {
         p.y -= p.speedY;
         p.x += p.speedX;
 
-        // Reset particle to bottom when it floats past top
         if (p.y < 0) {
           p.y = height + Math.random() * 20;
           p.x = Math.random() * width;
@@ -67,9 +69,8 @@ export default function HeroSection() {
         ctx.globalAlpha = p.alpha;
         ctx.fillStyle = p.color;
 
-        // Glow shadow for cyan particles
         if (p.color === '#38bdf8') {
-          ctx.shadowBlur = 8;
+          ctx.shadowBlur = 10;
           ctx.shadowColor = '#38bdf8';
         }
 
@@ -96,58 +97,95 @@ export default function HeroSection() {
       className="relative w-full min-h-screen md:min-h-[804px] flex items-center justify-center overflow-hidden bg-black select-none"
     >
       {/* ========================================================================= */}
-      {/* OPÇÃO 1: PARTICLE DISINTEGRATION & DISSOLVE (Desintegração em Partículas) */}
+      {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Separado do Boné) */}
+      {/* ========================================================================= */}
+      
+      {/* Desktop Background Layer (md:block) */}
+      <motion.div style={{ opacity: bgOpacity }} className="hidden md:block absolute inset-0 z-0 w-full h-full">
+        <Image
+          src="/HERO/PNGs/FundoDegradeDesktop.png"
+          alt="STAR INK Background Desktop"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center w-full h-full"
+        />
+      </motion.div>
+
+      {/* Mobile Background Layer (block md:hidden) */}
+      <motion.div style={{ opacity: bgOpacity }} className="block md:hidden absolute inset-0 z-0 w-full h-full">
+        <Image
+          src="/HERO/PNGs/FundoDegradeCelular.png"
+          alt="STAR INK Background Mobile"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center w-full h-full"
+        />
+      </motion.div>
+
+      {/* Soft blend overlay at bottom to transition seamlessly to Off-White catalog */}
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
+
+      {/* ========================================================================= */}
+      {/* CAMADA 2: BONÉ ISOLADO EM PNG (Efeitos & Desintegração EXCLUSIVAS no Boné) */}
       {/* ========================================================================= */}
 
-      {/* 1. Desktop Cap Container (Widescreen md:block) */}
-      <motion.div 
-        style={{ scale, opacity: capOpacity, filter: capBlur }}
-        className="hidden md:block absolute inset-0 z-0 w-full h-full"
+      {/* Desktop Isolated Cap with Antigravity Floating & Scroll Disintegration (md:block) */}
+      <motion.div
+        style={{ scale: capScale, y: capY, opacity: capOpacity, filter: capBlur }}
+        className="hidden md:block absolute inset-0 z-10 w-full h-full pointer-events-none"
       >
-        <Image
-          src="/HERO/BoneRecortado.png"
-          alt="STAR INK Hero Cap Widescreen"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center w-full h-full"
-        />
-
-        {/* Soft blend overlay at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
+        <motion.div
+          animate={{ y: [-8, 8, -8], rotate: [-0.5, 0.5, -0.5] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-full h-full relative"
+        >
+          <Image
+            src="/HERO/PNGs/BoneRecortadoDesktop.png"
+            alt="STAR INK Isolated Cap Desktop"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center w-full h-full drop-shadow-[0_0_35px_rgba(56,189,248,0.25)]"
+          />
+        </motion.div>
       </motion.div>
 
-      {/* 2. Mobile Cap Container (9:16 Vertical block md:hidden) */}
-      <motion.div 
-        style={{ scale, opacity: capOpacity, filter: capBlur }}
-        className="block md:hidden absolute inset-0 z-0 w-full h-full"
+      {/* Mobile Isolated Cap with Antigravity Floating & Scroll Disintegration (block md:hidden) */}
+      <motion.div
+        style={{ scale: capScale, y: capY, opacity: capOpacity, filter: capBlur }}
+        className="block md:hidden absolute inset-0 z-10 w-full h-full pointer-events-none"
       >
-        <Image
-          src="/HERO/HeroVertical.png"
-          alt="STAR INK Hero Cap 9:16 Vertical"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center w-full h-full"
-        />
-
-        {/* Soft blend overlay at bottom */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
+        <motion.div
+          animate={{ y: [-6, 6, -6], rotate: [-0.5, 0.5, -0.5] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-full h-full relative"
+        >
+          <Image
+            src="/HERO/PNGs/BoneRecortadoCelular.png"
+            alt="STAR INK Isolated Cap Mobile"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center w-full h-full drop-shadow-[0_0_25px_rgba(56,189,248,0.25)]"
+          />
+        </motion.div>
       </motion.div>
 
-      {/* Full-bleed Canvas Overlay for Floating Micro-Particle Disintegration */}
+      {/* Particle Canvas Overlay for Floating Micro-Stardust */}
       <canvas 
         ref={canvasRef}
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-20 pointer-events-none"
       />
 
       {/* High-Tech HUD Disintegration Status Badge */}
-      <div className="absolute top-24 left-6 z-20 hidden sm:flex flex-col gap-1 text-[10px] font-mono text-cyan-400/80 pointer-events-none drop-shadow-md">
+      <div className="absolute top-24 left-6 z-30 hidden sm:flex flex-col gap-1 text-[10px] font-mono text-cyan-400/80 pointer-events-none drop-shadow-md">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-ping" />
-          <span className="tracking-[0.2em] uppercase font-bold text-white">PARTICLE DISINTEGRATION • STARDUST</span>
+          <span className="tracking-[0.2em] uppercase font-bold text-white">CAP DISINTEGRATION • ISOLATED PNG</span>
         </div>
-        <span className="text-zinc-400">DISSOLVING ARTWORK INTO VECTOR DUST</span>
+        <span className="text-zinc-400">DISSOLVING CAP EMBROIDERY INTO DUST</span>
       </div>
 
       {/* Minimal Animated Scroll Indicator at Bottom (SCROLL TO REVEAL) */}
