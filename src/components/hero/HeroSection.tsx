@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 export default function HeroSection() {
   return (
     <section className="relative w-full min-h-screen md:min-h-[804px] flex items-center justify-center overflow-hidden bg-black">
-      {/* 1920x804 Full-bleed Widescreen Image (Clean, Sharp & Pure) */}
-      <div className="absolute inset-0 z-0 w-full h-full">
+      {/* 1920x804 Full-bleed Widescreen Image for Desktop (md:block) */}
+      <div className="hidden md:block absolute inset-0 z-0 w-full h-full">
         <Image
           src="/HERO/BoneRecortado.png"
           alt="STAR INK Hero Cap Widescreen"
@@ -16,8 +16,21 @@ export default function HeroSection() {
           sizes="100vw"
           className="object-cover object-center w-full h-full"
         />
+        {/* Soft blend overlay at bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none" />
+      </div>
 
-        {/* Soft blend overlay at bottom to transition seamlessly into the off-white catalog */}
+      {/* 9:16 Vertical Image for Mobile ONLY (block md:hidden) */}
+      <div className="block md:hidden absolute inset-0 z-0 w-full h-full">
+        <Image
+          src="/HERO/HeroVertical.png"
+          alt="STAR INK Hero Cap 9:16 Vertical"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center w-full h-full"
+        />
+        {/* Soft blend overlay at bottom */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none" />
       </div>
 

@@ -1,10 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Search, Bell } from 'lucide-react';
+import { Search, Bell, Menu, X, LayoutDashboard, ArrowRight } from 'lucide-react';
 
 interface NavItem {
   name: string;
@@ -20,6 +20,7 @@ const navItems: NavItem[] = [
 
 export default function AdminHeader() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="w-full border-b border-[var(--border-subtle)] bg-[var(--bg-card)]/90 backdrop-blur-md sticky top-0 z-50">
@@ -27,7 +28,7 @@ export default function AdminHeader() {
         <div className="flex items-center justify-between h-20 gap-6">
           
           {/* Brand Logo (LOGO_BRANCA_VAZADA - Clicável para Home / Dashboard) */}
-          <div className="flex items-center shrink-0">
+          <div className="flex items-center gap-3 shrink-0">
             <Link 
               href="/admin/dashboard" 
               className="flex items-center group transition-transform hover:scale-105"
@@ -46,7 +47,7 @@ export default function AdminHeader() {
             </Link>
           </div>
 
-          {/* Navigation Tabs (Sem Dashboard, dando mais respiro aos 4 Módulos) */}
+          {/* Navigation Tabs (Desktop) */}
           <nav className="hidden md:flex items-center gap-2 bg-[var(--bg-main)] p-1.5 rounded-xl border border-[var(--border-subtle)]">
             {navItems.map((item) => {
               const isActive = pathname === item.href || pathname?.startsWith(item.href);
@@ -66,7 +67,7 @@ export default function AdminHeader() {
             })}
           </nav>
 
-          {/* Quick Search, Server Badge & User Profile */}
+          {/* Quick Search, Server Badge, User Profile & Mobile Toggle */}
           <div className="flex items-center gap-3">
             
             {/* Search Command Palette Input */}
@@ -107,10 +108,72 @@ export default function AdminHeader() {
               </div>
             </div>
 
+            {/* Mobile Menu Toggle Button (Visible only on mobile md:hidden) */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-main)] text-white hover:bg-white/10 transition-colors"
+              aria-label="Toggle Mobile Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+
           </div>
 
         </div>
       </div>
+
+      {/* Responsive Mobile Drawer / Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-[var(--border-subtle)] bg-[var(--bg-card)] px-4 py-4 space-y-3 animate-fade-in shadow-2xl">
+          <div className="text-[11px] font-mono text-[var(--text-muted)] uppercase tracking-wider px-2">
+            Navegação do Painel Admin
+          </div>
+
+          <div className="space-y-1 font-mono text-xs">
+            <Link
+              href="/admin/dashboard"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center justify-between p-3 rounded-lg font-bold transition-all ${
+                pathname === '/admin/dashboard'
+                  ? 'bg-white text-black'
+                  : 'text-white hover:bg-white/5 bg-[var(--bg-main)]'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <LayoutDashboard className="w-4 h-4" />
+                Cockpit Executivo (Dashboard)
+              </span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+
+            {navItems.map((item) => {
+              const isActive = pathname === item.href || pathname?.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-3 rounded-lg transition-all ${
+                    isActive
+                      ? 'bg-white text-black font-bold'
+                      : 'text-zinc-300 hover:bg-white/5 bg-[var(--bg-main)] border border-[var(--border-subtle)]'
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="pt-2 border-t border-[var(--border-subtle)] flex items-center justify-between text-[11px] font-mono text-emerald-400">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Servidor Contabo VPS Operacional
+            </span>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
