@@ -23,31 +23,21 @@ interface ProductCardProps {
 export default function ProductCard({ product, onSelect }: ProductCardProps) {
   return (
     <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ duration: 0.3, ease: 'easeOut' }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
       onClick={() => onSelect(product)}
-      className="group cursor-pointer flex flex-col h-full"
+      className="group cursor-pointer flex flex-col h-full bg-white border border-black p-4 rounded-none transition-shadow hover:shadow-md"
     >
-      {/* 9:16 Image Container */}
-      <div className="relative aspect-[9/16] w-full bg-zinc-950 rounded-2xl overflow-hidden border border-zinc-800/80 group-hover:border-zinc-700 transition-colors">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-        {/* Subtle Dark Bottom Gradient for Image Contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-      </div>
+      {/* 9:16 Solid Black Frame (Reto 90º, apenas fundo preto sem imagem) */}
+      <div className="relative aspect-[9/16] w-full bg-black border border-black rounded-none" />
 
-      {/* Product Details Below Card (Subtração Absoluta: Apenas Nome e Preço) */}
-      <div className="pt-4 flex flex-col gap-1">
-        <div className="flex items-center justify-between">
-          <h3 className="text-base font-semibold text-zinc-900 tracking-tight group-hover:text-black transition-colors">
+      {/* Product Details (Contidos dentro do mesmo card com borda preta de 1px) */}
+      <div className="pt-4 flex flex-col gap-1.5 mt-auto">
+        <div className="flex items-center justify-between gap-2">
+          <h3 className="text-base font-bold text-black tracking-tight group-hover:text-zinc-700 transition-colors">
             {product.code} {product.name}
           </h3>
-          <span className="text-xs font-mono font-bold text-zinc-900">
+          <span className="text-xs font-mono font-bold text-black shrink-0">
             R$ {product.price.toFixed(2).replace('.', ',')}
           </span>
         </div>

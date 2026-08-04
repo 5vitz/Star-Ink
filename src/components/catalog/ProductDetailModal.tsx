@@ -47,7 +47,7 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.3, ease: 'easeOut' }}
-        className="relative w-full max-w-4xl bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl z-10 my-auto"
+        className="relative w-full max-w-4xl bg-zinc-950 border border-zinc-800 rounded-none overflow-hidden shadow-2xl z-10 my-auto"
       >
         {/* Close Button */}
         <button

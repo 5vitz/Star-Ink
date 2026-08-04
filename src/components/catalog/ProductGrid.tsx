@@ -93,11 +93,11 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
             </p>
           </div>
 
-          {/* Filter Buttons */}
-          <div className="flex gap-2 bg-white p-1.5 rounded-full border border-zinc-200 shadow-sm">
+          {/* Filter Buttons (90 Graus Reto) */}
+          <div className="flex gap-2 bg-white p-1 rounded-none border border-black shadow-sm">
             <button
               onClick={() => setFilter('all')}
-              className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all ${
+              className={`px-5 py-2 text-xs font-mono tracking-wider transition-all rounded-none ${
                 filter === 'all'
                   ? 'bg-black text-white font-bold'
                   : 'text-zinc-600 hover:text-black'
@@ -107,7 +107,7 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
             </button>
             <button
               onClick={() => setFilter('tarot')}
-              className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all ${
+              className={`px-5 py-2 text-xs font-mono tracking-wider transition-all rounded-none ${
                 filter === 'tarot'
                   ? 'bg-black text-white font-bold'
                   : 'text-zinc-600 hover:text-black'
@@ -117,7 +117,7 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
             </button>
             <button
               onClick={() => setFilter('oversized')}
-              className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all ${
+              className={`px-5 py-2 text-xs font-mono tracking-wider transition-all rounded-none ${
                 filter === 'oversized'
                   ? 'bg-black text-white font-bold'
                   : 'text-zinc-600 hover:text-black'
