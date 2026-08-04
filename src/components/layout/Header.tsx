@@ -15,12 +15,12 @@ export default function Header() {
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           {/* Logo & Branding */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/20 group-hover:border-white/50 transition-colors">
+            <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/20 group-hover:border-white/50 transition-colors bg-black">
               <Image
-                src="/LOGO/LOGO_REDONDA.png"
+                src="/LOGO/LOGO_FundoPreto.png"
                 alt="STAR INK Logo"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div className="flex flex-col">

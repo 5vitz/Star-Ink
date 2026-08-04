@@ -26,20 +26,20 @@ export default function AdminHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-6">
           
-          {/* Brand Logo (LOGO_REDONDA - Clicável para Home / Dashboard) */}
+          {/* Brand Logo (LOGO_FundoPreto - Clicável para Home / Dashboard) */}
           <div className="flex items-center shrink-0">
             <Link 
               href="/admin/dashboard" 
               className="flex items-center group transition-transform hover:scale-105"
               title="STAR INK — Ir para a Home / Dashboard"
             >
-              <div className="h-12 w-12 rounded-full overflow-hidden border border-[var(--border-subtle)] group-hover:border-[var(--accent-cyan)] transition-colors shadow-md bg-white flex items-center justify-center p-0.5">
+              <div className="h-12 w-12 rounded-full overflow-hidden border border-[var(--border-subtle)] group-hover:border-[var(--accent-cyan)] transition-colors shadow-md bg-black flex items-center justify-center p-0.5">
                 <Image
-                  src="/LOGO/LOGO_REDONDA.png"
+                  src="/LOGO/LOGO_FundoPreto.png"
                   alt="STAR INK Logo"
                   width={48}
                   height={48}
-                  className="h-full w-full object-cover rounded-full"
+                  className="h-full w-full object-contain rounded-full"
                   priority
                 />
               </div>
