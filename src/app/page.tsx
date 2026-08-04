@@ -14,7 +14,7 @@ export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-white selection:text-black overflow-x-hidden">
+    <main className="min-h-screen bg-[#f8fafc] text-zinc-900 selection:bg-black selection:text-white overflow-x-hidden">
       {/* Navigation Bar with Backdrop Blur */}
       <Header />
 

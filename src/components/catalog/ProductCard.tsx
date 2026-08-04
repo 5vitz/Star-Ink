@@ -44,16 +44,16 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       {/* Product Details Below Card (Subtração Absoluta: Apenas Nome e Preço) */}
       <div className="pt-4 flex flex-col gap-1">
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-medium text-white tracking-tight group-hover:text-zinc-200 transition-colors">
+          <h3 className="text-base font-semibold text-zinc-900 tracking-tight group-hover:text-black transition-colors">
             {product.code} {product.name}
           </h3>
-          <span className="text-xs font-mono font-semibold text-zinc-200">
+          <span className="text-xs font-mono font-bold text-zinc-900">
             R$ {product.price.toFixed(2).replace('.', ',')}
           </span>
         </div>
-        <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500">
+        <div className="flex items-center justify-between text-[11px] font-mono text-zinc-600">
           <span>100% Algodão Penteado • DTG</span>
-          <span className="text-emerald-400 font-medium">
+          <span className="text-emerald-700 font-bold">
             R$ {product.pixPrice.toFixed(2).replace('.', ',')} no PIX
           </span>
         </div>

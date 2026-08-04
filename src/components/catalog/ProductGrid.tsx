@@ -73,54 +73,54 @@ interface ProductGridProps {
 }
 
 export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
-  const [filter, setFilter] = useState<'all' | 'drop01' | 'oversized'>('all');
+  const [filter, setFilter] = useState<'all' | 'tarot' | 'oversized'>('all');
 
   return (
-    <section id="catalog" className="py-24 bg-black border-t border-zinc-900">
+    <section id="catalog" className="py-24 bg-[#f8fafc] text-zinc-900">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div className="max-w-xl">
             <span className="text-zinc-500 font-mono text-xs uppercase tracking-[0.3em] mb-2 block">
-              COLEÇÃO MESTRE • AGOSTO 2026
+              COLEÇÃO MESTRE • TARÔ NEGRO
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
-              Drop 01 — As 12 Artes
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-3">
+              Drop 01 — Arcanos do Tarô
             </h2>
-            <p className="text-zinc-400 text-sm leading-relaxed">
-              Obras de arte vetorizadas impressas em DTG puro sobre Algodão Penteado 220g. 
-              Grade de 3 colunas em formato editorial 9:16.
+            <p className="text-zinc-600 text-sm leading-relaxed">
+              Obras de arte em vetor 1px impressas em DTG puro sobre Algodão Penteado 220g. 
+              Galeria editorial em fundo Off-White com formato 9:16.
             </p>
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex gap-2 bg-zinc-950 p-1.5 rounded-full border border-zinc-800/80">
+          <div className="flex gap-2 bg-white p-1.5 rounded-full border border-zinc-200 shadow-sm">
             <button
               onClick={() => setFilter('all')}
               className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all ${
                 filter === 'all'
-                  ? 'bg-white text-black font-bold'
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'bg-black text-white font-bold'
+                  : 'text-zinc-600 hover:text-black'
               }`}
             >
               TODOS
             </button>
             <button
-              onClick={() => setFilter('drop01')}
+              onClick={() => setFilter('tarot')}
               className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all ${
-                filter === 'drop01'
-                  ? 'bg-white text-black font-bold'
-                  : 'text-zinc-400 hover:text-white'
+                filter === 'tarot'
+                  ? 'bg-black text-white font-bold'
+                  : 'text-zinc-600 hover:text-black'
               }`}
             >
-              DROP 01
+              TARÔ NEGRO
             </button>
             <button
               onClick={() => setFilter('oversized')}
               className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all ${
                 filter === 'oversized'
-                  ? 'bg-white text-black font-bold'
-                  : 'text-zinc-400 hover:text-white'
+                  ? 'bg-black text-white font-bold'
+                  : 'text-zinc-600 hover:text-black'
               }`}
             >
               OVERSIZED

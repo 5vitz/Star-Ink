@@ -29,7 +29,6 @@ export default function AIAssistantSection() {
     setIsLoading(true);
 
     try {
-      // API call to Next.js route or AI logic
       const response = await fetch('/api/concierge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -43,7 +42,6 @@ export default function AIAssistantSection() {
       const data = await response.json();
       setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
     } catch {
-      // Smart Fallback Response
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
@@ -60,7 +58,7 @@ export default function AIAssistantSection() {
   };
 
   return (
-    <section id="ai-assistant" className="py-24 bg-zinc-950 border-t border-zinc-900">
+    <section id="ai-assistant" className="py-24 bg-[#f8fafc] text-zinc-900 border-t border-zinc-200">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -68,19 +66,19 @@ export default function AIAssistantSection() {
             <span className="text-zinc-500 font-mono text-xs uppercase tracking-[0.3em] mb-2 block">
               SUPORTE & ATENDIMENTO 24/7
             </span>
-            <h2 className="text-4xl font-bold text-white mb-4 flex items-center justify-center gap-3 tracking-tight">
-              <Sparkles className="text-white w-6 h-6" />
+            <h2 className="text-4xl font-bold text-zinc-900 mb-4 flex items-center justify-center gap-3 tracking-tight">
+              <Sparkles className="text-black w-6 h-6" />
               Stardust Concierge IA
             </h2>
-            <p className="text-zinc-400 text-sm max-w-xl mx-auto">
+            <p className="text-zinc-600 text-sm max-w-xl mx-auto">
               Inteligência artificial dedicada para tirar todas as suas dúvidas sobre a marca, modelos e compras.
             </p>
           </div>
 
           {/* Chat Container */}
-          <div className="bg-black border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="bg-white border border-zinc-200 rounded-3xl overflow-hidden shadow-xl">
             {/* Messages Scroll Area */}
-            <div className="h-[460px] overflow-y-auto p-6 flex flex-col gap-4 scrollbar-thin scrollbar-thumb-zinc-800">
+            <div className="h-[460px] overflow-y-auto p-6 flex flex-col gap-4 scrollbar-thin scrollbar-thumb-zinc-300">
               <AnimatePresence initial={false}>
                 {messages.map((m, i) => (
                   <motion.div
@@ -92,18 +90,18 @@ export default function AIAssistantSection() {
                     <div
                       className={`max-w-[85%] sm:max-w-[75%] p-4 rounded-2xl flex gap-3 ${
                         m.role === 'user'
-                          ? 'bg-white text-black rounded-tr-none'
-                          : 'bg-zinc-900 text-zinc-200 border border-zinc-800 rounded-tl-none'
+                          ? 'bg-black text-white rounded-tr-none'
+                          : 'bg-zinc-100 text-zinc-800 border border-zinc-200 rounded-tl-none'
                       }`}
                     >
                       {m.role === 'assistant' && (
-                        <Bot className="w-5 h-5 shrink-0 text-zinc-400 mt-0.5" />
+                        <Bot className="w-5 h-5 shrink-0 text-zinc-600 mt-0.5" />
                       )}
                       <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-sans">
                         {m.content}
                       </p>
                       {m.role === 'user' && (
-                        <User className="w-5 h-5 shrink-0 text-zinc-600 mt-0.5" />
+                        <User className="w-5 h-5 shrink-0 text-zinc-400 mt-0.5" />
                       )}
                     </div>
                   </motion.div>
@@ -112,17 +110,17 @@ export default function AIAssistantSection() {
 
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-zinc-900 border border-zinc-800 p-4 rounded-2xl rounded-tl-none flex gap-2">
-                    <div className="w-2 h-2 bg-zinc-400 rounded-full animate-bounce" />
-                    <div className="w-2 h-2 bg-zinc-400 rounded-full animate-bounce [animation-delay:0.2s]" />
-                    <div className="w-2 h-2 bg-zinc-400 rounded-full animate-bounce [animation-delay:0.4s]" />
+                  <div className="bg-zinc-100 border border-zinc-200 p-4 rounded-2xl rounded-tl-none flex gap-2">
+                    <div className="w-2 h-2 bg-zinc-600 rounded-full animate-bounce" />
+                    <div className="w-2 h-2 bg-zinc-600 rounded-full animate-bounce [animation-delay:0.2s]" />
+                    <div className="w-2 h-2 bg-zinc-600 rounded-full animate-bounce [animation-delay:0.4s]" />
                   </div>
                 </div>
               )}
             </div>
 
             {/* Input Bar */}
-            <div className="p-4 bg-zinc-900/50 border-t border-zinc-800">
+            <div className="p-4 bg-zinc-50 border-t border-zinc-200">
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -130,12 +128,12 @@ export default function AIAssistantSection() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Ex: Qual o tamanho ideal para 1.80m e 80kg?"
-                  className="flex-grow bg-zinc-950 border border-zinc-800 text-white rounded-full px-6 py-3 text-xs focus:outline-none focus:border-zinc-500 transition-colors font-sans placeholder:text-zinc-600"
+                  className="flex-grow bg-white border border-zinc-300 text-zinc-900 rounded-full px-6 py-3 text-xs focus:outline-none focus:border-black transition-colors font-sans placeholder:text-zinc-400"
                 />
                 <button
                   onClick={handleSend}
                   disabled={isLoading}
-                  className="bg-white hover:bg-zinc-200 text-black disabled:opacity-50 p-3 rounded-full transition-all shrink-0"
+                  className="bg-black hover:bg-zinc-800 text-white disabled:opacity-50 p-3 rounded-full transition-all shrink-0"
                 >
                   <Send className="w-4 h-4" />
                 </button>
