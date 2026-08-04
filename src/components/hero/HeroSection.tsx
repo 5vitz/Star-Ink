@@ -16,6 +16,9 @@ export default function HeroSection() {
           sizes="100vw"
           className="object-cover object-center w-full h-full"
         />
+        {/* Glassy Volumetric Mist & Soft Light Effect Layer (A névoa/vidro da referência) */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.18)_0%,_transparent_70%)] backdrop-blur-[1.5px] pointer-events-none" />
+
         {/* Soft blend overlay at bottom to transition seamlessly into the off-white catalog */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none" />
       </div>
