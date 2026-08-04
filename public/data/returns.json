@@ -1,0 +1,14 @@
+[
+  {
+    "id": "ret-1",
+    "orderId": "#0998",
+    "customerName": "Beatriz Mendes",
+    "cpf": "456.789.123-22",
+    "phone": "5531966665555",
+    "item": "02. A FADA (Tamanho M)",
+    "reason": "Troca de Tamanho (Para G)",
+    "status": "Código Gerado",
+    "postageCode": "LOG-REV-883921",
+    "createdAt": "2026-08-02T11:10:00Z"
+  }
+]
