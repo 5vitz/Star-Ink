@@ -1,0 +1,38 @@
+[
+  {
+    "id": "inv-1001",
+    "orderId": "#1001",
+    "customerName": "Ana Silva",
+    "cpf": "123.456.789-00",
+    "amount": 171.00,
+    "paymentMethod": "PIX",
+    "status": "NFe Emitida",
+    "nfeNumber": "000.001.204",
+    "blingKey": "35260812345678000199550010000012041001234567",
+    "emittedAt": "2026-08-01T10:35:00Z"
+  },
+  {
+    "id": "inv-1002",
+    "orderId": "#1002",
+    "customerName": "Ana Silva",
+    "cpf": "123.456.789-00",
+    "amount": 171.00,
+    "paymentMethod": "PIX",
+    "status": "NFe Emitida",
+    "nfeNumber": "000.001.205",
+    "blingKey": "35260812345678000199550010000012051001234568",
+    "emittedAt": "2026-08-03T15:40:00Z"
+  },
+  {
+    "id": "inv-1003",
+    "orderId": "#1003",
+    "customerName": "Carlos Eduardo",
+    "cpf": "987.654.321-11",
+    "amount": 171.00,
+    "paymentMethod": "PIX",
+    "status": "Aguardando Emissão",
+    "nfeNumber": "Pendente",
+    "blingKey": "",
+    "emittedAt": ""
+  }
+]

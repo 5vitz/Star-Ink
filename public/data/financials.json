@@ -1,0 +1,26 @@
+{
+  "grossRevenue": 1800.00,
+  "netRevenue": 1728.00,
+  "totalOrders": 10,
+  "pixOrders": 8,
+  "creditCardOrders": 2,
+  "pixDiscountTotal": 72.00,
+  "unitEconomics": {
+    "ticketPrice": 180.00,
+    "simplesNacionalTaxPercent": 4.0,
+    "simplesNacionalTaxAmount": 7.20,
+    "podFactoryCost": 49.00,
+    "gatewayFeeAverage": 1.80,
+    "netProfitPerPiece": 122.00,
+    "netMarginPercent": 67.7
+  },
+  "dreBreakdown": [
+    { "category": "1. Faturamento Bruto (10 Vendas)", "amount": 1800.00, "percent": 100.0 },
+    { "category": "2. (-) Desconto PIX Concedido (5%)", "amount": -72.00, "percent": -4.0 },
+    { "category": "3. (=) Receita Operacional Líquida", "amount": 1728.00, "percent": 96.0 },
+    { "category": "4. (-) Impostos (Simples Nacional 4%)", "amount": -69.12, "percent": -3.8 },
+    { "category": "5. (-) Custo Fábrica PoD (10x R$ 49,00)", "amount": -490.00, "percent": -27.2 },
+    { "category": "6. (-) Taxas de Processamento Gateway", "amount": -18.88, "percent": -1.0 },
+    { "category": "7. (=) LUCRO LÍQUIDO REAL ACUMULADO", "amount": 1150.00, "percent": 63.9 }
+  ]
+}
