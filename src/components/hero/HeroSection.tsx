@@ -13,16 +13,17 @@ export default function HeroSection() {
     offset: ['start start', 'end start'],
   });
 
-  // Scroll physics ONLY for the isolated Cap Layer
-  const capScale = useTransform(scrollYProgress, [0, 1], [1, 1.18]);
-  const capY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-  const capOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.6, 0.05]);
-  const capBlur = useTransform(scrollYProgress, [0, 0.6, 1], ['blur(0px)', 'blur(6px)', 'blur(20px)']);
+  // Scroll physics EXCLUSIVELY for the isolated Cap Layer (Desintegração no Scroll)
+  const capScale = useTransform(scrollYProgress, [0, 1], [1, 1.28]);
+  const capY = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const capOpacity = useTransform(scrollYProgress, [0, 0.4, 0.95], [1, 0.5, 0]);
+  const capBlur = useTransform(scrollYProgress, [0, 0.5, 1], ['blur(0px)', 'blur(8px)', 'blur(28px)']);
+  const capRotate = useTransform(scrollYProgress, [0, 1], [0, -4]);
 
   // Background gradient layer smooth transition
   const bgOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.9, 0.7]);
 
-  // Particle Canvas System
+  // Particle Canvas System (Surges as user scrolls)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -42,15 +43,15 @@ export default function HeroSection() {
     window.addEventListener('resize', handleResize);
 
     // Particle Swarm
-    const particleCount = 90;
+    const particleCount = 110;
     const particles = Array.from({ length: particleCount }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: Math.random() * 2.2 + 0.6,
-      speedY: Math.random() * 1.5 + 0.5,
-      speedX: (Math.random() - 0.5) * 0.9,
-      alpha: Math.random() * 0.85 + 0.15,
-      color: Math.random() > 0.35 ? '#38bdf8' : Math.random() > 0.5 ? '#ffffff' : '#94a3b8',
+      size: Math.random() * 2.5 + 0.8,
+      speedY: Math.random() * 2 + 0.6,
+      speedX: (Math.random() - 0.5) * 1.2,
+      alpha: Math.random() * 0.9 + 0.1,
+      color: Math.random() > 0.3 ? '#38bdf8' : Math.random() > 0.5 ? '#ffffff' : '#cbd5e1',
     }));
 
     const render = () => {
@@ -70,7 +71,7 @@ export default function HeroSection() {
         ctx.fillStyle = p.color;
 
         if (p.color === '#38bdf8') {
-          ctx.shadowBlur = 10;
+          ctx.shadowBlur = 12;
           ctx.shadowColor = '#38bdf8';
         }
 
@@ -97,7 +98,7 @@ export default function HeroSection() {
       className="relative w-full min-h-screen md:min-h-[804px] flex items-center justify-center overflow-hidden bg-black select-none"
     >
       {/* ========================================================================= */}
-      {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Separado do Boné) */}
+      {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Permanecer imóvel no fundo) */}
       {/* ========================================================================= */}
       
       {/* Desktop Background Layer (md:block) */}
@@ -128,16 +129,16 @@ export default function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
 
       {/* ========================================================================= */}
-      {/* CAMADA 2: BONÉ ISOLADO EM PNG (Efeitos & Desintegração EXCLUSIVAS no Boné) */}
+      {/* CAMADA 2: BONÉ ISOLADO EM PNG (DESINTEGRAÇÃO NO SCROLL DRAMÁTICA EXCLUSIVA) */}
       {/* ========================================================================= */}
 
       {/* Desktop Isolated Cap with Antigravity Floating & Scroll Disintegration (md:block) */}
       <motion.div
-        style={{ scale: capScale, y: capY, opacity: capOpacity, filter: capBlur }}
+        style={{ scale: capScale, y: capY, rotate: capRotate, opacity: capOpacity, filter: capBlur }}
         className="hidden md:block absolute inset-0 z-10 w-full h-full pointer-events-none"
       >
         <motion.div
-          animate={{ y: [-8, 8, -8], rotate: [-0.5, 0.5, -0.5] }}
+          animate={{ y: [-8, 8, -8] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           className="w-full h-full relative"
         >
@@ -147,18 +148,18 @@ export default function HeroSection() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center w-full h-full drop-shadow-[0_0_35px_rgba(56,189,248,0.25)]"
+            className="object-cover object-center w-full h-full drop-shadow-[0_0_45px_rgba(56,189,248,0.35)]"
           />
         </motion.div>
       </motion.div>
 
       {/* Mobile Isolated Cap with Antigravity Floating & Scroll Disintegration (block md:hidden) */}
       <motion.div
-        style={{ scale: capScale, y: capY, opacity: capOpacity, filter: capBlur }}
+        style={{ scale: capScale, y: capY, rotate: capRotate, opacity: capOpacity, filter: capBlur }}
         className="block md:hidden absolute inset-0 z-10 w-full h-full pointer-events-none"
       >
         <motion.div
-          animate={{ y: [-6, 6, -6], rotate: [-0.5, 0.5, -0.5] }}
+          animate={{ y: [-6, 6, -6] }}
           transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
           className="w-full h-full relative"
         >
@@ -168,7 +169,7 @@ export default function HeroSection() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center w-full h-full drop-shadow-[0_0_25px_rgba(56,189,248,0.25)]"
+            className="object-cover object-center w-full h-full drop-shadow-[0_0_35px_rgba(56,189,248,0.35)]"
           />
         </motion.div>
       </motion.div>
@@ -183,9 +184,9 @@ export default function HeroSection() {
       <div className="absolute top-24 left-6 z-30 hidden sm:flex flex-col gap-1 text-[10px] font-mono text-cyan-400/80 pointer-events-none drop-shadow-md">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-ping" />
-          <span className="tracking-[0.2em] uppercase font-bold text-white">CAP DISINTEGRATION • ISOLATED PNG</span>
+          <span className="tracking-[0.2em] uppercase font-bold text-white">DESINTEGRAÇÃO NO SCROLL • ACTIVE</span>
         </div>
-        <span className="text-zinc-400">DISSOLVING CAP EMBROIDERY INTO DUST</span>
+        <span className="text-zinc-400">ISOLATED CAP DISSOLVING INTO DUST</span>
       </div>
 
       {/* Minimal Animated Scroll Indicator at Bottom (SCROLL TO REVEAL) */}
