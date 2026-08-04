@@ -59,7 +59,7 @@ export default function Header() {
               className="bg-zinc-800 border border-zinc-700 text-white text-xs font-mono font-medium tracking-wider px-5 py-2.5 rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all flex items-center gap-2 group shadow-sm"
             >
               <MessageCircle className="w-3.5 h-3.5 text-white group-hover:text-black transition-colors" />
-              <span>Atendimento Whatsapp</span>
+              <span>WhatsApp</span>
             </a>
           </div>
 
@@ -120,7 +120,7 @@ export default function Header() {
                 rel="noopener noreferrer"
                 className="w-full bg-zinc-800 text-white py-4 rounded-full text-center font-mono text-xs uppercase tracking-widest block font-bold hover:bg-[#25D366] hover:text-black transition-colors"
               >
-                Atendimento Whatsapp
+                WhatsApp
               </a>
             </div>
           </motion.div>
