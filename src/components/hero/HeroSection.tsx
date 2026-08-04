@@ -25,10 +25,10 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full mt-20 min-h-[70vh] md:min-h-[640px] flex items-center justify-center overflow-hidden bg-black select-none"
+      className="relative w-full min-h-[70vh] md:min-h-[640px] flex items-center justify-center overflow-hidden bg-black select-none"
     >
       {/* ========================================================================= */}
-      {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Permanecer imóvel no fundo) */}
+      {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Fundo passa por trás do Header com vidro) */}
       {/* ========================================================================= */}
       
       {/* Desktop Background Layer (md:block) */}
@@ -59,13 +59,13 @@ export default function HeroSection() {
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
 
       {/* ========================================================================= */}
-      {/* CAMADA 2: BONÉ ISOLADO EM PNG (DESFOQUE RÁPIDO NA METADE DO HERO) */}
+      {/* CAMADA 2: BONÉ ISOLADO EM PNG (Com padding pt-20 para ficar abaixo do menu) */}
       {/* ========================================================================= */}
 
       {/* Desktop Isolated Cap with Antigravity Floating & Fast Scroll Blur (md:block) */}
       <motion.div
         style={{ scale: capScale, y: capY, opacity: capOpacity, filter: capBlur }}
-        className="hidden md:block absolute inset-0 z-10 w-full h-full pointer-events-none"
+        className="hidden md:block absolute inset-0 z-10 w-full h-full pointer-events-none pt-20"
       >
         <motion.div
           animate={{ y: [-8, 8, -8] }}
@@ -86,7 +86,7 @@ export default function HeroSection() {
       {/* Mobile Isolated Cap with Antigravity Floating & Fast Scroll Blur (block md:hidden) */}
       <motion.div
         style={{ scale: capScale, y: capY, opacity: capOpacity, filter: capBlur }}
-        className="block md:hidden absolute inset-0 z-10 w-full h-full pointer-events-none"
+        className="block md:hidden absolute inset-0 z-10 w-full h-full pointer-events-none pt-20"
       >
         <motion.div
           animate={{ y: [-6, 6, -6] }}
