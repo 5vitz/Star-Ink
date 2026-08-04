@@ -30,21 +30,21 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Desktop Navigation Links (SHOP | MANIFESTO | RELACIONAMENTO - IA) */}
-          <div className="hidden md:flex items-center gap-8 text-xs font-mono tracking-[0.15em] uppercase text-zinc-400">
-            <a href="#catalog" className="hover:text-white transition-colors">
+          {/* Desktop Navigation Links (Fonte Branca • Hover Vermelho) */}
+          <div className="hidden md:flex items-center gap-8 text-xs font-mono tracking-[0.15em] uppercase text-white font-medium">
+            <a href="#catalog" className="hover:text-red-500 transition-colors">
               SHOP
             </a>
-            <a href="#philosophy" className="hover:text-white transition-colors">
+            <a href="#philosophy" className="hover:text-red-500 transition-colors">
               MANIFESTO
             </a>
-            <a href="#ai-assistant" className="hover:text-white transition-colors flex items-center gap-1.5 text-zinc-300">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
+            <a href="#ai-assistant" className="hover:text-red-500 transition-colors flex items-center gap-1.5 group">
+              <Sparkles className="w-3.5 h-3.5 text-white group-hover:text-red-500 transition-colors" />
               RELACIONAMENTO - IA
             </a>
             <Link
               href="/admin/dashboard"
-              className="hover:text-white transition-colors text-zinc-500 hover:text-zinc-300"
+              className="text-zinc-500 hover:text-red-500 transition-colors"
             >
               /admin
             </Link>
@@ -98,21 +98,21 @@ export default function Header() {
             <a
               href="#catalog"
               onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-light text-white tracking-tight"
+              className="text-2xl font-light text-white hover:text-red-500 transition-colors tracking-tight"
             >
               01. SHOP
             </a>
             <a
               href="#philosophy"
               onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-light text-white tracking-tight"
+              className="text-2xl font-light text-white hover:text-red-500 transition-colors tracking-tight"
             >
               02. MANIFESTO
             </a>
             <a
               href="#ai-assistant"
               onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-light text-white tracking-tight flex items-center gap-3"
+              className="text-2xl font-light text-white hover:text-red-500 transition-colors tracking-tight flex items-center gap-3"
             >
               <Sparkles className="w-5 h-5 text-white" />
               03. RELACIONAMENTO - IA
@@ -120,7 +120,7 @@ export default function Header() {
             <Link
               href="/admin/dashboard"
               onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-light text-zinc-500 tracking-tight"
+              className="text-2xl font-light text-zinc-500 hover:text-red-500 transition-colors tracking-tight"
             >
               04. Painel Executivo (/admin)
             </Link>
