@@ -108,13 +108,9 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
             <span className="text-zinc-500 font-mono text-xs uppercase tracking-[0.3em] mb-2 block">
               COLEÇÃO MESTRE • TARÔ NEGRO
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-3 whitespace-nowrap">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-1 whitespace-nowrap">
               Drop Arcanos do Tarô
             </h2>
-            <p className="text-zinc-600 text-sm leading-relaxed">
-              Obras de arte em vetor 1px impressas em DTG puro sobre Algodão Penteado 220g. 
-              Galeria editorial em fundo Off-White com formato 9:16.
-            </p>
           </div>
 
           {/* Filter Buttons (90 Graus Reto) */}
