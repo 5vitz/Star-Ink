@@ -25,7 +25,7 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-[70vh] md:min-h-[640px] flex items-center justify-center overflow-hidden bg-black select-none"
+      className="relative w-full mt-20 min-h-[70vh] md:min-h-[640px] flex items-center justify-center overflow-hidden bg-black select-none"
     >
       {/* ========================================================================= */}
       {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Permanecer imóvel no fundo) */}
