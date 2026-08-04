@@ -25,27 +25,22 @@ export default function Header() {
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold tracking-tighter text-white group-hover:text-zinc-200 transition-colors">
-                StarINK
-              </span>
-              <span className="text-[9px] font-mono tracking-[0.25em] text-zinc-400 uppercase">
-                PoD 2.0 • Luxe
-              </span>
-            </div>
+            <span className="text-xl font-bold tracking-tighter text-white group-hover:text-zinc-200 transition-colors">
+              StarINK
+            </span>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links (SHOP | MANIFESTO | RELACIONAMENTO - IA) */}
           <div className="hidden md:flex items-center gap-8 text-xs font-mono tracking-[0.15em] uppercase text-zinc-400">
             <a href="#catalog" className="hover:text-white transition-colors">
-              Drop 01
+              SHOP
             </a>
             <a href="#philosophy" className="hover:text-white transition-colors">
-              Subtração
+              MANIFESTO
             </a>
             <a href="#ai-assistant" className="hover:text-white transition-colors flex items-center gap-1.5 text-zinc-300">
               <Sparkles className="w-3.5 h-3.5 text-white" />
-              Concierge IA
+              RELACIONAMENTO - IA
             </a>
             <Link
               href="/admin/dashboard"
@@ -93,14 +88,14 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl font-light text-white tracking-tight"
             >
-              01. Drop 01 (Coleção Mestre)
+              01. SHOP
             </a>
             <a
               href="#philosophy"
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl font-light text-white tracking-tight"
             >
-              02. Estética da Subtração
+              02. MANIFESTO
             </a>
             <a
               href="#ai-assistant"
@@ -108,7 +103,7 @@ export default function Header() {
               className="text-2xl font-light text-white tracking-tight flex items-center gap-3"
             >
               <Sparkles className="w-5 h-5 text-white" />
-              03. Concierge IA
+              03. RELACIONAMENTO - IA
             </a>
             <Link
               href="/admin/dashboard"

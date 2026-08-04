@@ -25,7 +25,7 @@ export default function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen md:min-h-[804px] flex items-center justify-center overflow-hidden bg-black select-none"
+      className="relative w-full min-h-[70vh] md:min-h-[640px] flex items-center justify-center overflow-hidden bg-black select-none"
     >
       {/* ========================================================================= */}
       {/* CAMADA 1: FUNDO DEGRADÊ ESTÁTICO (Permanecer imóvel no fundo) */}
@@ -56,7 +56,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Soft blend overlay at bottom to transition seamlessly to Off-White catalog */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-[#f8fafc] pointer-events-none z-10" />
 
       {/* ========================================================================= */}
       {/* CAMADA 2: BONÉ ISOLADO EM PNG (DESFOQUE RÁPIDO NA METADE DO HERO) */}
