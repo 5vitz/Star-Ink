@@ -11,12 +11,12 @@ export default function Footer() {
           {/* Col 1 & 2: Branding & Bio */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-8 h-8 rounded-full overflow-hidden border border-zinc-300 bg-black">
+              <div className="relative w-9 h-9 rounded-xl overflow-hidden border border-zinc-300 bg-black">
                 <Image
                   src="/LOGO/LOGO_FundoPreto.png"
                   alt="STAR INK Logo"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                 />
               </div>
               <span className="text-xl font-bold tracking-tighter text-black">
