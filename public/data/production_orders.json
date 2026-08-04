@@ -1,0 +1,72 @@
+[
+  {
+    "id": "po-1001",
+    "orderId": "#1001",
+    "customerName": "Ana Silva",
+    "item": "XVII. A ESTRELA",
+    "size": "M",
+    "color": "Preto Grafite",
+    "supplier": "Reserva INK PoD",
+    "supplierSku": "INK-POD-TAROT-17-M",
+    "costPrice": 49.00,
+    "stage": "Entregue",
+    "trackingCode": "BR987654321RES",
+    "createdAt": "2026-08-01T10:30:00Z"
+  },
+  {
+    "id": "po-1002",
+    "orderId": "#1002",
+    "customerName": "Ana Silva",
+    "item": "I. O MAGO",
+    "size": "M",
+    "color": "Preto Grafite",
+    "supplier": "Reserva INK PoD",
+    "supplierSku": "INK-POD-TAROT-01-M",
+    "costPrice": 49.00,
+    "stage": "Imprimindo DTG",
+    "trackingCode": "Aguardando Postagem",
+    "createdAt": "2026-08-03T15:38:00Z"
+  },
+  {
+    "id": "po-1003",
+    "orderId": "#1003",
+    "customerName": "Carlos Eduardo",
+    "item": "XVIII. A LUA",
+    "size": "GG",
+    "color": "Preto Grafite",
+    "supplier": "Reserva INK PoD",
+    "supplierSku": "INK-POD-TAROT-18-GG",
+    "costPrice": 49.00,
+    "stage": "Aguardando",
+    "trackingCode": "N/A",
+    "createdAt": "2026-08-03T18:45:00Z"
+  },
+  {
+    "id": "po-1004",
+    "orderId": "#1004",
+    "customerName": "Lucas Rocha",
+    "item": "0. O LOUCO",
+    "size": "G",
+    "color": "Preto Grafite",
+    "supplier": "Dimona PoD",
+    "supplierSku": "DIM-POD-TAROT-00-G",
+    "costPrice": 47.50,
+    "stage": "Embalagem",
+    "trackingCode": "Aguardando Coleta",
+    "createdAt": "2026-08-04T09:12:00Z"
+  },
+  {
+    "id": "po-1005",
+    "orderId": "#1005",
+    "customerName": "Fernanda Lima",
+    "item": "02. A FADA",
+    "size": "P",
+    "color": "Preto Grafite",
+    "supplier": "Reserva INK PoD",
+    "supplierSku": "INK-POD-FADA-02-P",
+    "costPrice": 49.00,
+    "stage": "Em Trânsito",
+    "trackingCode": "BR123456789RES",
+    "createdAt": "2026-08-02T14:20:00Z"
+  }
+]

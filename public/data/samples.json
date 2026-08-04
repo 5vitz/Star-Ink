@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sample-1",
+    "artworkName": "02. A FADA (ARTE 02)",
+    "size": "G",
+    "supplier": "Reserva INK PoD",
+    "costPrice": 49.00,
+    "status": "Homologado",
+    "requestedAt": "2026-08-01T10:00:00Z",
+    "arrivedAt": "2026-08-04T11:00:00Z",
+    "trackingCode": "BR998877665RES",
+    "notes": "Arte 02 homologada com louvor. DTG vibrante, toque suave no algodão penteado."
+  },
+  {
+    "id": "sample-2",
+    "artworkName": "XVII. A ESTRELA",
+    "size": "M",
+    "supplier": "Reserva INK PoD",
+    "costPrice": 49.00,
+    "status": "Em Trânsito (5d)",
+    "requestedAt": "2026-08-02T14:00:00Z",
+    "arrivedAt": "Previsto 07/08",
+    "trackingCode": "BR112233445RES",
+    "notes": "Amostra da camiseta mestre do Drop 01 encomendada a preço de custo."
+  }
+]
