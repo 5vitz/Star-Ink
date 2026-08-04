@@ -104,20 +104,6 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Minimal Animated Scroll Indicator at Bottom (COLEÇÃO MESTRE • TARÔ NEGRO) */}
-      <motion.div
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-zinc-700 z-30 flex flex-col items-center gap-2 pointer-events-none"
-      >
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#38bdf8] animate-pulse" />
-          <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.35em] text-zinc-300 font-semibold drop-shadow-md whitespace-nowrap">
-            COLEÇÃO MESTRE • TARÔ NEGRO
-          </span>
-        </div>
-        <div className="w-px h-8 bg-gradient-to-b from-[#38bdf8]/60 to-transparent" />
-      </motion.div>
     </section>
   );
 }
