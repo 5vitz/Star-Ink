@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ProductCard, { Product } from './ProductCard';
 
 export const DROP_01_PRODUCTS: Product[] = [
@@ -74,6 +74,30 @@ interface ProductGridProps {
 
 export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
   const [filter, setFilter] = useState<'all' | 'tarot' | 'oversized'>('all');
+  const [products, setProducts] = useState<Product[]>(DROP_01_PRODUCTS);
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const res = await fetch('/api/products');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            setProducts(data);
+          }
+        }
+      } catch (err) {
+        console.error('Erro ao carregar produtos na vitrine:', err);
+      }
+    }
+    loadProducts();
+  }, []);
+
+  const filteredProducts = products.filter((product) => {
+    if (filter === 'tarot') return product.category === 'Tarô Negro';
+    if (filter === 'oversized') return product.category === 'Oversized';
+    return true;
+  });
 
   return (
     <section id="catalog" className="py-24 bg-[#f8fafc] text-zinc-900">
@@ -130,7 +154,7 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
 
         {/* 3 Columns Grid for 9:16 Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {DROP_01_PRODUCTS.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
               product={product}

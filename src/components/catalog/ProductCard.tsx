@@ -13,6 +13,7 @@ export interface Product {
   category: string;
   promptSchemaUrl?: string;
   description: string;
+  showImage?: boolean;
 }
 
 interface ProductCardProps {
@@ -28,8 +29,18 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       onClick={() => onSelect(product)}
       className="group cursor-pointer flex flex-col h-full bg-white border border-black p-4 rounded-none transition-shadow hover:shadow-md"
     >
-      {/* 9:16 Solid Black Frame (Reto 90º, apenas fundo preto sem imagem) */}
-      <div className="relative aspect-[9/16] w-full bg-black border border-black rounded-none" />
+      {/* 9:16 Frame (Reto 90º: se showImage for true e houver imagem, exibe a imagem; caso contrário, fundo preto sólido) */}
+      <div className="relative aspect-[9/16] w-full bg-black border border-black rounded-none overflow-hidden">
+        {product.showImage && product.image && (
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        )}
+      </div>
 
       {/* Product Details (Contidos dentro do mesmo card com borda preta de 1px) */}
       <div className="pt-4 flex flex-col gap-1.5 mt-auto">
