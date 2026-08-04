@@ -17,7 +17,7 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="h-10 w-10 flex items-center justify-center">
               <Image
-                src="/LOGO/LOGO_FundoPreto.png"
+                src="/LOGO/LOGO_BRANCA_VAZADA.png"
                 alt="STAR INK Logo"
                 width={40}
                 height={40}

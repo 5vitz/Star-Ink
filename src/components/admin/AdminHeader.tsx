@@ -26,7 +26,7 @@ export default function AdminHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-6">
           
-          {/* Brand Logo (LOGO_FundoPreto - Clicável para Home / Dashboard) */}
+          {/* Brand Logo (LOGO_BRANCA_VAZADA - Clicável para Home / Dashboard) */}
           <div className="flex items-center shrink-0">
             <Link 
               href="/admin/dashboard" 
@@ -35,7 +35,7 @@ export default function AdminHeader() {
             >
               <div className="h-12 w-12 flex items-center justify-center">
                 <Image
-                  src="/LOGO/LOGO_FundoPreto.png"
+                  src="/LOGO/LOGO_BRANCA_VAZADA.png"
                   alt="STAR INK Logo"
                   width={48}
                   height={48}

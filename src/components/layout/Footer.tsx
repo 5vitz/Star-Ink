@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-4">
               <div className="h-9 w-9 flex items-center justify-center">
                 <Image
-                  src="/LOGO/LOGO_FundoPreto.png"
+                  src="/LOGO/LOGO_VAZADA.png"
                   alt="STAR INK Logo"
                   width={36}
                   height={36}

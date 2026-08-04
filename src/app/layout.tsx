@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'StarINK Team' }],
   robots: 'index, follow',
   icons: {
-    icon: '/LOGO/LOGO_FundoPreto.png',
-    shortcut: '/LOGO/LOGO_FundoPreto.png',
-    apple: '/LOGO/LOGO_FundoPreto.png',
+    icon: '/LOGO/LOGO_VAZADA.png',
+    shortcut: '/LOGO/LOGO_VAZADA.png',
+    apple: '/LOGO/LOGO_VAZADA.png',
   },
 };
 
