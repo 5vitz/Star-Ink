@@ -56,10 +56,10 @@ export default function Header() {
               href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20atendimento%20Concierge%20STAR%20INK"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-black text-xs font-mono font-medium tracking-wider px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-all flex items-center gap-2"
+              className="bg-zinc-800 border border-zinc-700 text-white text-xs font-mono font-medium tracking-wider px-5 py-2.5 rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all flex items-center gap-2 group shadow-sm"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
-              WhatsApp Concierge
+              <MessageCircle className="w-3.5 h-3.5 text-white group-hover:text-black transition-colors" />
+              <span>Atendimento Whatsapp</span>
             </a>
           </div>
 
@@ -118,9 +118,9 @@ export default function Header() {
                 href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20atendimento%20Concierge%20STAR%20INK"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-white text-black py-4 rounded-full text-center font-mono text-xs uppercase tracking-widest block font-bold"
+                className="w-full bg-zinc-800 text-white py-4 rounded-full text-center font-mono text-xs uppercase tracking-widest block font-bold hover:bg-[#25D366] hover:text-black transition-colors"
               >
-                WhatsApp 1-Click Concierge
+                Atendimento Whatsapp
               </a>
             </div>
           </motion.div>
