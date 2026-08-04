@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X, Sparkles, MessageCircle } from 'lucide-react';
+import { Menu, X, Sparkles, MessageCircle, ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
@@ -50,27 +50,39 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Action Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Action Area (WhatsApp à esquerda + Sacola de Compras à direita) */}
+          <div className="flex items-center gap-3">
+            {/* Desktop WhatsApp Button */}
             <a
               href="https://wa.me/5500000000000?text=Olá,%20gostaria%20de%20atendimento%20Concierge%20STAR%20INK"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-zinc-800 border border-zinc-700 text-white text-xs font-mono font-medium tracking-wider px-5 py-2.5 rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all flex items-center gap-2 group shadow-sm"
+              className="hidden md:flex bg-zinc-800 border border-zinc-700 text-white text-xs font-mono font-medium tracking-wider px-4 py-2.5 rounded-full hover:bg-[#25D366] hover:text-black hover:border-[#25D366] transition-all items-center gap-2 group shadow-sm"
             >
               <MessageCircle className="w-3.5 h-3.5 text-white group-hover:text-black transition-colors" />
               <span>WhatsApp</span>
             </a>
-          </div>
 
-          {/* Mobile Menu Trigger */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {/* Sacola de Compras Icon Button (À direita do WhatsApp) */}
+            <button
+              aria-label="Sacola de Compras"
+              className="p-2.5 rounded-full border border-zinc-700 bg-zinc-800 text-white hover:bg-white hover:text-black transition-all relative group shadow-sm flex items-center justify-center"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-white text-black font-mono text-[9px] font-bold rounded-full flex items-center justify-center border border-black shadow-sm group-hover:bg-black group-hover:text-white transition-colors">
+                0
+              </span>
+            </button>
+
+            {/* Mobile Menu Trigger */}
+            <button
+              className="md:hidden text-white p-2 ml-1"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </nav>
 
