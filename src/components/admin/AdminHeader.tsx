@@ -33,13 +33,13 @@ export default function AdminHeader() {
               className="flex items-center group transition-transform hover:scale-105"
               title="STAR INK — Ir para a Home / Dashboard"
             >
-              <div className="h-12 w-12 rounded-xl overflow-hidden border border-[var(--border-subtle)] group-hover:border-[var(--accent-cyan)] transition-colors shadow-md bg-black flex items-center justify-center">
+              <div className="h-12 w-12 flex items-center justify-center">
                 <Image
                   src="/LOGO/LOGO_FundoPreto.png"
                   alt="STAR INK Logo"
                   width={48}
                   height={48}
-                  className="h-full w-full object-cover rounded-xl"
+                  className="h-12 w-12 object-contain"
                   priority
                 />
               </div>
