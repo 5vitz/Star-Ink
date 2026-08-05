@@ -51,8 +51,13 @@ export default function FinanceiroModule() {
     }
   };
 
+  const [isConnected, setIsConnected] = useState(false);
+
   useEffect(() => {
     fetchData();
+    if (typeof window !== 'undefined' && window.location.search.includes('bling_status=connected')) {
+      setIsConnected(true);
+    }
   }, []);
 
   const handleSimulateUnitEcon = async () => {
@@ -128,6 +133,22 @@ export default function FinanceiroModule() {
           </div>
         </div>
       </div>
+
+      {/* Connected Success Banner */}
+      {isConnected && (
+        <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/40 text-emerald-300 flex items-center justify-between font-mono text-xs">
+          <div className="flex items-center gap-3">
+            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+            <div>
+              <span className="font-bold block text-white">🟢 Conexão com Bling ERP v3 Realizada com Sucesso!</span>
+              <span className="text-zinc-400">Tokens de acesso salvos e ativos no servidor VPS Contabo.</span>
+            </div>
+          </div>
+          <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px] uppercase">
+            OAuth 2.0 Conectado
+          </span>
+        </div>
+      )}
 
       {/* Metrics Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
