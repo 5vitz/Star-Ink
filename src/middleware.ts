@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const maintenanceMode = process.env.MAINTENANCE_MODE === 'true';
+  // Ativado por padrão (pode ser desativado definindo MAINTENANCE_MODE="false" no .env)
+  const maintenanceMode = process.env.MAINTENANCE_MODE !== 'false';
 
   // Permitir arquivos estáticos, rotas de API públicas e a própria página de manutenção
   if (
