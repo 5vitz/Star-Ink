@@ -7,9 +7,11 @@ export async function GET(request: NextRequest) {
   const code = searchParams.get('code');
   const error = searchParams.get('error');
 
+  const baseUrl = process.env.NEXTAUTH_URL || 'https://www.star-ink.com.br';
+
   if (error || !code) {
     console.error('Erro na autorização do Bling ERP:', error);
-    return NextResponse.redirect(new URL('/admin/financeiro?bling_error=' + (error || 'no_code'), request.url));
+    return NextResponse.redirect(new URL('/admin/financeiro?bling_error=' + (error || 'no_code'), baseUrl));
   }
 
   const clientId = process.env.BLING_CLIENT_ID;
@@ -40,7 +42,7 @@ export async function GET(request: NextRequest) {
 
     if (!response.ok) {
       console.error('Erro ao obter token do Bling:', data);
-      return NextResponse.redirect(new URL('/admin/financeiro?bling_error=token_failed', request.url));
+      return NextResponse.redirect(new URL('/admin/financeiro?bling_error=token_failed', baseUrl));
     }
 
     // Persistir tokens com segurança localmente
@@ -56,9 +58,9 @@ export async function GET(request: NextRequest) {
 
     fs.writeFileSync(tokenPath, JSON.stringify(tokenData, null, 2), 'utf-8');
 
-    return NextResponse.redirect(new URL('/admin/financeiro?bling_status=connected', request.url));
+    return NextResponse.redirect(new URL('/admin/financeiro?bling_status=connected', baseUrl));
   } catch (err) {
     console.error('Falha na requisição OAuth com Bling:', err);
-    return NextResponse.redirect(new URL('/admin/financeiro?bling_error=server_error', request.url));
+    return NextResponse.redirect(new URL('/admin/financeiro?bling_error=server_error', baseUrl));
   }
 }
