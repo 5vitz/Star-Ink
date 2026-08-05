@@ -73,7 +73,7 @@ export default function HeroSection() {
           className="w-full h-full relative"
         >
           <Image
-            src="/HERO/PNGs/BoneRecortadoDesktop.png"
+            src="/HERO/PNGs/BoneRecortadoDesktop2.png"
             alt="STAR INK Isolated Cap Desktop"
             fill
             priority
@@ -94,7 +94,7 @@ export default function HeroSection() {
           className="w-full h-full relative"
         >
           <Image
-            src="/HERO/PNGs/BoneRecortadoCelular.png"
+            src="/HERO/PNGs/BoneRecortadoCelular2.png"
             alt="STAR INK Isolated Cap Mobile"
             fill
             priority
