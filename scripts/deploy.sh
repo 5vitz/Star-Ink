@@ -74,11 +74,14 @@ connect_ssh << 'EOF'
   
   # Criar ou atualizar o arquivo .env de produção na VPS
   echo "📝 Configurando arquivo .env de produção na VPS..."
-  cat << 'ENV' > .env
+  cat << ENV > .env
 DATABASE_URL="postgresql://star_ink_user:StarInk2026Secure!@localhost:5432/star_ink_prod?schema=public"
 NEXTAUTH_SECRET="f6c8d76d4001cbe13658514101e52dbbfa9796e6"
 NEXTAUTH_URL="https://www.star-ink.com.br"
 PORT=3001
+BLING_CLIENT_ID="${BLING_CLIENT_ID}"
+BLING_CLIENT_SECRET="${BLING_CLIENT_SECRET}"
+BLING_REDIRECT_URI="${BLING_REDIRECT_URI}"
 ENV
 
   # Carrega variáveis de ambiente comuns para garantir que o PM2 e Node sejam localizados

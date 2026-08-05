@@ -14,3 +14,5 @@ Este diretório contém os arquivos de especificação de tarefas ativas que ser
 * **[TASK-002: Esquema Canônico Meta Commerce & Painel de Controle Multicanal](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/002-esquema-canonico-meta-e-painel-admin.md)** (Em Andamento 🚀).
 * **[TASK-003: Módulo 1 — Atendimento Concierge & Arquitetura de IA 24/7](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/003-modulo-1-atendimento-concierge-e-ia-24h.md)** (Em Andamento 🚀).
 * **[TASK-004: Arquitetura Completa do Painel Admin Multicanal (`/admin`)](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/004-arquitetura-completa-painel-admin.md)** (Em Andamento 🚀).
+* **[TASK-005: Inteligência de Conversão (CRO) & Arquitetura GEO](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/005-inteligencia-de-conversao-e-geo.md)** (Planejada 🚀).
+

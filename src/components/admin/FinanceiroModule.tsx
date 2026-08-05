@@ -427,13 +427,18 @@ export default function FinanceiroModule() {
                 <h3 className="text-sm font-bold text-white">Integração API v3 Bling ERP (Plano Cobalto)</h3>
               </div>
               <p className="text-xs text-[var(--text-secondary)] mt-0.5">
-                Emissão de Notas Fiscais Eletrônicas (NFe) e transmissão automática para a fábrica Reserva INK.
+                Emissão de Notas Fiscais Eletrônicas (NFe) e transmissão automática para os fornecedores PoD.
               </p>
             </div>
 
-            <div className="px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Bling API v3 Conectado</span>
+            <div className="flex items-center gap-3">
+              <a
+                href="/api/auth/bling/authorize"
+                className="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-bold text-xs transition-colors flex items-center gap-2 shadow-lg shadow-emerald-500/20"
+              >
+                <Zap className="w-4 h-4 fill-black" />
+                Sincronizar Conta Bling (OAuth 2.0)
+              </a>
             </div>
           </div>
 

@@ -5,6 +5,18 @@
   "philosophy": "Saint-Exupery Subtraction Aesthetics (Perfection is achieved when there is nothing left to take away)",
   "master_structure": {
     "task": "master_apparel_art_generation",
+    "meta_prompt_pipeline": {
+      "framework": "MetaPrompt-Studio (ASK -> PLAN -> ARTWORK)",
+      "alma_fingerprint": {
+        "linework_style": "1px hairline vector / fine-line chiaroscuro",
+        "composition_balance": "symmetric central axis with subtraction filtering",
+        "reference_spirit": "extracted visual DNA from reference art"
+      },
+      "corpo_narrative": {
+        "new_subject": "custom STAR INK narrative subject",
+        "subtraction_filter": "enforced (only essential lines retained)"
+      }
+    },
     "goal": "Generate high-precision, minimalist graphic vector artwork optimized for DTG (Direct-to-Garment) printing on 100% Combed Cotton Heavyweight garments.",
     "canvas_specs": {
       "format": "A3 Vertical",
