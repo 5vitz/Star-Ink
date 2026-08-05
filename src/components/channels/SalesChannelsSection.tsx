@@ -1,178 +1,135 @@
 'use client';
 
 import React from 'react';
-import { Globe, Building2, CheckCircle2, ShieldCheck, Zap, ArrowUpRight } from 'lucide-react';
 
-interface Channel {
-  id: string;
+interface ChannelBrand {
   name: string;
-  category: string;
-  status: string;
-  description: string;
-  badgeColor: string;
-  logoSvg?: React.ReactNode;
+  logo: React.ReactNode;
 }
 
-const channels: Channel[] = [
+const brands: ChannelBrand[] = [
   {
-    id: 'mercadolivre',
     name: 'Mercado Livre',
-    category: 'Loja Oficial Full',
-    status: 'Sincronizado API v3',
-    description: 'Entrega rápida e presença oficial no maior marketplace da América Latina.',
-    badgeColor: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/40',
+    logo: (
+      <div className="flex items-center gap-2 text-[#2D3277] font-bold font-sans text-xl sm:text-2xl tracking-tight">
+        <svg className="w-8 h-8 fill-[#FFE600] stroke-[#2D3277] stroke-2 shrink-0" viewBox="0 0 24 24">
+          <path d="M7 11v8a1 1 0 001 1h8a1 1 0 001-1v-8M5 11l7-7 7 7M12 4v16" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <span>mercado<br className="sm:hidden" /> livre</span>
+      </div>
+    ),
   },
   {
-    id: 'amazon',
     name: 'Amazon Brasil',
-    category: 'Prime & Marketplace',
-    status: 'Integração Ativa',
-    description: 'Catálogo sincronizado com a infraestrutura global da Amazon.',
-    badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+    logo: (
+      <div className="flex flex-col items-center text-zinc-900 font-bold font-sans text-2xl tracking-tighter">
+        <span className="leading-none">amazon</span>
+        <svg className="w-16 h-3 text-[#FF9900]" viewBox="0 0 60 15" fill="currentColor">
+          <path d="M3 5c12 7 32 7 45-2M43 1.5l5 2.5-3.5 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+        </svg>
+      </div>
+    ),
   },
   {
-    id: 'shopee',
-    name: 'Shopee Brasil',
-    category: 'Loja Oficial Brand',
-    status: 'Integração Ativa',
-    description: 'Presença autoral com envio direto da fábrica PoD para todo o país.',
-    badgeColor: 'bg-orange-500/20 text-orange-300 border-orange-500/40',
+    name: 'Shopee',
+    logo: (
+      <div className="flex items-center gap-2 text-[#EE4D2D] font-bold font-sans text-xl sm:text-2xl tracking-tight">
+        <svg className="w-7 h-7 fill-[#EE4D2D]" viewBox="0 0 24 24">
+          <path d="M19 6h-3.2A4.98 4.98 0 0012 2c-2.3 0-4.3 1.6-4.8 4H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.4 0 2.6.9 2.9 2.2H9.1C9.4 4.9 10.6 4 12 4zm2.5 10.5c0 .8-.7 1.5-1.5 1.5h-2c-.8 0-1.5-.7-1.5-1.5v-.5h-2v.5c0 1.9 1.6 3.5 3.5 3.5v1h2v-1c1.9 0 3.5-1.6 3.5-3.5v-1c0-1.7-1.3-3-3-3.3l-1.5-.3c-.6-.1-1-.6-1-1.2 0-.6.4-1 1-1h1.5c.6 0 1 .4 1 1h2c0-1.7-1.3-3-3-3.3V8h-2v1.2c-1.7.3-3 1.6-3 3.3v1c0 1.7 1.3 3 3 3.3l1.5.3c.6.1 1 .6 1 1.2v.5z" />
+        </svg>
+        <span>Shopee</span>
+      </div>
+    ),
   },
   {
-    id: 'shein',
-    name: 'Shein Marketplace',
-    category: 'Fashion Hub',
-    status: 'Catálogo Conectado',
-    description: 'Distribuição na plataforma de alta frequência e tendência jovem.',
-    badgeColor: 'bg-zinc-100 text-black font-bold border-white',
+    name: 'Shein',
+    logo: (
+      <span className="font-serif font-black text-2xl sm:text-3xl tracking-[0.2em] text-zinc-900 uppercase">
+        SHEIN
+      </span>
+    ),
   },
   {
-    id: 'dafiti',
-    name: 'Dafiti Group',
-    category: 'Moda & LifeStyle',
-    status: 'Estoque Unificado',
-    description: 'Presença no maior e-commerce especializado em moda da América Latina.',
-    badgeColor: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+    name: 'Dafiti',
+    logo: (
+      <div className="flex items-center gap-2 text-zinc-900 font-sans font-extrabold text-2xl tracking-tighter">
+        <span className="text-zinc-900">dafiti</span>
+      </div>
+    ),
   },
   {
-    id: 'zattini',
-    name: 'Zattini (Netshoes)',
-    category: 'Fashion & Urban',
-    status: 'Estoque Unificado',
-    description: 'Canal especializado em moda urbana, calçados e vestuário autoral.',
-    badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-500/40',
+    name: 'Zattini',
+    logo: (
+      <div className="flex items-center gap-2 font-sans font-bold text-2xl tracking-widest text-zinc-900 uppercase">
+        <span className="text-red-600 font-serif text-3xl">Z</span>
+        <span>ZATTINI</span>
+      </div>
+    ),
   },
   {
-    id: 'magalu',
-    name: 'Magalu (Luiza)',
-    category: 'Marketplace Nacional',
-    status: 'Integração Ativa',
-    description: 'Integração via ecossistema Magalu com logística integrada.',
-    badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-500/40',
+    name: 'Magalu',
+    logo: (
+      <div className="flex items-center gap-1.5 font-sans font-bold text-2xl tracking-tight text-[#0086FF]">
+        <span>Magalu</span>
+        <span className="w-2.5 h-2.5 rounded-full bg-[#FF007A] inline-block" />
+      </div>
+    ),
   },
   {
-    id: 'instagram',
     name: 'Instagram Shopping',
-    category: 'Social Commerce',
-    status: 'Tags Dinâmicas',
-    description: 'Compras diretas no feed e nos stories com a estética original da marca.',
-    badgeColor: 'bg-pink-500/20 text-pink-300 border-pink-500/40',
+    logo: (
+      <div className="flex items-center gap-2 text-zinc-900 font-sans font-bold text-xl sm:text-2xl tracking-tight">
+        <svg className="w-7 h-7 text-[#E4405F]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </svg>
+        <span>Instagram</span>
+      </div>
+    ),
   },
   {
-    id: 'facebook',
-    name: 'Facebook (Meta Commerce)',
-    category: 'Catalog Feed API',
-    status: 'Feed Automatizado',
-    description: 'Sincronização do catálogo nativo com a suíte de anúncios Meta.',
-    badgeColor: 'bg-sky-500/20 text-sky-300 border-sky-500/40',
+    name: 'Facebook Meta',
+    logo: (
+      <div className="flex items-center gap-2 text-[#0668E1] font-sans font-bold text-xl sm:text-2xl tracking-tight">
+        <svg className="w-7 h-7 fill-[#0668E1]" viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+        <span>Meta Commerce</span>
+      </div>
+    ),
   },
 ];
 
 export default function SalesChannelsSection() {
   return (
-    <section id="channels" className="py-24 bg-black text-white relative overflow-hidden border-t border-zinc-900">
-      {/* Background Subtle Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-red-900/10 rounded-full blur-[160px] pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10 space-y-16">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-semibold uppercase tracking-widest">
-            <Building2 className="w-4 h-4 text-amber-400" />
-            <span>Ecossistema Multicanal & Presença Oficial</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase font-mono">
-            Canais de Venda <span className="text-red-500">Oficiais</span>
+    <section id="channels" className="py-20 bg-[#f8fafc] text-zinc-900 border-t border-zinc-200">
+      <div className="container mx-auto px-6 space-y-12">
+        {/* Minimalist Header */}
+        <div className="max-w-2xl mx-auto text-center space-y-3">
+          <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-zinc-400 block">
+            CANAIS DE VENDA OFICIAIS
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase font-mono">
+            ONDE ENCONTRAR
           </h2>
-
-          <p className="text-sm sm:text-base text-zinc-400 font-mono leading-relaxed">
-            A <strong>STAR INK</strong> expande seu catálogo autoral para as maiores plataformas de e-commerce do Brasil e do mundo. Estoque unificado e produção automatizada via arquitetura de integração <strong>Bling ERP & PoD 2.0</strong>.
+          <p className="text-xs sm:text-sm text-zinc-500 font-mono">
+            Encontre o catálogo autoral da STAR INK nas principais plataformas.
           </p>
         </div>
 
-        {/* 9 Channels Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {channels.map((channel) => (
+        {/* Pure Clean Logo Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          {brands.map((brand) => (
             <div
-              key={channel.id}
-              className="bg-[#0e0e11] border border-zinc-800/80 hover:border-zinc-600 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 group flex flex-col justify-between space-y-4 shadow-xl"
+              key={brand.name}
+              className="bg-white border border-zinc-200/80 hover:border-zinc-400 rounded-2xl p-8 flex items-center justify-center min-h-[110px] sm:min-h-[130px] shadow-sm hover:shadow-md transition-all duration-200 group cursor-pointer"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold border uppercase tracking-wider ${channel.badgeColor}`}>
-                    {channel.category}
-                  </span>
-                  <div className="flex items-center gap-1 text-[11px] font-mono text-emerald-400 font-semibold">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>{channel.status}</span>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors flex items-center justify-between">
-                    <span>{channel.name}</span>
-                    <ArrowUpRight className="w-4 h-4 text-zinc-600 group-hover:text-amber-400 transition-colors opacity-0 group-hover:opacity-100" />
-                  </h3>
-                  <p className="text-xs text-zinc-400 font-mono mt-2 leading-relaxed">
-                    {channel.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-zinc-900 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>Sincronização Direct-to-Garment</span>
-                </span>
-                <span className="text-zinc-600 group-hover:text-zinc-300 transition-colors">Bling ERP API</span>
+              <div className="transition-transform duration-200 group-hover:scale-105 flex items-center justify-center">
+                {brand.logo}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Architecture Guarantee Footer */}
-        <div className="bg-[#111116] border border-zinc-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0">
-              <Zap className="w-6 h-6 text-amber-400" />
-            </div>
-            <div>
-              <h4 className="text-base font-bold text-white font-mono">
-                Arquitetura de Alta Frequência & Estoque Garantido
-              </h4>
-              <p className="text-xs text-zinc-400 font-mono">
-                Independente de onde o cliente compre, a produção é acionada instantaneamente pela nossa fábrica parceira com rastreio em tempo real.
-              </p>
-            </div>
-          </div>
-
-          <a
-            href="#catalog"
-            className="px-6 py-3 rounded-full bg-white text-black font-mono font-bold text-xs uppercase tracking-wider hover:bg-zinc-200 transition-colors shrink-0"
-          >
-            Explorar Vitrine Oficial
-          </a>
         </div>
       </div>
     </section>
