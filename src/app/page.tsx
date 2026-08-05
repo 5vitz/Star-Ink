@@ -6,6 +6,7 @@ import HeroSection from '@/components/hero/HeroSection';
 import ProductGrid from '@/components/catalog/ProductGrid';
 import ProductDetailModal from '@/components/catalog/ProductDetailModal';
 import PhilosophySection from '@/components/philosophy/PhilosophySection';
+import SalesChannelsSection from '@/components/channels/SalesChannelsSection';
 import AIAssistantSection from '@/components/ai/AIAssistantSection';
 import Footer from '@/components/layout/Footer';
 import { Product } from '@/components/catalog/ProductCard';
@@ -26,6 +27,9 @@ export default function Home() {
 
       {/* Philosophy & Design Manifesto Section */}
       <PhilosophySection />
+
+      {/* Sales Channels & Multichannel Marketplace Section */}
+      <SalesChannelsSection />
 
       {/* Concierge Stardust AI Section */}
       <AIAssistantSection />

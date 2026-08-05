@@ -38,6 +38,9 @@ export default function Header() {
             <a href="#philosophy" className="hover:text-red-500 transition-colors">
               MANIFESTO
             </a>
+            <a href="#channels" className="hover:text-red-500 transition-colors">
+              CANAIS DE VENDA
+            </a>
             <a href="#ai-assistant" className="hover:text-red-500 transition-colors flex items-center gap-1.5 group">
               <Sparkles className="w-3.5 h-3.5 text-white group-hover:text-red-500 transition-colors" />
               RELACIONAMENTO - IA
@@ -110,12 +113,19 @@ export default function Header() {
               02. MANIFESTO
             </a>
             <a
+              href="#channels"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-2xl font-light text-white hover:text-red-500 transition-colors tracking-tight"
+            >
+              03. CANAIS DE VENDA
+            </a>
+            <a
               href="#ai-assistant"
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl font-light text-white hover:text-red-500 transition-colors tracking-tight flex items-center gap-3"
             >
               <Sparkles className="w-5 h-5 text-white" />
-              03. RELACIONAMENTO - IA
+              04. RELACIONAMENTO - IA
             </a>
             <Link
               href="/admin/dashboard"
