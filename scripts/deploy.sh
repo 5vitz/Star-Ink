@@ -58,7 +58,7 @@ connect_ssh() {
   fi
 }
 
-connect_ssh << 'EOF'
+connect_ssh << EOF
   # Verifica se a pasta /root/Star-Ink existe na VPS, senão clona
   if [ ! -d "/root/Star-Ink" ]; then
       echo "📦 Clonando repositório Star-Ink na VPS..."
@@ -74,7 +74,7 @@ connect_ssh << 'EOF'
   
   # Criar ou atualizar o arquivo .env de produção na VPS
   echo "📝 Configurando arquivo .env de produção na VPS..."
-  cat << ENV > .env
+  cat << ENVFILE > .env
 DATABASE_URL="postgresql://star_ink_user:StarInk2026Secure!@localhost:5432/star_ink_prod?schema=public"
 NEXTAUTH_SECRET="f6c8d76d4001cbe13658514101e52dbbfa9796e6"
 NEXTAUTH_URL="https://www.star-ink.com.br"
@@ -82,13 +82,13 @@ PORT=3001
 BLING_CLIENT_ID="${BLING_CLIENT_ID}"
 BLING_CLIENT_SECRET="${BLING_CLIENT_SECRET}"
 BLING_REDIRECT_URI="${BLING_REDIRECT_URI}"
-ENV
+ENVFILE
 
   # Carrega variáveis de ambiente comuns para garantir que o PM2 e Node sejam localizados
-  export PATH=$PATH:/usr/local/bin:/usr/bin:/root/.nvm/versions/node/*/bin
-  [ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh"
-  [ -s "$HOME/.profile" ] && \. "$HOME/.profile"
-  [ -s "$HOME/.bashrc" ] && \. "$HOME/.bashrc"
+  export PATH=\$PATH:/usr/local/bin:/usr/bin:/root/.nvm/versions/node/*/bin
+  [ -s "\$HOME/.nvm/nvm.sh" ] && \. "\$HOME/.nvm/nvm.sh"
+  [ -s "\$HOME/.profile" ] && \. "\$HOME/.profile"
+  [ -s "\$HOME/.bashrc" ] && \. "\$HOME/.bashrc"
   
   # Se houver package.json, instala dependências e compila
   if [ -f "package.json" ]; then
