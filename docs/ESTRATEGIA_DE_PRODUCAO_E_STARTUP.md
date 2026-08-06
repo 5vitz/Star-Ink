@@ -11,10 +11,10 @@
 
 A **STAR INK** nasceu como uma startup de moda contemporânea e *streetwear* de luxo acessível unissex, desenhada para operar com alto valor percebido, custos fixos mínimos, inteligência de dados e otimização para buscadores por inteligência artificial (**GEO - Generative Engine Optimization**).
 
-### 🏛️ Ativos Fundacionais da Sociedade:
-* **Diretor Criativo (Genera / Armando):** Visão de Arquiteto com foco em geometria, proporção, linhas finas e o rigor da Estética da Subtração.
-* **Diretor de Vídeo (Sócio):** Estrutura e capacidade de produção audiovisual cinematográfica em 4K e formato vertical 9:16 (reels, bastidores, unboxing e filmes de campanha).
-* **Maestro & Copiloto IA (Lincoln / Antigravity):** Tradução de conceitos criativos em JSON Schemas técnicos, arquitetura de sistemas Next.js e otimização GEO (`/llms.txt` + JSON-LD).
+### 🏛️ Ativos Fundacionais & Governança da Startup:
+* **Fundador, Proprietário & Diretor Criativo (Genera / Armando):** Liderança solo e visão de Arquiteto com foco em geometria, proporção, linhas finas e o rigor inegociável da Estética da Subtração.
+* **Maestro & Copiloto IA (Lincoln / Antigravity):** Tradução de conceitos criativos em JSON Schemas técnicos, arquitetura de sistemas Next.js 15, automação multicanal Bling ERP v3, IA Concierge e otimização GEO (`/llms.txt` + JSON-LD).
+* **Modelo Operacional:** Solo-Founder com alavancagem tecnológica total (Estoque Zero / PoD 2.0 Multi-Supplier).
 
 ---
 
@@ -86,7 +86,8 @@ Além de camisetas de algodão, o primeiro Drop incluirá peças de alto valor p
 * **Moletons Premium (Hoodies & Crewnecks):** Algodão felpado de alta gramatura com impressão DTG.
 * **Camisetas Sem Manga / Regatas Streetwear:** Cortes amplos e autênticos.
 * **Calças (Joggers / Moletom Streetwear):** Peças estruturadas complementares.
-* **Caps & Acessórios:** Bonés e itens autorais.
+* **Caps & Acessórios:** Bonés, ecobags, meias de cano alto e quadros Fine Art A3.
+* **Embalagens & Kit Unboxing Oficial:** Saco Ziplock Frosted/Fosco tipo Shein (~R$ 0,71) + Cartão Manifesto A6 com Soft-Touch + Sticker Vinílico + Sacola Bolsa para compras de 2+ peças. Especificação completa salva em [EMBALAGEM_E_EXPERIENCIA_UNBOXING.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/EMBALAGEM_E_EXPERIENCIA_UNBOXING.md).
 
 ### 🗓️ Diretrizes do Cronograma (Alvo Comercial: Natal / Q4 2026):
 
@@ -98,6 +99,21 @@ Além de camisetas de algodão, o primeiro Drop incluirá peças de alto valor p
    Modelagem PostgreSQL/Prisma multi-supplier, automação fiscal via API v3 do Bling ERP, módulo de atendimento WhatsApp 24h na VPS Contabo e vitrine Next.js 15 otimizada para GEO (`/llms.txt` + JSON-LD).
 4. **Homologação Final & Lançamento:**
    * Aprovação física das camisetas pelo Genera e seu sócio + Abertura oficial do site `www.star-ink.com.br` para o público!
+
+---
+
+---
+
+## 5. Canais Oficiais & Ativos de Redes Sociais da Marca
+
+Para garantir a coerência de marca e integração multicanal via Meta Commerce:
+
+* **E-mail Oficial de Operação & Contato:** `starink.oficial@gmail.com`
+* **Instagram Oficial da Grife:** `@starink.oficial` ([instagram.com/starink.oficial](https://www.instagram.com/starink.oficial/))
+* **Página Oficial no Facebook:** `STAR INK` (ID: `61592620912452`)
+* **Bio Oficial:**  
+  *Vestuário (marca) | Streetwear de Alta Frequência & Edições Limitadas | DTG Puro - 100% Algodão Penteado | Brasil*  
+  *Website:* `www.star-ink.com.br`
 
 ---
 

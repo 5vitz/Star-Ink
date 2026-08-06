@@ -33,6 +33,31 @@
   * Gerados 5 Mockups 2D de alta fidelidade visual em *Dark Mode*.
   * Registro na [TASK-004: Arquitetura Completa do Painel Admin Multicanal](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/004-arquitetura-completa-painel-admin.md).
 
+* **Canais de Redes Sociais & Contato Registrados ✅:**
+  * Instagram Oficial: `@starink.oficial` ([instagram.com/starink.oficial](https://www.instagram.com/starink.oficial/))
+  * Página do Facebook: `STAR INK` (ID: `61592620912452`)
+  * E-mail Oficial: `starink.oficial@gmail.com`
+
+* **Integração OAuth 2.0 Bling ERP API v3 ✅:**
+  * Rotas `/api/auth/bling/authorize` e `/api/auth/bling/callback` implementadas e testadas.
+  * Credenciais de aplicativo privado formatadas e sincronizadas.
+
+* **Modo Manutenção & Autenticação Híbrida (NextAuth.js) ✅:**
+  * Criada a página autoral `/manutencao` com Modal de Acesso Unificado (Login Nativo E-mail/Senha + Google OAuth em 1-clique).
+  * Middleware `src/middleware.ts` com suporte à flag `MAINTENANCE_MODE`.
+
+* **Seção de Canais de Venda Oficiais (9 Plataformas) ✅:**
+  * Seção clean e minimalista adicionada em [SalesChannelsSection.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/channels/SalesChannelsSection.tsx) exibindo Mercado Livre, Amazon, Shopee, Shein, Dafiti, Zattini, Magalu, Instagram Shopping e Meta Commerce.
+
+* **Especificação do Formulário Canônico Unificado Multicanal ✅:**
+  * Documentada a arquitetura Single Source of Truth no arquivo [FORMULARIO_CANONICO_UNIFICADO_MULTICANAL.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/FORMULARIO_CANONICO_UNIFICADO_MULTICANAL.md) para desenvolvimento futuro pós-planejamento.
+
+* **Especificação de Embalagens & Experiência de Unboxing ✅:**
+  * Criada a diretriz de Unboxing em [EMBALAGEM_E_EXPERIENCIA_UNBOXING.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/EMBALAGEM_E_EXPERIENCIA_UNBOXING.md) contemplando o saco Ziplock fosco personalizado (R$ 0,71), Cartão Manifesto A6, Sticker Vinílico e Sacola Bolsa para pedidos múltiplos (2+ unidades).
+
+* **Estratégia de Marketing, Tráfego Pago & Growth ✅:**
+  * Criada a diretriz de aquisição em [ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md) alocando 85% no Meta Ads (Descoberta + Remarketing Certeiro no Instagram) e 15% na Proteção de Marca do Google Ads.
+
 ---
 
 ## 2. Estrutura de Tarefas do Projeto STAR INK (`docs/TASKS/`)
@@ -41,11 +66,14 @@
 * **[TASK-002: Esquema Canônico Meta Commerce & Painel de Controle Multicanal](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/002-esquema-canonico-meta-e-painel-admin.md)**
 * **[TASK-003: Módulo 1 — Atendimento Concierge & Arquitetura de IA 24/7](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/003-modulo-1-atendimento-concierge-e-ia-24h.md)**
 * **[TASK-004: Arquitetura Completa do Painel Admin Multicanal (`/admin`)](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/004-arquitetura-completa-painel-admin.md)**
+* **[TASK-005: Inteligência de Conversão (CRO) & Arquitetura GEO](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/005-inteligencia-de-conversao-e-geo.md)**
 
 ---
 
 ## 3. Próximos Passos Imediatos
 
-1. **Configuração da Integração Bling ERP API v3:** Estruturar as rotas OAuth2 no backend e o módulo de roteamento de pedidos.
-2. **Desenvolvimento do Schema Prisma / PostgreSQL Multi-Supplier:** Cadastrar a estrutura de `pod_suppliers` (Reserva INK, Dimona, Hotprinti, Printful, etc.).
-3. **Criação Expandida do Drop 01 (Genera):** Desenvolvimento das artes mestre para a linha de moletons, regatas streetwear, calças jogger e artes do catálogo.
+1. **Desenvolvimento da Esteira das 12 Artes Autorais (Drop 01):**
+   * Criação e parametrização das 12 Artes Mestre no modelo MetaPrompt (ASK ➔ PLAN ➔ ARTWORK) divididas nos 4 Capítulos Conceituais.
+   * Curadoria cromática individual de tecidos e enquadramento A3 (300DPI).
+2. **Desenvolvimento de Conteúdo de Campanha 9:16 (Lookbooks):**
+   * Geração das 36 mídias cinematográficas para vitrine e Instagram comercial.
