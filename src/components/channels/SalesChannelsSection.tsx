@@ -31,13 +31,16 @@ const brands: ChannelBrand[] = [
     ),
   },
   {
-    name: 'Shopee',
+    name: 'Google Shopping',
     logo: (
-      <div className="flex items-center gap-2 text-[#EE4D2D] font-bold font-sans text-xl sm:text-2xl tracking-tight">
-        <svg className="w-7 h-7 fill-[#EE4D2D]" viewBox="0 0 24 24">
-          <path d="M19 6h-3.2A4.98 4.98 0 0012 2c-2.3 0-4.3 1.6-4.8 4H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.4 0 2.6.9 2.9 2.2H9.1C9.4 4.9 10.6 4 12 4zm2.5 10.5c0 .8-.7 1.5-1.5 1.5h-2c-.8 0-1.5-.7-1.5-1.5v-.5h-2v.5c0 1.9 1.6 3.5 3.5 3.5v1h2v-1c1.9 0 3.5-1.6 3.5-3.5v-1c0-1.7-1.3-3-3-3.3l-1.5-.3c-.6-.1-1-.6-1-1.2 0-.6.4-1 1-1h1.5c.6 0 1 .4 1 1h2c0-1.7-1.3-3-3-3.3V8h-2v1.2c-1.7.3-3 1.6-3 3.3v1c0 1.7 1.3 3 3 3.3l1.5.3c.6.1 1 .6 1 1.2v.5z" />
+      <div className="flex items-center gap-2 text-zinc-900 font-bold font-sans text-xl sm:text-2xl tracking-tight">
+        <svg className="w-7 h-7" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
         </svg>
-        <span>Shopee</span>
+        <span>Google Shopping</span>
       </div>
     ),
   },
@@ -58,20 +61,24 @@ const brands: ChannelBrand[] = [
     ),
   },
   {
-    name: 'Zattini',
+    name: 'TikTok Shop',
     logo: (
-      <div className="flex items-center gap-2 font-sans font-bold text-2xl tracking-widest text-zinc-900 uppercase">
-        <span className="text-red-600 font-serif text-3xl">Z</span>
-        <span>ZATTINI</span>
+      <div className="flex items-center gap-2 text-zinc-900 font-bold font-sans text-xl sm:text-2xl tracking-tight">
+        <svg className="w-7 h-7 fill-zinc-900" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.29 0 .56.05.82.13V9.4a6.84 6.84 0 00-1-.07A6.33 6.33 0 003 15.66 6.33 6.33 0 009.33 22a6.33 6.33 0 006.33-6.33V9.05a8.16 8.16 0 004.93 1.61V7.22a4.84 4.84 0 01-1-.53z" />
+        </svg>
+        <span>TikTok Shop</span>
       </div>
     ),
   },
   {
-    name: 'Magalu',
+    name: 'Reserva',
     logo: (
-      <div className="flex items-center gap-1.5 font-sans font-bold text-2xl tracking-tight text-[#0086FF]">
-        <span>Magalu</span>
-        <span className="w-2.5 h-2.5 rounded-full bg-[#FF007A] inline-block" />
+      <div className="flex items-center gap-2 font-sans font-extrabold text-xl sm:text-2xl tracking-tighter text-zinc-900 uppercase">
+        <svg className="w-7 h-7 text-red-600 fill-current" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
+        </svg>
+        <span>RESERVA</span>
       </div>
     ),
   },
