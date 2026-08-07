@@ -26,6 +26,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <meta name="google-site-verification" content="qv6nUyNFuBjanfBLI80JqwaWScZdSxaEg2UC4EN1K4w" />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>
