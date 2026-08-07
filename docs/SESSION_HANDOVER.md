@@ -20,6 +20,20 @@
 * **Conta de Vendedor na Amazon Aprovada ✅:**
   * Verificação de identidade concluída com êxito e conta ativada no Amazon Seller Central (`sellercentral.amazon.com.br`).
 
+* **Google Merchant Center & Google Shopping Homologado ✅:**
+  * Domínio `www.star-ink.com.br` verificado com sucesso via Meta Tag estática e propriedade confirmada no Google Merchant Center (ID: `5837249882`).
+  * 4 de 6 etapas de onboarding concluídas (Verificação de 2 Etapas, Nome da Marca Star INK, Validação de Domínio e URL da Política de Trocas `https://www.star-ink.com.br/trocas` com Schema JSON-LD `MerchantReturnPolicy`).
+  * Adição do Feed de Produtos e Tabela de Frete pausadas para o momento do lançamento do Drop 01.
+
+* **Páginas de Políticas Institucionais & Links no Rodapé ✅:**
+  * Analisados e adaptados os arquivos textuais da pasta `public/POLITICAS/` para a identidade **Star INK**.
+  * Criadas 4 novas páginas institucionais em Next.js com Schemas JSON-LD:
+    1. [/politica-de-devolucao](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-devolucao/page.tsx) (Trocas & Devoluções)
+    2. [/politica-de-privacidade](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-privacidade/page.tsx) (Privacidade LGPD)
+    3. [/termos-e-condicoes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/termos-e-condicoes/page.tsx) (Termos de Compra & Entrega)
+    4. [/duvidas-frequentes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/duvidas-frequentes/page.tsx) (FAQ com Schema FAQPage)
+  * Links integrados na quarta coluna (*Políticas & Legal*) do [Footer.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/layout/Footer.tsx).
+
 * **Feed XML Meta Commerce / Instagram Shopping ✅:**
   * Criada e compilada a rota `/api/catalog/meta-feed` para a Sacolinha do Instagram.
   * Build de produção validado (24/24 páginas estáticas e dinâmicas geradas com sucesso).

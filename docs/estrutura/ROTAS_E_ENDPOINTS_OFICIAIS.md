@@ -12,7 +12,11 @@
 | :--- | :--- | :--- |
 | **Página Inicial / Vitrine** | `https://www.star-ink.com.br/` | Vitrine autoral do Drop 01 com estética da subtração. |
 | **Modo Manutenção / VIP Gate** | `https://www.star-ink.com.br/manutencao` | Tela de acesso restrito com login híbrido (Nativo + Google). |
-| **Atendimento de Trocas** | `https://www.star-ink.com.br/trocas` | Central de logística reversa e solicitação de trocas. |
+| **Atendimento de Trocas (1-Click)** | `https://www.star-ink.com.br/trocas` | Central de logística reversa e solicitação de trocas 1-Click. |
+| **Política de Devolução & Trocas** | `https://www.star-ink.com.br/politica-de-devolucao` | Regras completas de devolução e direito de arrependimento. |
+| **Política de Privacidade (LGPD)** | `https://www.star-ink.com.br/politica-de-privacidade` | Diretrizes de segurança de dados e tratamento LGPD. |
+| **Termos e Condições de Compra** | `https://www.star-ink.com.br/termos-e-condicoes` | Condições de faturamento, frete e entregas da marca. |
+| **Dúvidas Frequentes (FAQ)** | `https://www.star-ink.com.br/duvidas-frequentes` | Central de ajuda com dados estruturados JSON-LD. |
 | **Painel Administrativo** | `https://www.star-ink.com.br/admin` | Cockpit executivo dos 4 módulos de gestão da startup. |
 | **Módulo Financeiro / Bling** | `https://www.star-ink.com.br/admin/financeiro` | DRE, Unit Economics e controle de notas fiscais Bling. |
 

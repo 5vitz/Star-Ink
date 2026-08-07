@@ -14,18 +14,18 @@ export default function Footer() {
               <div className="h-9 w-9 flex items-center justify-center">
                 <Image
                   src="/LOGO/LOGO_VAZADA.png"
-                  alt="STAR INK Logo"
+                  alt="Star INK Logo"
                   width={36}
                   height={36}
                   className="h-9 w-9 object-contain"
                 />
               </div>
               <span className="text-xl font-bold tracking-tighter text-black">
-                StarINK
+                Star INK
               </span>
             </Link>
             <p className="text-zinc-600 text-xs leading-relaxed max-w-md font-sans">
-              StarINK — Startup D2C de Moda Contemporânea & Print on Demand 2.0. 
+              Star INK — Startup D2C de Moda Contemporânea & Print on Demand 2.0. 
               Visualização minimalista 9:16, inteligência de dados e otimização para buscadores por inteligência artificial (GEO).
             </p>
           </div>
@@ -47,9 +47,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#ai-assistant" className="hover:text-black transition-colors">
-                  Stardust Concierge IA
-                </a>
+                <Link href="/duvidas-frequentes" className="hover:text-black transition-colors">
+                  Dúvidas Frequentes (FAQ)
+                </Link>
               </li>
               <li>
                 <Link href="/admin/dashboard" className="hover:text-black transition-colors">
@@ -62,22 +62,28 @@ export default function Footer() {
           {/* Col 4: Institutional & Legal */}
           <div>
             <h4 className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-900 mb-4">
-              Institucional
+              Políticas & Legal
             </h4>
             <ul className="space-y-3 font-mono text-xs text-zinc-600">
               <li>
-                <a href="https://www.star-ink.com.br" className="hover:text-black transition-colors">
-                  www.star-ink.com.br
-                </a>
+                <Link href="/politica-de-devolucao" className="hover:text-black transition-colors">
+                  Trocas & Devoluções
+                </Link>
               </li>
               <li>
-                <span>Fulfillment: Reserva INK PoD</span>
+                <Link href="/politica-de-privacidade" className="hover:text-black transition-colors">
+                  Política de Privacidade
+                </Link>
               </li>
               <li>
-                <span>ERP: Bling Cobalto Sync</span>
+                <Link href="/termos-e-condicoes" className="hover:text-black transition-colors">
+                  Termos & Condições
+                </Link>
               </li>
               <li>
-                <span>Suporte: WhatsApp Concierge</span>
+                <Link href="/trocas" className="hover:text-black transition-colors font-bold text-black">
+                  Portal 1-Click (/trocas)
+                </Link>
               </li>
             </ul>
           </div>

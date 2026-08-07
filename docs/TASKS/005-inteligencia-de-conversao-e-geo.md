@@ -23,6 +23,7 @@
 ## 📋 Checklist de Execução
 
 - [x] **Criar Documento da Task 005:** [docs/TASKS/005-inteligencia-de-conversao-e-geo.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/005-inteligencia-de-conversao-e-geo.md).
+- [x] **Desenvolver Páginas de Políticas com Schemas JSON-LD (`MerchantReturnPolicy`, `FAQPage`):** [/politica-de-devolucao](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-devolucao/page.tsx), [/politica-de-privacidade](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-privacidade/page.tsx), [/termos-e-condicoes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/termos-e-condicoes/page.tsx) e [/duvidas-frequentes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/duvidas-frequentes/page.tsx).
 - [ ] **Desenvolver Rota Pública `/llms.txt` no Next.js:** (Aguardando momento de codificação).
 - [ ] **Injetar Schemas JSON-LD nos Server Components de Produto:** (Aguardando momento de codificação).
 - [ ] **Otimizar Drawer de Sacola & Fluxo de Conversão PIX:** (Aguardando momento de codificação).
