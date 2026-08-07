@@ -5,9 +5,13 @@ export function middleware(request: NextRequest) {
   // Ativado por padrão (pode ser desativado definindo MAINTENANCE_MODE="false" no .env)
   const maintenanceMode = process.env.MAINTENANCE_MODE !== 'false';
 
-  // Permitir arquivos estáticos, rotas de API públicas e a própria página de manutenção
+  const userAgent = request.headers.get('user-agent') || '';
+  const isGooglebot = /googlebot|google-site-verification|apis-google|mediapartners-google|storebot-google/i.test(userAgent);
+
+  // Permitir arquivos estáticos, crawlers do Google, rotas de API públicas e a própria página de manutenção
   if (
     !maintenanceMode ||
+    isGooglebot ||
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api/auth') ||
     pathname.startsWith('/public') ||
