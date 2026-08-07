@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Star INK Team' }],
   robots: 'index, follow',
   verification: {
-    google: 'qv6nUyNFuBjanfBLI80JqwaWScZdSxaEg2UC4EN1K4w',
+    google: 'qv6nUyNFuBjanfBLI80JqwaWScZdSxaEg2UC4ENlK4w',
   },
   icons: {
     icon: '/LOGO/LOGO_VAZADA.png',
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <meta name="google-site-verification" content="qv6nUyNFuBjanfBLI80JqwaWScZdSxaEg2UC4EN1K4w" />
+        <meta name="google-site-verification" content="qv6nUyNFuBjanfBLI80JqwaWScZdSxaEg2UC4ENlK4w" />
       </head>
       <body>
         <Providers>{children}</Providers>
