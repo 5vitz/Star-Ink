@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  // Ativado por padrão (pode ser desativado definindo MAINTENANCE_MODE="false" no .env)
-  const maintenanceMode = process.env.MAINTENANCE_MODE !== 'false';
+  // Modo Manutenção temporariamente desativado para homologação e verificação pública do Google
+  const maintenanceMode = false;
 
   const userAgent = request.headers.get('user-agent') || '';
   const isGooglebot = /googlebot|google-site-verification|apis-google|mediapartners-google|storebot-google/i.test(userAgent);
