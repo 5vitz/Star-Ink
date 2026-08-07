@@ -9,6 +9,7 @@ Esta camada define a essência conceitual, a identidade de marca e as diretrizes
 A **STAR INK** é uma marca de streetwear e moda contemporânea unissex, com apelo global, atitude urbana e produção tecnológica sob demanda (Print on Demand 2.0).
 
 ### 1.1. Pilares da Marca
+* **Nomenclatura Padrão:** A escrita padrão oficial do nome da marca é **Star INK**.
 * **Star (Elevação & Visibilidade):** Estética de alta frequência, destaque e atitude autêntica.
 * **Ink (Expressão & Arte):** A inteligência de impressão digital (DTG/DTF) transformando conceitos gráficos em vestuário real sem limites.
 * **Global & Unissex:** Conectando tendências internacionais a um público amplo (masculino e feminino).

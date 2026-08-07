@@ -17,6 +17,9 @@
   * OAuth 2.0 implementado e testado.
   * Conta do **Mercado Livre** oficialmente autorizada e ativa no Bling ERP.
 
+* **Conta de Vendedor na Amazon Aprovada ✅:**
+  * Verificação de identidade concluída com êxito e conta ativada no Amazon Seller Central (`sellercentral.amazon.com.br`).
+
 * **Feed XML Meta Commerce / Instagram Shopping ✅:**
   * Criada e compilada a rota `/api/catalog/meta-feed` para a Sacolinha do Instagram.
   * Build de produção validado (24/24 páginas estáticas e dinâmicas geradas com sucesso).

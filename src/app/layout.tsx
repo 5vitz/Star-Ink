@@ -2,11 +2,14 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'StarINK | Luxury Streetwear & PoD 2.0',
-  description: 'StarINK — Plataforma de Moda Contemporânea, Print on Demand 2.0 e Alta Frequência.',
-  keywords: ['Streetwear', 'Print on Demand', 'Oversized', 'Moda Autoral', 'StarINK'],
-  authors: [{ name: 'StarINK Team' }],
+  title: 'Star INK | Luxury Streetwear & PoD 2.0',
+  description: 'Star INK — Plataforma de Moda Contemporânea, Print on Demand 2.0 e Alta Frequência.',
+  keywords: ['Streetwear', 'Print on Demand', 'Oversized', 'Moda Autoral', 'Star INK'],
+  authors: [{ name: 'Star INK Team' }],
   robots: 'index, follow',
+  verification: {
+    google: 'qv6nUyNFuBjanfBLI80JqwaWScZdSxaEg2UC4EN1K4w',
+  },
   icons: {
     icon: '/LOGO/LOGO_VAZADA.png',
     shortcut: '/LOGO/LOGO_VAZADA.png',

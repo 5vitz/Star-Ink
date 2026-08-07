@@ -36,3 +36,4 @@ No **STAR INK**, nós priorizamos o planejamento cirúrgico e o diálogo estrat�
 - **PROIBIDO O USO DE GREP:** Usar caminhos diretos de arquivos ou listagens cirúrgicas.
 - **DEPLOY EXCLUSIVO DO GENERA:** Não executar `git push` ou scripts de deploy para servidores.
 - **ESTÉTICA DA SUBTRAÇÃO:** Linhas finas de borda (1px), fontes leves e paleta de cores tailoring.
+- **NOMENCLATURA PADRÃO DA MARCA:** A escrita oficial e padronizada da empresa é estritamente **Star INK**.
