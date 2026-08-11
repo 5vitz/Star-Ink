@@ -9,6 +9,16 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+
+    // Se o payload for um Array, salvar a lista completa (para reordenação Drag & Drop)
+    if (Array.isArray(body)) {
+      const success = saveProducts(body);
+      if (!success) {
+        return NextResponse.json({ error: 'Erro ao salvar reordenação.' }, { status: 500 });
+      }
+      return NextResponse.json({ success: true, count: body.length });
+    }
+
     const products = getProducts();
 
     if (!body.name || !body.code || !body.price) {

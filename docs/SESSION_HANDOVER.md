@@ -27,12 +27,20 @@
 
 * **Páginas de Políticas Institucionais & Links no Rodapé ✅:**
   * Analisados e adaptados os arquivos textuais da pasta `public/POLITICAS/` para a identidade **Star INK**.
-  * Criadas 4 novas páginas institucionais em Next.js com Schemas JSON-LD:
+  * Criadas 4 novas páginas institucionais em Next.js com tema claro (Light Mode) e Schemas JSON-LD:
     1. [/politica-de-devolucao](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-devolucao/page.tsx) (Trocas & Devoluções)
     2. [/politica-de-privacidade](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-privacidade/page.tsx) (Privacidade LGPD)
     3. [/termos-e-condicoes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/termos-e-condicoes/page.tsx) (Termos de Compra & Entrega)
     4. [/duvidas-frequentes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/duvidas-frequentes/page.tsx) (FAQ com Schema FAQPage)
   * Links integrados na quarta coluna (*Políticas & Legal*) do [Footer.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/layout/Footer.tsx).
+
+* **Reorganização do Batalhão de Agentes em 5 Categorias ✅:**
+  * Organizados todos os agentes em [docs/agentes/INDEX.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/INDEX.md).
+  * Incluídos manifestos de [ASK_NEXUS](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/02_ARTES_E_PROMPTS/ASK_NEXUS.md), [PLAN_NARRATIVE](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/02_ARTES_E_PROMPTS/PLAN_NARRATIVE.md), [ARTWORK_ARCHITECT](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/02_ARTES_E_PROMPTS/ARTWORK_ARCHITECT.md) e do Agente Jurídico [DR_LEX_JUSCHAT](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/03_JURIDICO_E_COMPLIANCE/DR_LEX_JUSCHAT.md).
+
+* **Especificação da Arquitetura de Projetos de Arte & Matriz de SKUs ✅:**
+  * Criado o documento [ESTRUTURA_DE_PROJETOS_DE_ARTE_E_SKUS.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/ESTRUTURA_DE_PROJETOS_DE_ARTE_E_SKUS.md) detalhando a hierarquia em 5 níveis (Drop ➔ Projeto da Arte ➔ Categoria ➔ Inversão de Cores ➔ Graduação de Tamanho P/M/G/GG/XG).
+  * Definida a estrutura física de subpastas do Asset Bundle (`MASTER/`, `PRINT_FILES/`, `SHOWCASE_CAROUSEL/`, `DRAFTS_ARCHIVE/` e `prompt_autoral.json`).
 
 * **Feed XML Meta Commerce / Instagram Shopping ✅:**
   * Criada e compilada a rota `/api/catalog/meta-feed` para a Sacolinha do Instagram.

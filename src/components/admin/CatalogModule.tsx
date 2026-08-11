@@ -16,9 +16,12 @@ import {
   X,
   Layers,
   Sparkles,
-  RefreshCw
+  RefreshCw,
+  GripVertical,
+  MousePointerClick
 } from 'lucide-react';
 import { ExtendedProduct } from '@/lib/products';
+import MediaLibraryModal from './MediaLibraryModal';
 
 export default function CatalogModule() {
   const [products, setProducts] = useState<ExtendedProduct[]>([]);
@@ -26,9 +29,16 @@ export default function CatalogModule() {
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('ALL');
   
-  // Modal state
+  // Media Library Modal state
+  const [isMediaLibraryOpen, setIsMediaLibraryOpen] = useState(false);
+  const [selectingProductForMedia, setSelectingProductForMedia] = useState<ExtendedProduct | null>(null);
+
+  // Edit / Add Product Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<ExtendedProduct | null>(null);
+  
+  // Drag & Drop State
+  const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
   
   // Form state
   const [formData, setFormData] = useState({
@@ -85,6 +95,46 @@ export default function CatalogModule() {
     }
   };
 
+  // Open Media Library to select image for a specific card
+  const handleOpenMediaPickerForCard = (product: ExtendedProduct) => {
+    setSelectingProductForMedia(product);
+    setIsMediaLibraryOpen(true);
+  };
+
+  // Callback when an image is selected from MediaLibraryModal
+  const handleSelectMediaForProduct = async (mediaUrl: string) => {
+    if (selectingProductForMedia) {
+      const updatedProduct = {
+        ...selectingProductForMedia,
+        image: mediaUrl,
+        showImage: true,
+      };
+
+      // Optimistic update
+      setProducts((prev) =>
+        prev.map((p) => (p.id === selectingProductForMedia.id ? updatedProduct : p))
+      );
+
+      try {
+        await fetch('/api/products', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedProduct),
+        });
+      } catch (err) {
+        console.error('Erro ao vincular imagem ao produto:', err);
+        fetchProducts();
+      }
+
+      setSelectingProductForMedia(null);
+      setIsMediaLibraryOpen(false);
+    } else {
+      // If modal was opened from Form
+      setFormData((prev) => ({ ...prev, image: mediaUrl, showImage: true }));
+      setIsMediaLibraryOpen(false);
+    }
+  };
+
   const handleDelete = async (id: string) => {
     if (!confirm('Tem certeza que deseja excluir esta peça do catálogo?')) return;
     
@@ -129,7 +179,7 @@ export default function CatalogModule() {
     setIsModalOpen(true);
   };
 
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUploadInForm = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -144,7 +194,7 @@ export default function CatalogModule() {
       });
       if (res.ok) {
         const result = await res.json();
-        setFormData((prev) => ({ ...prev, image: result.url }));
+        setFormData((prev) => ({ ...prev, image: result.url, showImage: true }));
       } else {
         alert('Erro ao fazer upload da imagem.');
       }
@@ -194,6 +244,38 @@ export default function CatalogModule() {
     }
   };
 
+  // Drag & Drop Reordering handlers
+  const handleDragStart = (index: number) => {
+    setDraggedIndex(index);
+  };
+
+  const handleDragOver = (e: React.DragEvent, index: number) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = async (dropIndex: number) => {
+    if (draggedIndex === null || draggedIndex === dropIndex) return;
+
+    const updated = [...products];
+    const [movedItem] = updated.splice(draggedIndex, 1);
+    updated.splice(dropIndex, 0, movedItem);
+
+    setProducts(updated);
+    setDraggedIndex(null);
+
+    // Save entire reordered list to backend
+    try {
+      await fetch('/api/products', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updated),
+      });
+    } catch (err) {
+      console.error('Erro ao salvar reordenação:', err);
+      fetchProducts();
+    }
+  };
+
   const filteredProducts = products.filter((p) => {
     const matchesSearch =
       p.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -214,14 +296,25 @@ export default function CatalogModule() {
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-[var(--accent-cyan)] uppercase tracking-wider mb-1">
             <Layers className="w-4 h-4" />
-            <span>Módulo 3 • Controle de Catálogo & Artes 9:16</span>
+            <span>Módulo 3 • Controle de Catálogo, Vitrine & Mídias 9:16</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Gestão de Peças & Vitrine
+            Gestão de Peças & Vitrine Pública
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
+          <button
+            onClick={() => {
+              setSelectingProductForMedia(null);
+              setIsMediaLibraryOpen(true);
+            }}
+            className="px-4 py-2.5 rounded-lg border border-[var(--accent-cyan)]/40 bg-[var(--accent-cyan)]/10 text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan)]/20 font-semibold text-xs tracking-wide transition-all flex items-center gap-2 shadow-sm font-mono"
+          >
+            <ImageIcon className="w-4 h-4" />
+            <span>📷 Biblioteca de Mídias 9:16</span>
+          </button>
+
           <button
             onClick={() => fetchProducts()}
             className="p-2.5 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-main)] text-[var(--text-secondary)] hover:text-white hover:border-[var(--border-hover)] transition-colors"
@@ -232,10 +325,10 @@ export default function CatalogModule() {
 
           <button
             onClick={() => handleOpenModal()}
-            className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs tracking-wide hover:bg-zinc-200 transition-colors flex items-center gap-2 shadow-md"
+            className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs tracking-wide hover:bg-zinc-200 transition-colors flex items-center gap-2 shadow-md font-mono"
           >
             <Plus className="w-4 h-4" />
-            <span>Nova Peça / Arte 9:16</span>
+            <span>Nova Peça</span>
           </button>
         </div>
       </div>
@@ -284,28 +377,34 @@ export default function CatalogModule() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar por código ou nome..."
-            className="w-full pl-9 pr-3 py-2 bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg text-xs text-white placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-cyan)] transition-colors"
+            className="w-full pl-9 pr-3 py-2 bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg text-xs text-white placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-cyan)] transition-colors font-mono"
           />
         </div>
 
-        <div className="flex gap-2 w-full sm:w-auto overflow-x-auto">
-          {['ALL', 'Tarô Negro', 'Oversized', 'Edição Mestre'].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategoryFilter(cat)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-colors whitespace-nowrap ${
-                categoryFilter === cat
-                  ? 'bg-white text-black font-bold'
-                  : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-white'
-              }`}
-            >
-              {cat === 'ALL' ? 'Todas' : cat}
-            </button>
-          ))}
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-mono text-[var(--text-muted)] hidden lg:inline-block">
+            💡 Dica: Arraste os cards para reordenar a vitrine em tempo real
+          </span>
+
+          <div className="flex gap-2 w-full sm:w-auto overflow-x-auto">
+            {['ALL', 'Tarô Negro', 'Oversized', 'Edição Mestre'].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setCategoryFilter(cat)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-colors whitespace-nowrap ${
+                  categoryFilter === cat
+                    ? 'bg-white text-black font-bold'
+                    : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-white'
+                }`}
+              >
+                {cat === 'ALL' ? 'Todas' : cat}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Catalog Items Grid */}
+      {/* Catalog Items Grid with Drag & Drop Reordering */}
       {loading ? (
         <div className="py-20 text-center text-xs font-mono text-[var(--text-muted)] animate-pulse">
           Carregando catálogo de peças...
@@ -319,47 +418,71 @@ export default function CatalogModule() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-xl overflow-hidden p-4 space-y-4 flex flex-col justify-between"
+              draggable
+              onDragStart={() => handleDragStart(index)}
+              onDragOver={(e) => handleDragOver(e, index)}
+              onDrop={() => handleDrop(index)}
+              className={`bg-[var(--bg-card)] border rounded-xl overflow-hidden p-4 space-y-4 flex flex-col justify-between transition-all ${
+                draggedIndex === index
+                  ? 'opacity-40 border-[var(--accent-cyan)] scale-95'
+                  : 'border-[var(--border-subtle)] hover:border-white/30'
+              }`}
             >
-              {/* Media Preview Box 9:16 */}
-              <div className="relative aspect-[9/16] w-full bg-black rounded-lg border border-[var(--border-subtle)] overflow-hidden flex items-center justify-center group">
+              {/* Media Preview Box 9:16 (Interactive Click to Open Media Picker) */}
+              <div
+                onClick={() => handleOpenMediaPickerForCard(product)}
+                className="relative aspect-[9/16] w-full bg-black rounded-lg border border-[var(--border-subtle)] overflow-hidden flex items-center justify-center group cursor-pointer"
+                title="Clique para abrir a Biblioteca de Mídias e selecionar a foto deste card"
+              >
                 {product.showImage && product.image ? (
                   <Image
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover"
+                    unoptimized
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  <div className="text-center p-4 space-y-2">
+                  <div className="text-center p-4 space-y-3">
                     <span className="text-xs font-mono text-amber-400 font-bold block">
-                      FUNDO PRETO (90º RETO)
+                      CARD SEM MÍDIA / FUNDO PRETO
                     </span>
-                    <span className="text-[10px] text-zinc-500 block">
-                      {product.image ? 'Imagem vinculada (oculta no site)' : 'Nenhuma imagem enviada'}
+                    <span className="text-[10px] font-mono text-zinc-400 block bg-white/10 px-3 py-1.5 rounded-lg border border-white/20 group-hover:border-[var(--accent-cyan)] group-hover:text-[var(--accent-cyan)] transition-colors">
+                      👈 Clique aqui para abrir a Biblioteca de Mídias
                     </span>
                   </div>
                 )}
 
+                {/* Hover Overlay Button */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 space-y-2 text-center backdrop-blur-[2px]">
+                  <MousePointerClick className="w-6 h-6 text-[var(--accent-cyan)] animate-bounce" />
+                  <span className="text-xs font-mono font-bold text-white bg-black/80 px-3 py-1.5 rounded-lg border border-white/20">
+                    {product.image ? 'Alterar Mídia do Card' : 'Vincular Mídia 9:16'}
+                  </span>
+                </div>
+
                 {/* Status Badges Overlay */}
-                <div className="absolute top-2 left-2 flex flex-col gap-1">
+                <div className="absolute top-2 left-2 flex items-center gap-1.5 z-10">
+                  <span className="cursor-grab active:cursor-grabbing p-1 rounded bg-black/80 text-zinc-400 hover:text-white border border-white/20">
+                    <GripVertical className="w-3.5 h-3.5" />
+                  </span>
                   <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/80 text-white border border-white/20">
                     {product.code}
                   </span>
                 </div>
 
-                <div className="absolute top-2 right-2">
+                <div className="absolute top-2 right-2 z-10">
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                      product.showImage
+                      product.showImage && product.image
                         ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
                         : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
                     }`}
                   >
-                    {product.showImage ? 'Exibindo Imagem' : 'Fundo Preto'}
+                    {product.showImage && product.image ? 'Exibindo na Vitrine' : 'Fundo Preto'}
                   </span>
                 </div>
               </div>
@@ -399,6 +522,15 @@ export default function CatalogModule() {
 
               {/* Card Actions & Toggle Switch */}
               <div className="pt-3 border-t border-[var(--border-subtle)] space-y-3">
+                {/* Button to Open Media Picker Directly */}
+                <button
+                  onClick={() => handleOpenMediaPickerForCard(product)}
+                  className="w-full py-1.5 px-3 rounded-lg border border-[var(--accent-cyan)]/30 bg-[var(--accent-cyan)]/10 text-xs text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan)]/20 transition-colors flex items-center justify-center gap-1.5 font-mono font-semibold"
+                >
+                  <ImageIcon className="w-3.5 h-3.5" />
+                  <span>Selecionar da Biblioteca</span>
+                </button>
+
                 {/* Toggle Visibility Switch */}
                 <div className="flex items-center justify-between bg-[var(--bg-main)] p-2 rounded-lg border border-[var(--border-subtle)]">
                   <span className="text-[11px] font-mono text-zinc-300 flex items-center gap-1.5">
@@ -430,7 +562,7 @@ export default function CatalogModule() {
                     className="flex-1 py-1.5 px-3 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-main)] text-xs text-white hover:bg-white/10 transition-colors flex items-center justify-center gap-1.5 font-mono"
                   >
                     <Edit3 className="w-3.5 h-3.5" />
-                    <span>Editar</span>
+                    <span>Editar Dados</span>
                   </button>
 
                   <button
@@ -446,6 +578,26 @@ export default function CatalogModule() {
           ))}
         </div>
       )}
+
+      {/* Global Media Library Modal Component */}
+      <MediaLibraryModal
+        isOpen={isMediaLibraryOpen}
+        onClose={() => {
+          setIsMediaLibraryOpen(false);
+          setSelectingProductForMedia(null);
+        }}
+        onSelectMedia={handleSelectMediaForProduct}
+        title={
+          selectingProductForMedia
+            ? `Selecionar Mídia para: ${selectingProductForMedia.code} ${selectingProductForMedia.name}`
+            : 'Biblioteca de Mídias 9:16'
+        }
+        subtitle={
+          selectingProductForMedia
+            ? 'Clique na imagem desejada para vinculá-la instantaneamente a este card da Vitrine'
+            : 'Gerencie e visualize todas as mídias cinematográficas cadastradas'
+        }
+      />
 
       {/* Add / Edit Product Modal */}
       {isModalOpen && (
@@ -475,7 +627,7 @@ export default function CatalogModule() {
                     required
                     value={formData.code}
                     onChange={(e) => setFormData({ ...formData, code: e.target.value })}
-                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)]"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
                   />
                 </div>
 
@@ -573,39 +725,53 @@ export default function CatalogModule() {
                 />
               </div>
 
-              {/* 9:16 Image Upload Zone */}
-              <div className="space-y-2 pt-2">
+              {/* 9:16 Image Selection Zone */}
+              <div className="space-y-2 pt-2 border-t border-[var(--border-subtle)]">
                 <label className="text-[11px] font-mono text-[var(--text-muted)] uppercase block">
-                  Mídia Vertical 9:16 (Upload para Vitrine)
+                  Mídia Vertical 9:16 (Vitrine)
                 </label>
 
                 <div className="flex gap-4 items-center">
                   <div className="relative w-20 aspect-[9/16] bg-black border border-[var(--border-subtle)] rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
                     {formData.image ? (
-                      <Image src={formData.image} alt="Preview" fill className="object-cover" />
+                      <Image src={formData.image} alt="Preview" fill unoptimized className="object-cover" />
                     ) : (
                       <ImageIcon className="w-5 h-5 text-[var(--text-muted)] opacity-50" />
                     )}
                   </div>
 
                   <div className="flex-1 space-y-2">
-                    <label className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--bg-main)] border border-[var(--border-subtle)] text-xs text-white cursor-pointer hover:bg-white/10 transition-colors font-mono">
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>{isUploading ? 'Enviando...' : 'Selecionar Arquivo 9:16'}</span>
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageUpload}
-                        disabled={isUploading}
-                        className="hidden"
-                      />
-                    </label>
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setSelectingProductForMedia(null);
+                          setIsMediaLibraryOpen(true);
+                        }}
+                        className="px-3 py-2 rounded-lg bg-[var(--accent-cyan)]/10 border border-[var(--accent-cyan)]/40 text-xs text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan)]/20 transition-colors font-mono flex items-center gap-1.5"
+                      >
+                        <ImageIcon className="w-3.5 h-3.5" />
+                        <span>Abrir Biblioteca de Mídias</span>
+                      </button>
+
+                      <label className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[var(--bg-main)] border border-[var(--border-subtle)] text-xs text-white cursor-pointer hover:bg-white/10 transition-colors font-mono">
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>{isUploading ? 'Enviando...' : 'Upload Direto'}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={handleImageUploadInForm}
+                          disabled={isUploading}
+                          className="hidden"
+                        />
+                      </label>
+                    </div>
 
                     <input
                       type="text"
                       value={formData.image}
                       onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                      placeholder="Ou cole a URL direta da imagem (ex: /imagens/...)"
+                      placeholder="Ou cole a URL direta da imagem (ex: /uploads/...)"
                       className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-1.5 text-xs text-white placeholder-[var(--text-muted)] focus:outline-none font-mono"
                     />
                   </div>
