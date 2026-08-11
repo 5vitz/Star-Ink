@@ -314,12 +314,11 @@ export default function MediaLibraryModal({
                       }`}
                     >
                       {/* Image Frame */}
-                      <Image
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
                         src={media.url}
                         alt={media.name}
-                        fill
-                        unoptimized
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                       />
 
                       {/* Top Overlay Badge */}

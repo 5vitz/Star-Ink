@@ -438,12 +438,11 @@ export default function CatalogModule() {
                 title="Clique para abrir a Biblioteca de Mídias e selecionar a foto deste card"
               >
                 {product.showImage && product.image ? (
-                  <Image
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
                     src={product.image}
                     alt={product.name}
-                    fill
-                    unoptimized
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
                   <div className="text-center p-4 space-y-3">
@@ -732,11 +731,19 @@ export default function CatalogModule() {
                 </label>
 
                 <div className="flex gap-4 items-center">
-                  <div className="relative w-20 aspect-[9/16] bg-black border border-[var(--border-subtle)] rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
+                  <div className="relative w-[96px] h-[170px] bg-black border border-[var(--border-subtle)] rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
                     {formData.image ? (
-                      <Image src={formData.image} alt="Preview" fill unoptimized className="object-cover" />
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={formData.image}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                      />
                     ) : (
-                      <ImageIcon className="w-5 h-5 text-[var(--text-muted)] opacity-50" />
+                      <div className="text-center p-2 space-y-1">
+                        <ImageIcon className="w-5 h-5 text-[var(--text-muted)] opacity-50 mx-auto" />
+                        <span className="text-[9px] font-mono text-[var(--text-muted)] block">Sem Mídia</span>
+                      </div>
                     )}
                   </div>
 

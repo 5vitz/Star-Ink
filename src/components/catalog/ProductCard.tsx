@@ -32,13 +32,11 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       {/* 9:16 Frame (Reto 90º: se showImage for true e houver imagem, exibe a imagem; caso contrário, fundo preto sólido) */}
       <div className="relative aspect-[9/16] w-full bg-black border border-black rounded-none overflow-hidden">
         {product.showImage && product.image && (
-          <Image
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
             src={product.image}
             alt={product.name}
-            fill
-            unoptimized
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
         )}
       </div>
