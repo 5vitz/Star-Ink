@@ -9,7 +9,7 @@
     "category": "Tarô Negro",
     "promptSchemaUrl": "/imagens/Arte02/prompt_schema_fada.json",
     "description": "Arcano XVII — A Estrela. O símbolo mestre da STAR INK. Iluminação cósmica e fluidez em traço hairline (1px) vetorial sobre algodão penteado 220g.",
-    "showImage": false
+    "showImage": true
   },
   {
     "id": "tarot-i-o-mago",
@@ -20,7 +20,7 @@
     "image": "/imagens/tarot/o_mago.png",
     "category": "Tarô Negro",
     "description": "Arcano I — O Mago. Alquimia entre a ideia e a matéria. Manifestação técnica com o símbolo do infinito em traço fino.",
-    "showImage": false
+    "showImage": true
   },
   {
     "id": "tarot-xviii-a-lua",
@@ -31,7 +31,7 @@
     "image": "/imagens/tarot/a_lua.png",
     "category": "Tarô Negro",
     "description": "Arcano XVIII — A Lua. A profundidade da penumbra e a estética do Dark Mode. Torres arquitetônicas e simetria vetorial.",
-    "showImage": false
+    "showImage": true
   },
   {
     "id": "tarot-0-o-louco",
@@ -42,7 +42,7 @@
     "image": "/imagens/tarot/o_louco.png",
     "category": "Tarô Negro",
     "description": "Arcano 0 — O Louco. A audácia de iniciar o Drop 01. O viajante estelar sem excesso de bagagem, puramente conceitual.",
-    "showImage": false
+    "showImage": true
   },
   {
     "id": "tarot-x-a-roda",
@@ -53,7 +53,7 @@
     "image": "/imagens/tarot/a_roda.png",
     "category": "Tarô Negro",
     "description": "Arcano X — A Roda da Fortuna. Astrolábio cósmico e ciclicidade dos drops. Geometria sagrada minimalista.",
-    "showImage": false
+    "showImage": true
   },
   {
     "id": "tarot-arte-02-fada",
@@ -65,6 +65,6 @@
     "category": "Edição Mestre",
     "promptSchemaUrl": "/imagens/Arte02/prompt_schema_fada.json",
     "description": "A primeira estampa oficial aprovada para o Drop 01. Geometria de traço 1px (hairline) sobre o fundo preto profundo.",
-    "showImage": false
+    "showImage": true
   }
 ]

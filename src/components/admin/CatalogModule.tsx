@@ -437,7 +437,7 @@ export default function CatalogModule() {
                 className="relative aspect-[9/16] w-full bg-black rounded-lg border border-[var(--border-subtle)] overflow-hidden flex items-center justify-center group cursor-pointer"
                 title="Clique para abrir a Biblioteca de Mídias e selecionar a foto deste card"
               >
-                {product.showImage && product.image ? (
+                {product.showImage !== false && product.image ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={product.image}
@@ -476,12 +476,12 @@ export default function CatalogModule() {
                 <div className="absolute top-2 right-2 z-10">
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                      product.showImage && product.image
+                      product.showImage !== false && product.image
                         ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
                         : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
                     }`}
                   >
-                    {product.showImage && product.image ? 'Exibindo na Vitrine' : 'Fundo Preto'}
+                    {product.showImage !== false && product.image ? 'Exibindo na Vitrine' : 'Fundo Preto'}
                   </span>
                 </div>
               </div>

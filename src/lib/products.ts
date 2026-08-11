@@ -14,7 +14,11 @@ export function getProducts(): ExtendedProduct[] {
       return [];
     }
     const fileData = fs.readFileSync(PRODUCTS_FILE_PATH, 'utf-8');
-    return JSON.parse(fileData);
+    const parsed: ExtendedProduct[] = JSON.parse(fileData);
+    return parsed.map((p) => ({
+      ...p,
+      showImage: p.showImage !== false && Boolean(p.image),
+    }));
   } catch (error) {
     console.error('Erro ao ler products.json:', error);
     return [];
