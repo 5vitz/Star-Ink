@@ -29,7 +29,8 @@ docs/agentes/
 └── 05_GROWTH_E_CONCIERGE/
     ├── CONTENT_CREATOR.md       (Copywriting Autoral & Descrições Fato-Densas)
     ├── FEED_CURATOR.md          (Curador de Lookbooks 9:16 & Vitrine D2C)
-    └── TRAFFIC_MANAGER.md       (Gestão de Tráfego Meta Ads & Google Ads)
+    ├── TRAFFIC_MANAGER.md       (Gestão de Tráfego Meta Ads & Google Ads)
+    └── SUITE_MARKETING_STARINK.md (Orquestra de Marketing & Comandos /starink-*)
 ```
 
 ---

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  @page { size: A4 portrait; margin: 15mm; }
+  body { font-family: sans-serif; background: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }
+  .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); width: 400px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Teste Gráfico Chart.js</h2>
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </div>
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Maio', 'Junho', 'Julho'],
+        datasets: [{
+          label: 'Visualizações',
+          data: [60000, 72000, 81800],
+          backgroundColor: '#0d9488'
+        }]
+      },
+      options: { animation: false }
+    });
+  </script>
+</body>
+</html>
