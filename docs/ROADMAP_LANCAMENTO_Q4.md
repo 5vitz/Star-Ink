@@ -56,6 +56,7 @@ Semanas 7-8: Testes Operacionais & Aquecimento de Pixels de Anúncio
 - Simulação completa do fluxo de vendas e envio.
 - Instalação e teste de Pixels de Conversão (Meta Ads, Google Shopping, TikTok Ads).
 - Preparação de criativos de anúncio (bastidores por IA, manifesto da marca, qualidade do algodão 100%).
+- Ativação de conta e Token de API do **Melhor Envio** para disparo automático de Código de Logística Reversa de Trocas no portal `/trocas` (R$ 0,00 de custo fixo).
 
 ---
 

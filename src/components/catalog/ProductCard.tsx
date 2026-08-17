@@ -11,6 +11,7 @@ export interface Product {
   pixPrice: number;
   image: string;
   category: string;
+  drop?: string;
   promptSchemaUrl?: string;
   description: string;
   showImage?: boolean;

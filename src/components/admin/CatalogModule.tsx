@@ -49,6 +49,7 @@ export default function CatalogModule() {
     price: '180.00',
     pixPrice: '171.00',
     category: 'Tarô Negro',
+    drop: 'Drop 01',
     description: '',
     promptSchemaUrl: '',
     image: '',
@@ -174,6 +175,7 @@ export default function CatalogModule() {
         price: product.price ? String(product.price) : '180.00',
         pixPrice: product.pixPrice ? String(product.pixPrice) : '171.00',
         category: product.category || 'Tarô Negro',
+        drop: product.drop || 'Drop 01',
         description: product.description || '',
         promptSchemaUrl: product.promptSchemaUrl || '',
         image: product.image || '',
@@ -190,6 +192,7 @@ export default function CatalogModule() {
         price: '180.00',
         pixPrice: '171.00',
         category: 'Tarô Negro',
+        drop: 'Drop 01',
         description: '',
         promptSchemaUrl: '',
         image: '',
@@ -240,6 +243,7 @@ export default function CatalogModule() {
       price: parseFloat(formData.price) || 180.0,
       pixPrice: parseFloat(formData.pixPrice) || 171.0,
       category: formData.category,
+      drop: formData.drop || 'Drop 01',
       description: formData.description,
       promptSchemaUrl: formData.promptSchemaUrl,
       image: formData.image,
@@ -516,8 +520,8 @@ export default function CatalogModule() {
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider block">
-                      {product.category}
+                    <span className="text-[10px] font-mono text-[var(--accent-cyan)] uppercase tracking-wider block font-bold">
+                      {product.drop || 'Drop 01'} • {product.category}
                     </span>
                     <h3 className="text-sm font-bold text-white tracking-tight">
                       {product.name}
@@ -642,7 +646,7 @@ export default function CatalogModule() {
 
             <form onSubmit={handleSaveForm} className="flex-1 flex flex-col min-h-0 justify-between">
               <div className="flex-1 overflow-y-auto min-h-0 space-y-4 pr-1 py-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="text-[11px] font-mono text-[var(--text-muted)] uppercase block mb-1">
                     Código (ex: XVII.) *
@@ -667,6 +671,20 @@ export default function CatalogModule() {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Ex: A ESTRELA"
                     className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)]"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono text-[var(--accent-cyan)] uppercase block mb-1">
+                    Drop / Coleção *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.drop}
+                    onChange={(e) => setFormData({ ...formData, drop: e.target.value })}
+                    placeholder="Ex: Drop 01"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
                   />
                 </div>
               </div>

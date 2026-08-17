@@ -4,6 +4,7 @@ import { Product } from '@/components/catalog/ProductCard';
 import { prisma } from './db';
 
 export interface ExtendedProduct extends Product {
+  drop?: string;
   showImage?: boolean;
   sortOrder?: number;
   masterSku?: string;
@@ -24,6 +25,7 @@ function getFallbackProducts(): ExtendedProduct[] {
     const parsed: ExtendedProduct[] = JSON.parse(fileData);
     return parsed.map((p, idx) => ({
       ...p,
+      drop: p.drop || 'Drop 01',
       showImage: p.showImage !== false && Boolean(p.image),
       sortOrder: p.sortOrder !== undefined ? p.sortOrder : idx,
     }));
@@ -64,6 +66,7 @@ export async function getProductsAsync(): Promise<ExtendedProduct[]> {
           price: p.price,
           pixPrice: p.pixPrice,
           category: p.category,
+          drop: p.drop || 'Drop 01',
           description: p.description || '',
           promptSchemaUrl: p.promptSchemaUrl || '',
           image: p.image || '',
@@ -95,6 +98,7 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           price: product.price,
           pixPrice: product.pixPrice,
           category: product.category,
+          drop: product.drop || 'Drop 01',
           description: product.description,
           promptSchemaUrl: product.promptSchemaUrl,
           image: product.image,
@@ -112,6 +116,7 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           price: product.price,
           pixPrice: product.pixPrice,
           category: product.category,
+          drop: product.drop || 'Drop 01',
           description: product.description,
           promptSchemaUrl: product.promptSchemaUrl,
           image: product.image,

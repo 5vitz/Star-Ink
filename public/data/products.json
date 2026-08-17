@@ -7,9 +7,13 @@
     "pixPrice": 171.00,
     "image": "/imagens/tarot/a_estrela.png",
     "category": "Tarô Negro",
+    "drop": "Drop 01",
     "promptSchemaUrl": "/imagens/Arte02/prompt_schema_fada.json",
     "description": "Arcano XVII — A Estrela. O símbolo mestre da STAR INK. Iluminação cósmica e fluidez em traço hairline (1px) vetorial sobre algodão penteado 220g.",
-    "showImage": true
+    "showImage": true,
+    "masterSku": "STINK-TSHIRT-A-ESTRELA",
+    "ncmCode": "6109.10.00",
+    "costFactoryPod": 49.00
   },
   {
     "id": "tarot-i-o-mago",
@@ -19,8 +23,12 @@
     "pixPrice": 171.00,
     "image": "/imagens/tarot/o_mago.png",
     "category": "Tarô Negro",
+    "drop": "Drop 01",
     "description": "Arcano I — O Mago. Alquimia entre a ideia e a matéria. Manifestação técnica com o símbolo do infinito em traço fino.",
-    "showImage": true
+    "showImage": true,
+    "masterSku": "STINK-TSHIRT-O-MAGO",
+    "ncmCode": "6109.10.00",
+    "costFactoryPod": 49.00
   },
   {
     "id": "tarot-xviii-a-lua",
@@ -30,8 +38,12 @@
     "pixPrice": 171.00,
     "image": "/imagens/tarot/a_lua.png",
     "category": "Tarô Negro",
+    "drop": "Drop 01",
     "description": "Arcano XVIII — A Lua. A profundidade da penumbra e a estética do Dark Mode. Torres arquitetônicas e simetria vetorial.",
-    "showImage": true
+    "showImage": true,
+    "masterSku": "STINK-TSHIRT-A-LUA",
+    "ncmCode": "6109.10.00",
+    "costFactoryPod": 49.00
   },
   {
     "id": "tarot-0-o-louco",
@@ -41,8 +53,12 @@
     "pixPrice": 171.00,
     "image": "/imagens/tarot/o_louco.png",
     "category": "Tarô Negro",
+    "drop": "Drop 01",
     "description": "Arcano 0 — O Louco. A audácia de iniciar o Drop 01. O viajante estelar sem excesso de bagagem, puramente conceitual.",
-    "showImage": true
+    "showImage": true,
+    "masterSku": "STINK-TSHIRT-O-LOUCO",
+    "ncmCode": "6109.10.00",
+    "costFactoryPod": 49.00
   },
   {
     "id": "tarot-x-a-roda",
@@ -52,8 +68,12 @@
     "pixPrice": 171.00,
     "image": "/imagens/tarot/a_roda.png",
     "category": "Tarô Negro",
+    "drop": "Drop 01",
     "description": "Arcano X — A Roda da Fortuna. Astrolábio cósmico e ciclicidade dos drops. Geometria sagrada minimalista.",
-    "showImage": true
+    "showImage": true,
+    "masterSku": "STINK-TSHIRT-A-RODA-DA-FORTUNA",
+    "ncmCode": "6109.10.00",
+    "costFactoryPod": 49.00
   },
   {
     "id": "tarot-arte-02-fada",
@@ -63,8 +83,12 @@
     "pixPrice": 171.00,
     "image": "/imagens/Arte02/Fada01.jpeg",
     "category": "Edição Mestre",
+    "drop": "Drop 01",
     "promptSchemaUrl": "/imagens/Arte02/prompt_schema_fada.json",
     "description": "A primeira estampa oficial aprovada para o Drop 01. Geometria de traço 1px (hairline) sobre o fundo preto profundo.",
-    "showImage": true
+    "showImage": true,
+    "masterSku": "STINK-TSHIRT-FADA-02",
+    "ncmCode": "6109.10.00",
+    "costFactoryPod": 49.00
   }
 ]
