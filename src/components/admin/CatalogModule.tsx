@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { 
   Plus, 
@@ -24,6 +25,7 @@ import { ExtendedProduct } from '@/lib/products';
 import MediaLibraryModal from './MediaLibraryModal';
 
 export default function CatalogModule() {
+  const [mounted, setMounted] = useState(false);
   const [products, setProducts] = useState<ExtendedProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
@@ -75,6 +77,7 @@ export default function CatalogModule() {
   };
 
   useEffect(() => {
+    setMounted(true);
     fetchProducts();
   }, []);
 
@@ -612,7 +615,7 @@ export default function CatalogModule() {
         title={
           selectingProductForMedia
             ? `Selecionar Mídia para: ${selectingProductForMedia.code} ${selectingProductForMedia.name}`
-            : 'Biblioteca de Mídias 9:16'
+                    : 'Biblioteca de Mídias 9:16'
         }
         subtitle={
           selectingProductForMedia
@@ -621,9 +624,9 @@ export default function CatalogModule() {
         }
       />
 
-      {isModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-6 shadow-2xl space-y-6 my-auto max-h-[85vh] overflow-y-auto">
+      {mounted && isModalOpen && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-3 sm:p-6 pt-24 sm:pt-24 bg-black/90 backdrop-blur-md overflow-y-auto">
+          <div className="relative w-full max-w-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 my-0 max-h-[82vh] overflow-y-auto">
             <div className="flex justify-between items-center border-b border-[var(--border-subtle)] pb-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[var(--accent-cyan)]" />
@@ -895,7 +898,8 @@ export default function CatalogModule() {
               </div>
             </form>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );

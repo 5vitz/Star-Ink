@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import {
   Upload,
@@ -32,6 +33,7 @@ export default function MediaLibraryModal({
   title = 'Biblioteca de Mídias 9:16',
   subtitle = 'Gerencie e selecione mídias cinematográficas para a Vitrine',
 }: MediaLibraryModalProps) {
+  const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<'gallery' | 'upload'>('gallery');
   const [mediaList, setMediaList] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(false);
@@ -42,6 +44,10 @@ export default function MediaLibraryModal({
   const [dragActive, setDragActive] = useState(false);
   const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const fetchMedia = async () => {
     setLoading(true);
@@ -71,7 +77,7 @@ export default function MediaLibraryModal({
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const handleFileUpload = async (files: FileList | File[]) => {
     if (!files || files.length === 0) return;
@@ -164,9 +170,9 @@ export default function MediaLibraryModal({
     return matchesSearch && matchesFolder;
   });
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-5xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-6 shadow-2xl space-y-6 my-auto max-h-[85vh] flex flex-col justify-between">
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-start justify-center p-3 sm:p-6 pt-24 sm:pt-24 bg-black/90 backdrop-blur-md overflow-y-auto">
+      <div className="relative w-full max-w-5xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 my-0 max-h-[82vh] flex flex-col justify-between">
         
         {/* Header */}
         <div className="flex justify-between items-start border-b border-[var(--border-subtle)] pb-4 shrink-0">
@@ -394,6 +400,7 @@ export default function MediaLibraryModal({
         </div>
 
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
