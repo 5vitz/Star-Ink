@@ -1,0 +1,46 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Product {
+  id              String   @id @default(uuid())
+  code            String
+  name            String
+  price           Float    @default(180.00)
+  pixPrice        Float    @default(171.00)
+  category        String   @default("Tarô Negro")
+  description     String?
+  promptSchemaUrl String?
+  image           String?
+  showImage       Boolean  @default(true)
+  sortOrder       Int      @default(0)
+
+  // Canonical Multichannel Fields
+  masterSku       String?
+  ncmCode         String?  @default("6109.10.00")
+  costFactoryPod  Float?   @default(49.00)
+  originCode      Int?     @default(0)
+  weightGrams     Int?     @default(220)
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  variants        ProductVariant[]
+}
+
+model ProductVariant {
+  id          String   @id @default(uuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sku         String   @unique
+  size        String   // P, M, G, GG, XGG
+  color       String   // Preto, Off-White
+  stock       Int      @default(99)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

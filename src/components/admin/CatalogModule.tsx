@@ -51,6 +51,9 @@ export default function CatalogModule() {
     promptSchemaUrl: '',
     image: '',
     showImage: false,
+    masterSku: '',
+    ncmCode: '6109.10.00',
+    costFactoryPod: '49.00',
   });
 
   const [isUploading, setIsUploading] = useState(false);
@@ -74,6 +77,17 @@ export default function CatalogModule() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
 
   const handleToggleShowImage = async (product: ExtendedProduct) => {
     const updatedProduct = { ...product, showImage: !product.showImage };
@@ -161,6 +175,9 @@ export default function CatalogModule() {
         promptSchemaUrl: product.promptSchemaUrl || '',
         image: product.image || '',
         showImage: Boolean(product.showImage),
+        masterSku: product.masterSku || `STINK-TSHIRT-${(product.name || 'PECA').toUpperCase().replace(/\s+/g, '-')}`,
+        ncmCode: product.ncmCode || '6109.10.00',
+        costFactoryPod: product.costFactoryPod ? String(product.costFactoryPod) : '49.00',
       });
     } else {
       setEditingProduct(null);
@@ -174,6 +191,9 @@ export default function CatalogModule() {
         promptSchemaUrl: '',
         image: '',
         showImage: false,
+        masterSku: `STINK-TSHIRT-PECA-${products.length + 1}`,
+        ncmCode: '6109.10.00',
+        costFactoryPod: '49.00',
       });
     }
     setIsModalOpen(true);
@@ -221,6 +241,9 @@ export default function CatalogModule() {
       promptSchemaUrl: formData.promptSchemaUrl,
       image: formData.image,
       showImage: formData.showImage,
+      masterSku: formData.masterSku,
+      ncmCode: formData.ncmCode,
+      costFactoryPod: parseFloat(formData.costFactoryPod) || 49.0,
     };
 
     try {
@@ -598,10 +621,9 @@ export default function CatalogModule() {
         }
       />
 
-      {/* Add / Edit Product Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-6 shadow-2xl space-y-6 my-8">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md overflow-y-auto">
+          <div className="relative w-full max-w-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-6 shadow-2xl space-y-6 my-auto max-h-[85vh] overflow-y-auto">
             <div className="flex justify-between items-center border-b border-[var(--border-subtle)] pb-4">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[var(--accent-cyan)]" />
@@ -722,6 +744,49 @@ export default function CatalogModule() {
                   placeholder="Ex: /imagens/Arte02/prompt_schema_fada.json"
                   className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
                 />
+              </div>
+
+              {/* Bloco Canônico Multicanal & Fiscal */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-[var(--border-subtle)]">
+                <div>
+                  <label className="text-[11px] font-mono text-[var(--accent-cyan)] uppercase block mb-1">
+                    SKU Mestre (Pai)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.masterSku}
+                    onChange={(e) => setFormData({ ...formData, masterSku: e.target.value })}
+                    placeholder="Ex: STINK-TSHIRT-FADA-02"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono text-[var(--accent-cyan)] uppercase block mb-1">
+                    Código NCM (SEFAZ)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.ncmCode}
+                    onChange={(e) => setFormData({ ...formData, ncmCode: e.target.value })}
+                    placeholder="6109.10.00"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono text-[var(--accent-cyan)] uppercase block mb-1">
+                    Custo Fábrica PoD (R$)
+                  </label>
+                  <input
+                    type="number"
+                    step="0.01"
+                    value={formData.costFactoryPod}
+                    onChange={(e) => setFormData({ ...formData, costFactoryPod: e.target.value })}
+                    placeholder="49.00"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
+                  />
+                </div>
               </div>
 
               {/* 9:16 Image Selection Zone */}

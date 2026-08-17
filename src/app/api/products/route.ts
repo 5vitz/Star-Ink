@@ -1,9 +1,20 @@
 import { NextResponse } from 'next/server';
-import { getProducts, saveProducts, ExtendedProduct } from '@/lib/products';
+import { 
+  getProductsAsync, 
+  saveProductAsync, 
+  saveProductsListAsync, 
+  deleteProductAsync, 
+  ExtendedProduct 
+} from '@/lib/products';
 
 export async function GET() {
-  const products = getProducts();
-  return NextResponse.json(products);
+  try {
+    const products = await getProductsAsync();
+    return NextResponse.json(products);
+  } catch (error) {
+    console.error('Erro na rota GET /api/products:', error);
+    return NextResponse.json({ error: 'Erro ao buscar produtos.' }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
@@ -12,14 +23,12 @@ export async function POST(request: Request) {
 
     // Se o payload for um Array, salvar a lista completa (para reordenação Drag & Drop)
     if (Array.isArray(body)) {
-      const success = saveProducts(body);
+      const success = await saveProductsListAsync(body);
       if (!success) {
         return NextResponse.json({ error: 'Erro ao salvar reordenação.' }, { status: 500 });
       }
       return NextResponse.json({ success: true, count: body.length });
     }
-
-    const products = getProducts();
 
     if (!body.name || !body.code || !body.price) {
       return NextResponse.json(
@@ -29,7 +38,6 @@ export async function POST(request: Request) {
     }
 
     const id = body.id || `product-${Date.now()}`;
-    const existingIndex = products.findIndex((p) => p.id === id);
 
     const newProduct: ExtendedProduct = {
       id,
@@ -42,17 +50,16 @@ export async function POST(request: Request) {
       description: body.description || '',
       promptSchemaUrl: body.promptSchemaUrl || '',
       showImage: Boolean(body.showImage),
+      sortOrder: body.sortOrder !== undefined ? Number(body.sortOrder) : 0,
+      masterSku: body.masterSku || undefined,
+      ncmCode: body.ncmCode || '6109.10.00',
+      costFactoryPod: body.costFactoryPod ? Number(body.costFactoryPod) : 49.00,
+      originCode: body.originCode !== undefined ? Number(body.originCode) : 0,
     };
 
-    if (existingIndex >= 0) {
-      products[existingIndex] = newProduct;
-    } else {
-      products.push(newProduct);
-    }
-
-    const success = saveProducts(products);
+    const success = await saveProductAsync(newProduct);
     if (!success) {
-      return NextResponse.json({ error: 'Erro ao salvar no arquivo.' }, { status: 500 });
+      return NextResponse.json({ error: 'Erro ao salvar produto.' }, { status: 500 });
     }
 
     return NextResponse.json(newProduct);
@@ -71,12 +78,9 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'ID do produto é obrigatório.' }, { status: 400 });
     }
 
-    let products = getProducts();
-    products = products.filter((p) => p.id !== id);
-
-    const success = saveProducts(products);
+    const success = await deleteProductAsync(id);
     if (!success) {
-      return NextResponse.json({ error: 'Erro ao salvar alteração.' }, { status: 500 });
+      return NextResponse.json({ error: 'Erro ao deletar produto.' }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });

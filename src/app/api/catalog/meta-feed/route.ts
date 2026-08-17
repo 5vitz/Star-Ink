@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
-import { getProducts } from '@/lib/products';
+import { getProductsAsync } from '@/lib/products';
 
 export async function GET() {
   const baseUrl = process.env.NEXTAUTH_URL || 'https://www.star-ink.com.br';
-  const products = getProducts();
+  const products = await getProductsAsync();
 
   const itemsXml = products
+    .filter((p) => p.showImage !== false) // Somente produtos ativos com imagem visível
     .map((product) => {
       const productUrl = `${baseUrl}/#catalog`;
       const imageUrl = product.image.startsWith('http') ? product.image : `${baseUrl}${product.image}`;
