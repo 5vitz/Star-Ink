@@ -171,11 +171,11 @@ export default function MediaLibraryModal({
   });
 
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-start justify-center p-3 sm:p-6 pt-24 sm:pt-24 bg-black/90 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-5xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 my-0 max-h-[82vh] flex flex-col justify-between">
+    <div className="fixed inset-0 z-[9999] flex items-start justify-center p-3 sm:p-4 pt-20 sm:pt-24 bg-black/90 backdrop-blur-md overflow-hidden">
+      <div className="relative w-full max-w-5xl h-[calc(100vh-6.5rem)] max-h-[calc(100vh-6.5rem)] bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between overflow-hidden">
         
         {/* Header */}
-        <div className="flex justify-between items-start border-b border-[var(--border-subtle)] pb-4 shrink-0">
+        <div className="flex justify-between items-start border-b border-[var(--border-subtle)] pb-3 shrink-0">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-[var(--accent-cyan)] uppercase tracking-wider mb-1">
               <Sparkles className="w-4 h-4" />
@@ -198,7 +198,7 @@ export default function MediaLibraryModal({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 shrink-0 border-b border-[var(--border-subtle)] pb-4">
+        <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-3 shrink-0 border-b border-[var(--border-subtle)] py-3">
           <div className="flex gap-2">
             <button
               onClick={() => setActiveTab('gallery')}
@@ -249,8 +249,8 @@ export default function MediaLibraryModal({
           )}
         </div>
 
-        {/* Tab Body */}
-        <div className="flex-1 overflow-y-auto pr-1 min-h-[350px]">
+        {/* Tab Body - Scrollable Middle Zone */}
+        <div className="flex-1 overflow-y-auto min-h-0 pr-1 py-3">
           {activeTab === 'upload' ? (
             /* Upload Zone */
             <div

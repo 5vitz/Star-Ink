@@ -625,9 +625,9 @@ export default function CatalogModule() {
       />
 
       {mounted && isModalOpen && createPortal(
-        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-3 sm:p-6 pt-24 sm:pt-24 bg-black/90 backdrop-blur-md overflow-y-auto">
-          <div className="relative w-full max-w-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-5 sm:p-6 shadow-2xl space-y-5 my-0 max-h-[82vh] overflow-y-auto">
-            <div className="flex justify-between items-center border-b border-[var(--border-subtle)] pb-4">
+        <div className="fixed inset-0 z-[9999] flex items-start justify-center p-3 sm:p-4 pt-20 sm:pt-24 bg-black/90 backdrop-blur-md overflow-hidden">
+          <div className="relative w-full max-w-2xl h-[calc(100vh-6.5rem)] max-h-[calc(100vh-6.5rem)] bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between overflow-hidden">
+            <div className="flex justify-between items-center border-b border-[var(--border-subtle)] pb-3 shrink-0">
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[var(--accent-cyan)]" />
                 {editingProduct ? 'Editar Peça do Catálogo' : 'Cadastrar Nova Peça'}
@@ -640,7 +640,8 @@ export default function CatalogModule() {
               </button>
             </div>
 
-            <form onSubmit={handleSaveForm} className="space-y-4">
+            <form onSubmit={handleSaveForm} className="flex-1 flex flex-col min-h-0 justify-between">
+              <div className="flex-1 overflow-y-auto min-h-0 space-y-4 pr-1 py-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-[11px] font-mono text-[var(--text-muted)] uppercase block mb-1">
@@ -879,7 +880,7 @@ export default function CatalogModule() {
                 </button>
               </div>
 
-              <div className="flex justify-end gap-3 pt-4 border-t border-[var(--border-subtle)]">
+              <div className="flex justify-end gap-3 pt-4 border-t border-[var(--border-subtle)] shrink-0 mt-2">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
@@ -895,6 +896,7 @@ export default function CatalogModule() {
                   <Check className="w-4 h-4" />
                   <span>{saving ? 'Salvando...' : 'Salvar Peça'}</span>
                 </button>
+              </div>
               </div>
             </form>
           </div>
