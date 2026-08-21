@@ -1,11 +1,11 @@
 import os
 import subprocess
 
-html = '''<!DOCTYPE html>
+html_content = '''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Relatório de Performance - Elo Bike & Trips</title>
+<title>Relatório de Performance & Auditoria Estratégica - Elo Bike & Trips</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -262,7 +262,7 @@ html = '''<!DOCTYPE html>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 1 de 7</span>
+    <span>Página 1 de 9</span>
   </div>
 </div>
 
@@ -321,33 +321,33 @@ html = '''<!DOCTYPE html>
     </div>
   </div>
 
-  <h2><span class="badge-icon">⏰</span> Hábitos e Horários de Maior Engajamento</h2>
+  <h2><span class="badge-icon">⏰</span> Hábitos e Horários de Maior Engajamento (Horário de Brasília)</h2>
   <div class="card">
     <div class="grid-3">
       <div style="text-align: center; padding: 6px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
         <div style="font-size: 10pt; font-weight: 700; color: #0d9488;">📅 Terças-Feiras</div>
-        <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">03:30 AM</div>
-        <div style="font-size: 8pt; color: #64748b;">Consumo matinal denso</div>
+        <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">07:30 AM</div>
+        <div style="font-size: 8pt; color: #64748b;">Consumo matinal (Café da manhã)</div>
       </div>
       <div style="text-align: center; padding: 6px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
         <div style="font-size: 10pt; font-weight: 700; color: #0d9488;">📅 Quintas-Feiras</div>
-        <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">08:54 AM</div>
-        <div style="font-size: 8pt; color: #64748b;">Planejamento de rotina</div>
+        <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">12:54 PM</div>
+        <div style="font-size: 8pt; color: #64748b;">Pausa do Almoço / Rotina</div>
       </div>
       <div style="text-align: center; padding: 6px; background: white; border-radius: 8px; border: 1px solid #e2e8f0;">
         <div style="font-size: 10pt; font-weight: 700; color: #0d9488;">📅 Sábados</div>
-        <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">05:07 AM</div>
-        <div style="font-size: 8pt; color: #64748b;">Inspiração de fim de semana</div>
+        <div style="font-size: 14pt; font-weight: 800; color: #0f172a;">09:07 AM</div>
+        <div style="font-size: 8pt; color: #64748b;">Manhã de fim de semana</div>
       </div>
     </div>
     <p style="font-size: 8.5pt; color: #475569; margin-top: 8px; margin-bottom: 0;">
-      <strong>Didática dos Dados:</strong> O público maduro (45-64 anos) consome conteúdo denso nas primeiras horas da manhã, antes de iniciar seus compromissos diários. Postagens programadas para as primeiras horas do dia obtêm maior retenção.
+      <strong>Didática dos Dados (Ajuste Fuso BRT):</strong> O Meta Insights reporta dados no Horário do Pacífico (PST). Convertendo para Brasília (+4h), os picos reais de leitura da persona (45-64 anos) ocorrem às <strong>07:30 da manhã</strong> nas terças, no <strong>almoço (12:54)</strong> nas quintas e às <strong>09:07 da manhã</strong> aos sábados.
     </p>
   </div>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 2 de 7</span>
+    <span>Página 2 de 9</span>
   </div>
 </div>
 
@@ -419,7 +419,7 @@ html = '''<!DOCTYPE html>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 3 de 7</span>
+    <span>Página 3 de 9</span>
   </div>
 </div>
 
@@ -446,16 +446,16 @@ html = '''<!DOCTYPE html>
       <p style="font-size: 8pt; color: #475569; margin-top: 4px;">Carrossel sobre força feminina e cicloturismo inspiracional.</p>
     </div>
     <div class="metric-card">
-      <div style="font-size: 8pt; font-weight: 700; color: #0d9488; text-transform: uppercase;">Top Post #2 — Viagem Solo</div>
-      <div style="font-size: 11pt; font-weight: 800; color: #0f172a; margin: 4px 0;">1.301 Alcance Orgânico</div>
-      <div style="font-size: 8pt; color: #64748b;">34 Comentários (Recorde)</div>
-      <p style="font-size: 8pt; color: #475569; margin-top: 4px;">"Muita gente adia uma viagem por falta de companhia..."</p>
+      <div style="font-size: 8pt; font-weight: 700; color: #0d9488; text-transform: uppercase;">Top Post #2 — 10 Coisas de Ciclista</div>
+      <div style="font-size: 11pt; font-weight: 800; color: #0f172a; margin: 4px 0;">3.267 Views</div>
+      <div style="font-size: 8pt; color: #64748b;">184 Curtidas | 16 Compartilhamentos</div>
+      <p style="font-size: 8pt; color: #475569; margin-top: 4px;">Humor de nicho e pertencimento ("Tribo do Pedal").</p>
     </div>
     <div class="metric-card">
-      <div style="font-size: 8pt; font-weight: 700; color: #0d9488; text-transform: uppercase;">Top Post #3 — Wellness</div>
-      <div style="font-size: 11pt; font-weight: 800; color: #0f172a; margin: 4px 0;">2.800 Views</div>
-      <div style="font-size: 8pt; color: #64748b;">Foco em Desconexão</div>
-      <p style="font-size: 8pt; color: #475569; margin-top: 4px;">Paisagens paradisíacas e ritmo desacelerado na Bahia.</p>
+      <div style="font-size: 8pt; font-weight: 700; color: #0d9488; text-transform: uppercase;">Top Post #3 — Viagem Solo</div>
+      <div style="font-size: 11pt; font-weight: 800; color: #0f172a; margin: 4px 0;">2.799 Views</div>
+      <div style="font-size: 8pt; color: #64748b;">1.301 Alcance | 34 Comentários (Recorde)</div>
+      <p style="font-size: 8pt; color: #475569; margin-top: 4px;">"Muita gente adia uma viagem por falta de companhia..."</p>
     </div>
   </div>
 
@@ -489,7 +489,7 @@ html = '''<!DOCTYPE html>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 4 de 7</span>
+    <span>Página 4 de 9</span>
   </div>
 </div>
 
@@ -560,7 +560,7 @@ html = '''<!DOCTYPE html>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 5 de 7</span>
+    <span>Página 5 de 9</span>
   </div>
 </div>
 
@@ -574,20 +574,11 @@ html = '''<!DOCTYPE html>
 
   <h2><span class="badge-icon">🏛️</span> Benchmarking de Alto Padrão (Engenharia Reversa)</h2>
   
-  <div class="grid-2" style="margin-bottom: 12px;">
-    <div class="card">
-      <h3>🌐 Go Outside (Veículo & Estilo de Vida)</h3>
-      <p style="font-size: 8.5pt;">
-        Demonstra que o mercado outdoor absorveu as <strong>E-bikes (e-MTBs)</strong> como ferramenta legítima de luxo, bem-estar e inclusão física. Alta repercussão com histórias de mulheres no cicloturismo.
-      </p>
-    </div>
-
-    <div class="card card-teal">
-      <h3 style="color: #064e3b;">🏰 Bici Trip (Referência em Cicloturismo Premium)</h3>
-      <p style="font-size: 8.5pt;">
-        Disputa exatamente a mesma persona de alta renda (SP/RJ). Possui um funil digital cirúrgico na Bio: <strong>sem Linktree poluído</strong>, apenas 2 opções focadas em conversão e captura de leads.
-      </p>
-    </div>
+  <div class="card card-teal" style="margin-bottom: 14px;">
+    <h3 style="color: #064e3b;">🏰 Bici Trip (Referência em Cicloturismo Premium)</h3>
+    <p style="font-size: 8.5pt;">
+      Disputa exatamente a mesma persona de alta renda (SP/RJ). Possui um funil digital cirúrgico na Bio: <strong>sem Linktree poluído</strong>, apenas 2 opções focadas em conversão e captura de leads.
+    </p>
   </div>
 
   <h2><span class="badge-icon">⚖️</span> Tabela Comparativa Didática de Conversão</h2>
@@ -625,7 +616,7 @@ html = '''<!DOCTYPE html>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 6 de 7</span>
+    <span>Página 6 de 9</span>
   </div>
 </div>
 
@@ -640,7 +631,7 @@ html = '''<!DOCTYPE html>
   <h2><span class="badge-icon">📝</span> Proposta de Nova Bio para o Instagram</h2>
   <div class="card card-teal" style="margin-bottom: 14px; padding: 14px 18px;">
     <div style="font-family: monospace; font-size: 9.5pt; color: #064e3b; white-space: pre-wrap;">
-🌴 Elo Bike & Trips | Cicloturismo & Wellness no Sul da Bahia
+🌴 Elo Bike & Trips | Cicloturismo no Sul da Bahia
 🚴‍♀️ Pedais pensados para quem não é atleta profissional.
 ✨ Conforto, segurança, cultura e frotas de E-bikes.
 ⭐ Nota Máxima 5.0 no TripAdvisor.
@@ -693,7 +684,243 @@ html = '''<!DOCTYPE html>
 
   <div class="footer-bar">
     <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
-    <span>Página 7 de 7</span>
+    <span>Página 7 de 9</span>
+  </div>
+</div>
+
+<!-- PAGE 8: MATRIZ ESTRATÉGICA DE FORMATOS -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-brand">🌴 Elo Bike & Trips</div>
+    <div class="header-tag">Matriz de Formatos</div>
+    <div class="header-meta">Período: Maio - Julho / 2026</div>
+  </div>
+
+  <h2><span class="badge-icon">📊</span> Análise Estratégica por Formato de Conteúdo</h2>
+  
+  <div class="card card-teal" style="margin-bottom: 12px;">
+    <p style="font-size: 9pt; margin: 0;">
+      A análise comparativa por formato de mídia revela como o algoritmo e a audiência reagem a cada tipo de conteúdo. O formato <strong>Carrossel</strong> consolida-se como o motor de maior engajamento e retenção da marca.
+    </p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Formato de Mídia</th>
+        <th>Publicações</th>
+        <th>Alcance Médio</th>
+        <th>Visualizações Míd.</th>
+        <th>Curtidas Míd.</th>
+        <th>Comentários Míd.</th>
+        <th>Taxa Engajamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🎠 Carrossel</strong> <span style="background: #fef3c7; color: #92400e; font-weight: 800; font-size: 8pt; padding: 1px 6px; border-radius: 4px; border: 1px solid #fde68a;">Campeão Absoluto 🏆</span></td>
+        <td>26 posts</td>
+        <td><strong>721 contas</strong></td>
+        <td>1.494 viz.</td>
+        <td>56,6</td>
+        <td>6,2</td>
+        <td><strong style="color: #047857; font-size: 9.5pt;">8,87%</strong></td>
+      </tr>
+      <tr>
+        <td><strong>🎬 Reels (Vídeo Curto)</strong></td>
+        <td>23 posts</td>
+        <td>576 contas</td>
+        <td>732 viz.</td>
+        <td>36,7</td>
+        <td>5,1</td>
+        <td>7,60%</td>
+      </tr>
+      <tr>
+        <td><strong>🖼️ Imagem Única (Informativo)</strong></td>
+        <td>1 post</td>
+        <td>966 contas</td>
+        <td>1.850 viz.</td>
+        <td>49,0</td>
+        <td>10,0</td>
+        <td><strong>8,90%</strong></td>
+      </tr>
+      <tr>
+        <td><strong>📱 Stories</strong></td>
+        <td>95 telas</td>
+        <td>73,6 contas</td>
+        <td>86,6 viz.</td>
+        <td>--</td>
+        <td>--</td>
+        <td>Retenção Diária</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%); border: 1px solid #a7f3d0; border-left: 5px solid #047857; border-radius: 8px; padding: 12px 14px; margin-top: 14px; margin-bottom: 14px;">
+    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11pt; font-weight: 800; color: #064e3b; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+      🚀 Por que o formato CARROSSEL tem o Maior Potencial de Conversão?
+    </div>
+    <p style="font-size: 8.5pt; color: #166534; margin: 0 0 10px 0;">
+      Os dados provam que o Carrossel é o formato mais rentável e engajador para a Elo Bike & Trips. <strong>100% dos Top 5 conteúdos do trimestre foram Carrosséis.</strong>
+    </p>
+    <div class="grid-3">
+      <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px; font-size: 8.5pt; color: #166534; line-height: 1.35;">
+        <strong style="color: #064e3b; display: block; font-size: 9pt; margin-bottom: 4px;">1. Duplo Alcance do Algoritmo</strong>
+        O Instagram entrega o Carrossel duas vezes no feed do seguidor: na 1ª vez mostra a capa; se o usuário não interage, reexibe o post horas depois com a 2ª imagem.
+      </div>
+      <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px; font-size: 8.5pt; color: #166534; line-height: 1.35;">
+        <strong style="color: #064e3b; display: block; font-size: 9pt; margin-bottom: 4px;">2. Retenção & Storytelling Denso</strong>
+        A persona da Elo (mulheres de 35 a 64 anos) prefere leitura visual enriquecida e histórias reais antes de tomar decisões de viagem de alto valor.
+      </div>
+      <div style="background: #ffffff; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px; font-size: 8.5pt; color: #166534; line-height: 1.35;">
+        <strong style="color: #064e3b; display: block; font-size: 9pt; margin-bottom: 4px;">3. Campeão de Salvo & Envio</strong>
+        Carrosséis educativos e de quebra de objeções registram a maior taxa de salvamentos (📌) e compartilhamentos diretos no WhatsApp (🔄).
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 4px;">
+    <strong>💡 Recomendação Tática:</strong> Manter a frequência mínima de 3 Carrosséis por semana como o pilar central de conteúdo orgânico do feed, aproveitando o duplo alcance do algoritmo e a alta taxa de engajamento (8,87%).
+  </div>
+
+  <div class="footer-bar">
+    <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
+    <span>Página 8 de 9</span>
+  </div>
+</div>
+
+<!-- PAGE 9: TOP 5 CONTEÚDOS CAMPEÕES (EXATOS) -->
+<div class="page">
+  <div class="header-bar">
+    <div class="header-brand">🌴 Elo Bike & Trips</div>
+    <div class="header-tag">Destaques Comerciais</div>
+    <div class="header-meta">Período: Maio - Julho / 2026</div>
+  </div>
+
+  <h2><span class="badge-icon">🏆</span> Destaques Comerciais & Conteúdos Campeões (Top 5 Exatos)</h2>
+
+  <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+    <!-- TOP 1 -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 8px 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+        <div>
+          <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10pt; font-weight: 800; color: #064e3b; margin: 0 0 2px 0;">1. "Inspiração & Superação: A História de Lael Wilcox"</h4>
+          <p style="font-size: 8pt; color: #475569; font-style: italic; margin: 0;">📌 Legenda / Gancho: "Enquanto muita gente vê números, quilômetros e recordes, o que mais inspira..."</p>
+        </div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 7.5pt; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">1º LUGAR GERAL 🏆</span>
+      </div>
+      <div style="display: flex; gap: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 3px 8px; font-size: 7.5pt; color: #1e293b; font-weight: 600; margin: 4px 0;">
+        <span>🎠 <strong>Formato:</strong> Carrossel (16/06/2026)</span>
+        <span>👁️ <strong>4.389</strong> viz.</span>
+        <span>👥 <strong>2.298</strong> alcance</span>
+        <span>❤️ <strong>256</strong> curtidas</span>
+        <span>🔄 <strong>46</strong> compart.</span>
+        <span>💬 <strong>15</strong> coment.</span>
+        <span>📌 <strong>11</strong> salvos</span>
+      </div>
+      <div style="font-size: 8pt; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 3px 6px; border-radius: 4px;">
+        💡 <strong>Por que funcionou:</strong> Narrative storytelling inspirador sobre conquista feminina. Conectou com a força do público feminino (61,9%) e registrou o <strong>recorde absoluto de compartilhamentos no WhatsApp (46 envios)</strong>.
+      </div>
+    </div>
+
+    <!-- TOP 2 -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 8px 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+        <div>
+          <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10pt; font-weight: 800; color: #064e3b; margin: 0 0 2px 0;">2. "10 Coisas Completamente Normais Se Você É Ciclista"</h4>
+          <p style="font-size: 8pt; color: #475569; font-style: italic; margin: 0;">📌 Legenda / Gancho: "Quem pedala vai entender 😂🚲 — 10 coisas completamente normais se você é ciclista..."</p>
+        </div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 7.5pt; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">2º LUGAR GERAL 🥈</span>
+      </div>
+      <div style="display: flex; gap: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 3px 8px; font-size: 7.5pt; color: #1e293b; font-weight: 600; margin: 4px 0;">
+        <span>🎠 <strong>Formato:</strong> Carrossel (25/05/2026)</span>
+        <span>👁️ <strong>3.267</strong> viz.</span>
+        <span>👥 <strong>1.801</strong> alcance</span>
+        <span>❤️ <strong>184</strong> curtidas</span>
+        <span>🔄 <strong>16</strong> compart.</span>
+        <span>💬 <strong>4</strong> coment.</span>
+        <span>📌 <strong>5</strong> salvos</span>
+      </div>
+      <div style="font-size: 8pt; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 3px 6px; border-radius: 4px;">
+        💡 <strong>Por que funcionou:</strong> Humor de nicho e pertencimento ("Tribo do Pedal"). Gerou identificação imediata e forte marcação orgânica de amigos nos comentários.
+      </div>
+    </div>
+
+    <!-- TOP 3 -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 8px 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+        <div>
+          <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10pt; font-weight: 800; color: #064e3b; margin: 0 0 2px 0;">3. "Vencendo a Objeção de Viajar Sozinho (Comunidade Elo)"</h4>
+          <p style="font-size: 8pt; color: #475569; font-style: italic; margin: 0;">📌 Legenda / Gancho: "Muita gente adia uma viagem porque está esperando alguém dizer 'eu vou com você'..."</p>
+        </div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 7.5pt; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">3º LUGAR GERAL 🥉</span>
+      </div>
+      <div style="display: flex; gap: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 3px 8px; font-size: 7.5pt; color: #1e293b; font-weight: 600; margin: 4px 0;">
+        <span>🎠 <strong>Formato:</strong> Carrossel (25/07/2026)</span>
+        <span>👁️ <strong>2.799</strong> viz.</span>
+        <span>👥 <strong>1.301</strong> alcance</span>
+        <span>❤️ <strong>115</strong> curtidas</span>
+        <span>💬 <strong>34</strong> coment.</span>
+        <span>🔄 <strong>6</strong> compart.</span>
+        <span>📌 <strong>6</strong> salvos</span>
+      </div>
+      <div style="font-size: 8pt; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 3px 6px; border-radius: 4px;">
+        💡 <strong>Por que funcionou:</strong> Atacou a principal dor do público maduro feminino (medo de viajar só). Posicionou a Elo como comunidade acolhedora e gerou <strong>recorde em comentários diretos de intenção (34 comentários)</strong>.
+      </div>
+    </div>
+
+    <!-- TOP 4 -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 8px 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+        <div>
+          <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10pt; font-weight: 800; color: #064e3b; margin: 0 0 2px 0;">4. "Depoimento Espontâneo de Chegada (Caso Ivan — Prova Social)"</h4>
+          <p style="font-size: 8pt; color: #475569; font-style: italic; margin: 0;">📌 Legenda / Gancho: "Do nada, aquele depoimento espontâneo de quem está emocionado terminando uma viagem..."</p>
+        </div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 7.5pt; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">4º LUGAR GERAL 🏅</span>
+      </div>
+      <div style="display: flex; gap: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 3px 8px; font-size: 7.5pt; color: #1e293b; font-weight: 600; margin: 4px 0;">
+        <span>🎠 <strong>Formato:</strong> Carrossel (01/05/2026)</span>
+        <span>👁️ <strong>2.389</strong> viz.</span>
+        <span>👥 <strong>1.076</strong> alcance</span>
+        <span>❤️ <strong>92</strong> curtidas</span>
+        <span>💬 <strong>6</strong> coment.</span>
+        <span>📌 <strong>1</strong> salvo</span>
+      </div>
+      <div style="font-size: 8pt; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 3px 6px; border-radius: 4px;">
+        💡 <strong>Por que funcionou:</strong> Prova social autêntica gravada sem filtro na linha de chegada. Transmite transparência, autoridade e segurança inquestionável.
+      </div>
+    </div>
+
+    <!-- TOP 5 -->
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #059669; border-radius: 8px; padding: 8px 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+        <div>
+          <h4 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10pt; font-weight: 800; color: #064e3b; margin: 0 0 2px 0;">5. "Desmistificando Limites: 'Será Que Eu Dou Conta?' (Caso Vânia)"</h4>
+          <p style="font-size: 8pt; color: #475569; font-style: italic; margin: 0;">📌 Legenda / Gancho: "A maioria das pessoas não deixa de viver uma experiência porque não consegue..."</p>
+        </div>
+        <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 7.5pt; color: #047857; background: #d1fae5; border: 1px solid #a7f3d0; padding: 2px 6px; border-radius: 4px; white-space: nowrap;">5º LUGAR GERAL 🏅</span>
+      </div>
+      <div style="display: flex; gap: 10px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 3px 8px; font-size: 7.5pt; color: #1e293b; font-weight: 600; margin: 4px 0;">
+        <span>🎠 <strong>Formato:</strong> Carrossel (20/06/2026)</span>
+        <span>👁️ <strong>2.372</strong> viz.</span>
+        <span>👥 <strong>1.086</strong> alcance</span>
+        <span>❤️ <strong>92</strong> curtidas</span>
+        <span>💬 <strong>10</strong> coment.</span>
+        <span>📌 <strong>2</strong> salvos</span>
+      </div>
+      <div style="font-size: 8pt; color: #166534; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 3px 6px; border-radius: 4px;">
+        💡 <strong>Por que funcionou:</strong> Prova social humanizada desmistificando o mito de que "precisa ser atleta" para fazer uma cicloviagem no Sul da Bahia.
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; border-top: 1px solid #e2e8f0; padding-top: 6px; font-size: 8pt; color: #64748b;">
+    Elaborado por <strong>Ingrid Sinkovitz — Estratégia de Conteúdo & Análise de Dados</strong> • Elo Bike & Trips (@elobiketrips)
+  </div>
+
+  <div class="footer-bar">
+    <span>Elo Bike & Trips — Gestão Estratégica de Mídias Sociais</span>
+    <span>Página 9 de 9</span>
   </div>
 </div>
 
@@ -818,24 +1045,34 @@ html = '''<!DOCTYPE html>
 </html>
 '''
 
-with open('relatorio_elo_bike.html', 'w', encoding='utf-8') as f:
-    f.write(html)
+html_file = '/home/artz/Documentos/Antigravity/site-ingrid-sinkovitz/public/ANALISE_KPIs/relatorio_unificado_elo_bike.html'
+pdf_unificado = '/home/artz/Documentos/Antigravity/site-ingrid-sinkovitz/public/ANALISE_KPIs/Relatorio_Completo_Performance_Elo_Bike_Trips.pdf'
+pdf_unificado_01 = '/home/artz/Documentos/Antigravity/site-ingrid-sinkovitz/public/ANALISE_KPIs/01_Relatorio_Performance_Elo_Bike_Trips.pdf'
 
-pdf_outputs = [
-    '/home/artz/Documentos/Antigravity/site-ingrid-sinkovitz/public/ORGANIZAR/Relatorio_Performance_Elo_Bike_Trips.pdf',
-    '/home/artz/Documentos/Antigravity/site-ingrid-sinkovitz/public/ORGANIZAR/Cliente_ Elo Bike & Trips_ORGANIZADO.pdf'
+with open(html_file, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+cmd1 = [
+    'google-chrome',
+    '--headless',
+    '--no-sandbox',
+    '--disable-gpu',
+    f'--print-to-pdf={pdf_unificado}',
+    '--no-pdf-header-footer',
+    html_file
 ]
+subprocess.run(cmd1, capture_output=True, text=True)
 
-for out_path in pdf_outputs:
-    cmd = [
-        'google-chrome',
-        '--headless',
-        '--no-sandbox',
-        '--disable-gpu',
-        f'--print-to-pdf={out_path}',
-        '--no-pdf-header-footer',
-        'relatorio_elo_bike.html'
-    ]
-    res = subprocess.run(cmd, capture_output=True, text=True)
-    print(f'Generated: {out_path} | Size: {os.path.getsize(out_path)} bytes')
+cmd2 = [
+    'google-chrome',
+    '--headless',
+    '--no-sandbox',
+    '--disable-gpu',
+    f'--print-to-pdf={pdf_unificado_01}',
+    '--no-pdf-header-footer',
+    html_file
+]
+subprocess.run(cmd2, capture_output=True, text=True)
 
+print(f"Generated {pdf_unificado}: {os.path.getsize(pdf_unificado)} bytes")
+print(f"Updated {pdf_unificado_01}: {os.path.getsize(pdf_unificado_01)} bytes")

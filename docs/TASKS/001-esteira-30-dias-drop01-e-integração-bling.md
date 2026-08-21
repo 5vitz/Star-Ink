@@ -33,5 +33,6 @@
 - [ ] **Desenvolver Schema Prisma / PostgreSQL Multi-Supplier (Esqueleto):** (Em andamento - Lincoln).
 - [ ] **Configurar Integração API Bling ERP (Plano Cobalto):** (Em andamento - Lincoln).
 - [ ] **Desenvolver Vitrine 9:16 Next.js + GEO `/llms.txt`:** (Em andamento - Lincoln).
+- [ ] **Acompanhar Publicação RPI do INPI (25/08) & Reivindicar `@starink` no Instagram:** Acionar formulário de Trademark da Meta (`instagram.com/legal/trademark`) com o edital do INPI para obter o handle principal **`@starink`**.
 - [ ] **Aprovar Amostras Físicas + Go-to-Market Natal 2026:** (Marco Final).
 

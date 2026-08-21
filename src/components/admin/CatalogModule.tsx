@@ -461,57 +461,71 @@ export default function CatalogModule() {
                   : 'border-[var(--border-subtle)] hover:border-white/30'
               }`}
             >
-              {/* Media Preview Box 9:16 (Interactive Click to Open Media Picker) */}
+              {/* Media Preview Box 9:16 (3:4 Top Image + Info Area Preview) */}
               <div
                 onClick={() => handleOpenMediaPickerForCard(product)}
-                className="relative aspect-[9/16] w-full bg-black rounded-lg border border-[var(--border-subtle)] overflow-hidden flex items-center justify-center group cursor-pointer"
+                className="relative aspect-[9/16] w-full bg-black rounded-lg border border-[var(--border-subtle)] overflow-hidden flex flex-col group cursor-pointer"
                 title="Clique para abrir a Biblioteca de Mídias e selecionar a foto deste card"
               >
-                {product.showImage !== false && product.image ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="text-center p-4 space-y-3">
-                    <span className="text-xs font-mono text-amber-400 font-bold block">
-                      CARD SEM MÍDIA / FUNDO PRETO
+                <div className="relative aspect-[3/4] w-full bg-zinc-950 overflow-hidden shrink-0 flex items-center justify-center">
+                  {product.showImage !== false && product.image ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="text-center p-4 space-y-3">
+                      <span className="text-xs font-mono text-amber-400 font-bold block">
+                        CARD SEM MÍDIA / FUNDO PRETO
+                      </span>
+                      <span className="text-[10px] font-mono text-zinc-400 block bg-white/10 px-3 py-1.5 rounded-lg border border-white/20 group-hover:border-[var(--accent-cyan)] group-hover:text-[var(--accent-cyan)] transition-colors">
+                        👈 Clique para selecionar mídia 3:4 / 9:16
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Status Badges Overlay */}
+                  <div className="absolute top-2 left-2 flex items-center gap-1.5 z-10">
+                    <span className="cursor-grab active:cursor-grabbing p-1 rounded bg-black/80 text-zinc-400 hover:text-white border border-white/20">
+                      <GripVertical className="w-3.5 h-3.5" />
                     </span>
-                    <span className="text-[10px] font-mono text-zinc-400 block bg-white/10 px-3 py-1.5 rounded-lg border border-white/20 group-hover:border-[var(--accent-cyan)] group-hover:text-[var(--accent-cyan)] transition-colors">
-                      👈 Clique aqui para abrir a Biblioteca de Mídias
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/80 text-white border border-white/20">
+                      {product.code}
                     </span>
                   </div>
-                )}
+
+                  <div className="absolute top-2 right-2 z-10">
+                    <span
+                      className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                        product.showImage !== false && product.image
+                          ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                          : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                      }`}
+                    >
+                      {product.showImage !== false && product.image ? 'Exibindo' : 'Fundo Preto'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Bottom White Info Box Preview */}
+                <div className="flex-1 w-full bg-white p-3 flex flex-col justify-between text-black">
+                  <div className="flex justify-between items-start gap-1">
+                    <span className="text-xs font-bold font-mono line-clamp-1">{product.code} {product.name}</span>
+                    <span className="text-xs font-bold font-mono shrink-0">R$ {product.price.toFixed(2)}</span>
+                  </div>
+                  <div className="text-[10px] font-mono text-zinc-600 flex justify-between border-t border-zinc-200 pt-1">
+                    <span>100% Algodão • DTG</span>
+                    <span className="text-emerald-700 font-bold">R$ {product.pixPrice.toFixed(2)} PIX</span>
+                  </div>
+                </div>
 
                 {/* Hover Overlay Button */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 space-y-2 text-center backdrop-blur-[2px]">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 space-y-2 text-center backdrop-blur-[2px] z-20">
                   <MousePointerClick className="w-6 h-6 text-[var(--accent-cyan)] animate-bounce" />
                   <span className="text-xs font-mono font-bold text-white bg-black/80 px-3 py-1.5 rounded-lg border border-white/20">
-                    {product.image ? 'Alterar Mídia do Card' : 'Vincular Mídia 9:16'}
-                  </span>
-                </div>
-
-                {/* Status Badges Overlay */}
-                <div className="absolute top-2 left-2 flex items-center gap-1.5 z-10">
-                  <span className="cursor-grab active:cursor-grabbing p-1 rounded bg-black/80 text-zinc-400 hover:text-white border border-white/20">
-                    <GripVertical className="w-3.5 h-3.5" />
-                  </span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-black/80 text-white border border-white/20">
-                    {product.code}
-                  </span>
-                </div>
-
-                <div className="absolute top-2 right-2 z-10">
-                  <span
-                    className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                      product.showImage !== false && product.image
-                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                        : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                    }`}
-                  >
-                    {product.showImage !== false && product.image ? 'Exibindo na Vitrine' : 'Fundo Preto'}
+                    {product.image ? 'Alterar Mídia do Card' : 'Vincular Mídia 3:4'}
                   </span>
                 </div>
               </div>

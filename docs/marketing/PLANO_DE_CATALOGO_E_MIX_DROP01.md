@@ -2,8 +2,8 @@
 
 > **Website Oficial:** `www.star-ink.com.br`  
 > **Instagram Oficial:** `@starink.oficial`  
-> **Conceito:** Multiplicação das 12 Artes Mestre em Categorias de Moda Autoral & Acessórios  
-> **Última Atualização:** Agosto de 2026  
+> **Conceito:** Multiplicação das Artes Autorais Mestre em Categorias de Moda Autoral & Acessórios (Pesquisa de temas em Agosto / Construção das Artes a partir de 01/Setembro)  
+> **Última Atualização:** 19 de Agosto de 2026  
 
 ---
 

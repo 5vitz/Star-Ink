@@ -10,11 +10,15 @@
 
 ## 🎯 1. Objetivos da Alteração Contratual
 
-1. **Alteração da Razão Social:** Transição de Studio X LTDA para **STAR INK LTDA**.
-2. **Atualização da Matriz de CNAEs:**
+1. **Manutenção da Razão Social & Inclusão do Nome Fantasia:** Manutenção de **Studio X LTDA** como Razão Social jurídica e cadastro de **STAR INK** como Nome Fantasia/Comercial na Receita Federal.
+2. **Transição para Sociedade Limitada Unipessoal (SLU):** Exclusão/saída do sócio minoritário (1%) com transferência total das quotas para Armando Sinkovitz (100%), consolidando a empresa como **Sociedade Limitada Unipessoal (SLU)** com amparo no Art. 1.052, § 1º e § 2º do Código Civil (Lei nº 13.874/2019 - Lei da Liberdade Econômica). Mantém-se a proteção patrimonial da LTDA com um único sócio.
+3. **Atualização da Matriz de CNAEs & Endereço:**
    * `4781-4/00` (Principal): Comércio Varejista de Artigos do Vestuário e Acessórios.
    * `4790-3/00` (Secundário): Comércio Varejista via Internet (E-commerce D2C / Marketplaces).
-   * `7410-2/02` (Secundário): Design Gráfico e Criação de Artes.
+   * `7410-2/02` (Secundário): Design Gráfico e Criação de Artes/Modelos 3D.
+   * `4783-1/01` (Secundário - Joalheria): Comércio Varejista de Artigos de Joalheria / Prata 925 (Anexo I Simples Nacional).
+   * `3211-6/02` (Secundário - Fundição/Ourivesaria): Fabricação de Artefatos de Joalheria / Cera Perdida (Anexo II Simples Nacional).
+   * **Mudança de Endereço Comercial/Sede:** Atualização do endereço da empresa no Estado do Espírito Santo.
 3. **Emissão de Inscrição Estadual (SEFAZ-ES):** Habilitação de I.E. automática no ES para emissão de NF-e Modelo 55 via Bling ERP.
 4. **Enquadramento Tributário:** Simples Nacional (Anexo I - alíquota inicial ~4% no DAS) com distribuição de lucros 100% isenta no IRPF.
 5. **Proteção da Marca INPI (Classe 25 - Vestuário):** Pesquisa de anterioridade realizada com sucesso no INPI em 16/08/2026. **PEDIDO PROTOCOLADO COM SUCESSO!**
@@ -60,10 +64,16 @@
 
 ## 📋 4. Checklist do Protocolo no Simplifica ES
 
-- [x] **Pagar DARFs de multa de inatividade:** (Concluído).
-- [ ] **Confirmar alteração de INAPTA para ATIVA no e-CAC:** (Aguardando prazo de 72h).
-- [ ] **Iniciar Consulta Prévia no Simplifica ES:** Reservar o nome **STAR INK LTDA**.
-- [ ] **Preencher Ficha de Cadastro Nacional (FCN):** Incluir os CNAEs `4781-4/00`, `4790-3/00` e `7410-2/02`.
+- [x] **Pagar DARFs de multa de inatividade (2021-2024):** Concluído.
+- [x] **Confirmar arrecadação no e-CAC:** Confirmadas em 14/08/2026 as 4 guias DARF (Código 1345 - MAED, R$ 100,00 cada, total R$ 400,00) referentes aos períodos de apuração de 2021, 2022, 2023 e 2024!
+- [x] **Transmitir DCTFs de Inatividade (2021 a 2024):** Concluído! Transmitidas via ReceitaNet com recibos e dados arquivados em [`docs/juridico/CNPJ/Declarações_21a24`](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/juridico/CNPJ/Declara%C3%A7%C3%B5es_21a24).
+- [x] **Transmitir DCTFWeb Sem Movimento (01/2025):** CONCLUÍDO COM SUCESSO EM 21/08/2026! Transmitida via MIT/DCTFWeb no e-CAC com "Transmissão Imediata" e saldo R$ 0,00. As omissões de 2025 e 2026 foram desativadas automaticamente em cascata.
+- [x] **Transmitir Pedido Eletrônico de REDARF (21/08/2026):** CONCLUÍDO COM SUCESSO! Protocolo Nº `8cce.8819.40b1.610c` recepcionado no e-CAC para retificação da DARF (Nº `1939321265`), alterando o Período de Apuração de `22/03/2022` para `23/03/2022` e vinculando o Lançamento de Ofício de R$ 200,00.
+- [ ] **Pagar DARF MAED DCTFWeb (R$ 100,00):** Baixar e pagar a guia com 50% de desconto emitida no portal DCTFWeb.
+- [ ] **Acompanhar Publicação na RPI do INPI (Terça-Feira 25/08):** Monitorar a publicação da Revista da Propriedade Industrial para o Processo Nº `944841171`.
+- [ ] **Reivindicação do Handle `@starink` no Instagram:** Assim que formalizada a publicação na RPI do INPI, acionar o suporte de Propriedade Intelectual da Meta (`instagram.com/legal/trademark`) com o comprovante do RPI/INPI para reivindicação/migração do handle de marca **`@starink`** (atualmente `@starink.oficial`).
+- [ ] **Iniciar Consulta Prévia no Simplifica ES:** Manter a Razão Social **Studio X LTDA** e cadastrar o Nome Fantasia **STAR INK**.
+- [ ] **Preencher Ficha de Cadastro Nacional (FCN):** Incluir os CNAEs `4781-4/00`, `4790-3/00`, `7410-2/02`, `4783-1/01` (Joalheria/Prata) e `3211-6/02` (Fundição/Ourivesaria).
 - [ ] **Assinar o Contrato Social no Simplifica ES:** Utilizar a chave da **Conta Gov.br OURO**.
 - [ ] **Emitir e pagar a Guia DUA JUCEES (R$ 220,00).**
 - [ ] **Acompanhar deferimento da JUCEES & Emissão da I.E. na SEFAZ-ES.**
