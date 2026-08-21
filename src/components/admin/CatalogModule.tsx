@@ -30,6 +30,7 @@ export default function CatalogModule() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('ALL');
+  const [supplierFilter, setSupplierFilter] = useState('ALL');
   
   // Media Library Modal state
   const [isMediaLibraryOpen, setIsMediaLibraryOpen] = useState(false);
@@ -57,6 +58,9 @@ export default function CatalogModule() {
     masterSku: '',
     ncmCode: '6109.10.00',
     costFactoryPod: '49.00',
+    supplierProvider: 'RESERVA_INK',
+    supplierSku: '',
+    printFileUrl: '',
   });
 
   const [isUploading, setIsUploading] = useState(false);
@@ -183,6 +187,9 @@ export default function CatalogModule() {
         masterSku: product.masterSku || `STINK-TSHIRT-${(product.name || 'PECA').toUpperCase().replace(/\s+/g, '-')}`,
         ncmCode: product.ncmCode || '6109.10.00',
         costFactoryPod: product.costFactoryPod ? String(product.costFactoryPod) : '49.00',
+        supplierProvider: product.supplierProvider || 'RESERVA_INK',
+        supplierSku: product.supplierSku || '',
+        printFileUrl: product.printFileUrl || '',
       });
     } else {
       setEditingProduct(null);
@@ -200,6 +207,9 @@ export default function CatalogModule() {
         masterSku: `STINK-TSHIRT-PECA-${products.length + 1}`,
         ncmCode: '6109.10.00',
         costFactoryPod: '49.00',
+        supplierProvider: 'RESERVA_INK',
+        supplierSku: '',
+        printFileUrl: '',
       });
     }
     setIsModalOpen(true);
@@ -251,6 +261,9 @@ export default function CatalogModule() {
       masterSku: formData.masterSku,
       ncmCode: formData.ncmCode,
       costFactoryPod: parseFloat(formData.costFactoryPod) || 49.0,
+      supplierProvider: formData.supplierProvider,
+      supplierSku: formData.supplierSku,
+      printFileUrl: formData.printFileUrl,
     };
 
     try {
@@ -311,7 +324,9 @@ export default function CatalogModule() {
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.code.toLowerCase().includes(search.toLowerCase());
     const matchesCat = categoryFilter === 'ALL' || p.category === categoryFilter;
-    return matchesSearch && matchesCat;
+    const matchesSupplier =
+      supplierFilter === 'ALL' || (p.supplierProvider || 'RESERVA_INK') === supplierFilter;
+    return matchesSearch && matchesCat && matchesSupplier;
   });
 
   const totalProducts = products.length;
@@ -416,7 +431,21 @@ export default function CatalogModule() {
             💡 Dica: Arraste os cards para reordenar a vitrine em tempo real
           </span>
 
-          <div className="flex gap-2 w-full sm:w-auto overflow-x-auto">
+          <div className="flex gap-2 w-full sm:w-auto overflow-x-auto items-center">
+            {/* Supplier Filter Dropdown */}
+            <select
+              value={supplierFilter}
+              onChange={(e) => setSupplierFilter(e.target.value)}
+              className="bg-[var(--bg-main)] text-white border border-[var(--border-subtle)] px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-[var(--accent-cyan)]"
+            >
+              <option value="ALL">Todos os Fornecedores</option>
+              <option value="RESERVA_INK">Reserva INK</option>
+              <option value="DIMONA">Dimona PoD</option>
+              <option value="PRIVATE_LABEL">Private Label (Moda Praia)</option>
+              <option value="HOTPRINTI">Hotprinti</option>
+              <option value="PRINTFUL">Printful Brasil</option>
+            </select>
+
             {['ALL', 'Tarô Negro', 'Oversized', 'Edição Mestre'].map((cat) => (
               <button
                 key={cat}
@@ -427,7 +456,7 @@ export default function CatalogModule() {
                     : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-white'
                 }`}
               >
-                {cat === 'ALL' ? 'Todas' : cat}
+                {cat === 'ALL' ? 'Todas Cat.' : cat}
               </button>
             ))}
           </div>
@@ -534,9 +563,14 @@ export default function CatalogModule() {
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <span className="text-[10px] font-mono text-[var(--accent-cyan)] uppercase tracking-wider block font-bold">
-                      {product.drop || 'Drop 01'} • {product.category}
-                    </span>
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-[10px] font-mono text-[var(--accent-cyan)] uppercase tracking-wider block font-bold">
+                        {product.drop || 'Drop 01'} • {product.category}
+                      </span>
+                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase">
+                        {product.supplierProvider || 'RESERVA_INK'}
+                      </span>
+                    </div>
                     <h3 className="text-sm font-bold text-white tracking-tight">
                       {product.name}
                     </h3>
@@ -821,6 +855,52 @@ export default function CatalogModule() {
                     onChange={(e) => setFormData({ ...formData, costFactoryPod: e.target.value })}
                     placeholder="49.00"
                     className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* Bloco de Roteamento Multi-Fornecedor */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-[var(--border-subtle)]">
+                <div>
+                  <label className="text-[11px] font-mono text-emerald-400 uppercase block mb-1">
+                    Fornecedor Responsável *
+                  </label>
+                  <select
+                    value={formData.supplierProvider}
+                    onChange={(e) => setFormData({ ...formData, supplierProvider: e.target.value })}
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400 font-mono"
+                  >
+                    <option value="RESERVA_INK">Reserva INK</option>
+                    <option value="DIMONA">Dimona PoD</option>
+                    <option value="PRIVATE_LABEL">Private Label (Moda Praia)</option>
+                    <option value="HOTPRINTI">Hotprinti</option>
+                    <option value="PRINTFUL">Printful Brasil</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono text-emerald-400 uppercase block mb-1">
+                    SKU no Fornecedor
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.supplierSku}
+                    onChange={(e) => setFormData({ ...formData, supplierSku: e.target.value })}
+                    placeholder="Ex: RES-INK-FADA-G"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400 font-mono"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-mono text-emerald-400 uppercase block mb-1">
+                    Arquivo Estampa 300DPI
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.printFileUrl}
+                    onChange={(e) => setFormData({ ...formData, printFileUrl: e.target.value })}
+                    placeholder="Ex: /FORNECEDORES/Reserva INK/Artes/..."
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-400 font-mono"
                   />
                 </div>
               </div>

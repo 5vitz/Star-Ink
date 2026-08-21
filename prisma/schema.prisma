@@ -27,6 +27,11 @@ model Product {
   costFactoryPod  Float?   @default(49.00)
   originCode      Int?     @default(0)
   weightGrams     Int?     @default(220)
+
+  // Multi-Supplier Integration Fields
+  supplierProvider String?  @default("RESERVA_INK")
+  supplierSku      String?
+  printFileUrl     String?
   
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt

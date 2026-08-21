@@ -34,6 +34,7 @@ export default function ProducaoModule() {
   const [samples, setSamples] = useState<SampleOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'kanban' | 'amostras' | 'suppliers'>('kanban');
+  const [supplierFilter, setSupplierFilter] = useState<string>('ALL');
 
   // Sample Modal state
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
@@ -231,9 +232,43 @@ export default function ProducaoModule() {
 
       {/* TAB 1: Esteira Kanban PoD (5 Etapas) */}
       {activeTab === 'kanban' && (
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 overflow-x-auto min-w-[1000px] md:min-w-0">
-          {KANBAN_STAGES.map((stage) => {
-            const stageOrders = orders.filter((o) => o.stage === stage);
+        <div className="space-y-4">
+          {/* Supplier Filter Bar */}
+          <div className="flex items-center justify-between bg-[var(--bg-card)] p-3 rounded-xl border border-[var(--border-subtle)]">
+            <span className="text-xs font-mono text-zinc-300 font-semibold flex items-center gap-2">
+              <Tag className="w-4 h-4 text-emerald-400" />
+              Filtrar Pedidos por Fornecedor:
+            </span>
+            <div className="flex gap-2 font-mono text-xs">
+              {[
+                { id: 'ALL', label: 'Todos os Fornecedores' },
+                { id: 'Reserva INK PoD', label: 'Reserva INK' },
+                { id: 'Dimona PoD', label: 'Dimona PoD' },
+                { id: 'Private Label CMT', label: 'Private Label' },
+              ].map((sup) => (
+                <button
+                  key={sup.id}
+                  onClick={() => setSupplierFilter(sup.id)}
+                  className={`px-3 py-1.5 rounded-lg transition-colors ${
+                    supplierFilter === sup.id
+                      ? 'bg-white text-black font-bold'
+                      : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-white'
+                  }`}
+                >
+                  {sup.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 overflow-x-auto min-w-[1000px] md:min-w-0">
+            {KANBAN_STAGES.map((stage) => {
+              const stageOrders = orders.filter((o) => {
+                const matchesStage = o.stage === stage;
+                const matchesSupplier =
+                  supplierFilter === 'ALL' || o.supplier.toLowerCase().includes(supplierFilter.toLowerCase());
+                return matchesStage && matchesSupplier;
+              });
 
             return (
               <div
@@ -312,6 +347,7 @@ export default function ProducaoModule() {
               </div>
             );
           })}
+          </div>
         </div>
       )}
 

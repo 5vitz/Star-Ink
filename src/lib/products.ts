@@ -11,6 +11,9 @@ export interface ExtendedProduct extends Product {
   ncmCode?: string;
   costFactoryPod?: number;
   originCode?: number;
+  supplierProvider?: string;
+  supplierSku?: string;
+  printFileUrl?: string;
 }
 
 const PRODUCTS_FILE_PATH = path.join(process.cwd(), 'public', 'data', 'products.json');
@@ -76,6 +79,9 @@ export async function getProductsAsync(): Promise<ExtendedProduct[]> {
           ncmCode: p.ncmCode || undefined,
           costFactoryPod: p.costFactoryPod || undefined,
           originCode: p.originCode || undefined,
+          supplierProvider: p.supplierProvider || 'RESERVA_INK',
+          supplierSku: p.supplierSku || undefined,
+          printFileUrl: p.printFileUrl || undefined,
         }));
       }
     } catch (err) {
@@ -108,6 +114,9 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           ncmCode: product.ncmCode,
           costFactoryPod: product.costFactoryPod,
           originCode: product.originCode,
+          supplierProvider: product.supplierProvider || 'RESERVA_INK',
+          supplierSku: product.supplierSku,
+          printFileUrl: product.printFileUrl,
         },
         create: {
           id: product.id,
@@ -126,6 +135,9 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           ncmCode: product.ncmCode,
           costFactoryPod: product.costFactoryPod,
           originCode: product.originCode,
+          supplierProvider: product.supplierProvider || 'RESERVA_INK',
+          supplierSku: product.supplierSku,
+          printFileUrl: product.printFileUrl,
         },
       });
     } catch (err) {
