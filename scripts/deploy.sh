@@ -143,11 +143,10 @@ else
 fi
 
 # Aguarda a confirmação do usuário antes de encerrar o terminal
-echo ""
-echo "============================================================"
-if [ -e /dev/tty ]; then
+if [ -t 0 ] && [ -e /dev/tty ]; then
+  echo ""
+  echo "============================================================"
   read -r -p "Pressione [Enter] para fechar esta janela..." </dev/tty || true
-else
-  read -r -p "Pressione [Enter] para fechar esta janela..." || true
 fi
+
 
