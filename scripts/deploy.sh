@@ -87,11 +87,11 @@ ADMIN_EMAIL="${ADMIN_EMAIL}"
 ADMIN_PASSWORD="${ADMIN_PASSWORD}"
 ENVFILE
 
-  # Carrega variáveis de ambiente comuns para garantir que o PM2 e Node sejam localizados
-  export PATH=\$PATH:/usr/local/bin:/usr/bin:/root/.nvm/versions/node/*/bin
-  [ -s "\$HOME/.nvm/nvm.sh" ] && \. "\$HOME/.nvm/nvm.sh"
-  [ -s "\$HOME/.profile" ] && \. "\$HOME/.profile"
-  [ -s "\$HOME/.bashrc" ] && \. "\$HOME/.bashrc"
+  # Carrega variáveis de ambiente comuns para garantir que o PM2 e Node sejam localizados na VPS
+  export PATH=$PATH:/usr/local/bin:/usr/bin:/root/.nvm/versions/node/$(ls /root/.nvm/versions/node 2>/dev/null | tail -n 1)/bin
+  [ -s "/root/.nvm/nvm.sh" ] && . "/root/.nvm/nvm.sh"
+  [ -s "/root/.profile" ] && . "/root/.profile"
+  [ -s "/root/.bashrc" ] && . "/root/.bashrc"
   
   # Se houver package.json, instala dependências e compila
   if [ -f "package.json" ]; then
@@ -119,8 +119,10 @@ ENVFILE
   echo "✅ DEPLOY CONCLUÍDO COM SUCESSO NA VPS CONTABO!"
 EOF
 
+DEPLOY_STATUS=$?
+
 # Notificação local de conclusão e abertura de navegador
-if [ $? -eq 0 ]; then
+if [ $DEPLOY_STATUS -eq 0 ]; then
   if command -v notify-send >/dev/null 2>&1; then
     if [ -f "$LOGO_ICON" ]; then
       notify-send -i "$LOGO_ICON" "STAR INK" "Deploy concluído com sucesso na Contabo!"
@@ -128,8 +130,8 @@ if [ $? -eq 0 ]; then
       notify-send "STAR INK" "Deploy concluído com sucesso na Contabo!"
     fi
   fi
-  # Abre o site oficial seguro
-  firefox "https://www.star-ink.com.br" &
+  # Abre o site oficial seguro no navegador padrão
+  xdg-open "https://www.star-ink.com.br" &>/dev/null & || firefox "https://www.star-ink.com.br" &>/dev/null &
 else
   if command -v notify-send >/dev/null 2>&1; then
     if [ -f "$LOGO_ICON" ]; then
@@ -140,8 +142,12 @@ else
   fi
 fi
 
-# Se o script estiver rodando em um terminal interativo, aguarda o Enter
-if [ -t 0 ]; then
-  echo ""
-  read -p "Pressione [Enter] para fechar esta janela..."
+# Aguarda a confirmação do usuário antes de encerrar o terminal
+echo ""
+echo "============================================================"
+if [ -e /dev/tty ]; then
+  read -r -p "Pressione [Enter] para fechar esta janela..." </dev/tty || true
+else
+  read -r -p "Pressione [Enter] para fechar esta janela..." || true
 fi
+
