@@ -7,22 +7,41 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Artwork {
+  id               String    @id @default(uuid())
+  code             String    @unique // ex: STINK-ART-017
+  title            String    // ex: XVII. A ESTRELA
+  concept          String?   // Conceito filosófico / Estética da Subtração
+  promptSchemaUrl  String?   // JSON Schema A3
+  masterPrintUrl   String?   // Caminho PNG 4200x4800 300DPI (/FORNECEDORES/Reserva INK/Artes/...)
+  defaultSupplier  String?   @default("RESERVA_INK")
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  products         Product[]
+}
+
 model Product {
   id              String   @id @default(uuid())
   code            String
   name            String
   price           Float    @default(180.00)
   pixPrice        Float    @default(171.00)
+  productType     String   @default("CAMISETA") // CAMISETA, MOLETOM, BERMUDA, QUADRO_FINE_ART, ECOBAG
   category        String   @default("Tarô Negro")
-  drop            String?  @default("Drop 01")
+  drop            String?  @default("Drop 01 — Tarô Negro")
   dropDate        String?  @default("2026-10-01")
   description     String?
   promptSchemaUrl String?
-  image           String?
+  image           String?  // WebP 9:16
   showImage       Boolean  @default(true)
   sortOrder       Int      @default(0)
 
-  // Canonical Multichannel Fields
+  // Relacionamento com a Arte Matriz
+  artworkId       String?
+  artwork         Artwork? @relation(fields: [artworkId], references: [id], onDelete: SetNull)
+
+  // Roteamento de Fábrica / Canais
   masterSku       String?
   ncmCode         String?  @default("6109.10.00")
   costFactoryPod  Float?   @default(49.00)

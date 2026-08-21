@@ -6,6 +6,8 @@ import { prisma } from './db';
 export interface ExtendedProduct extends Product {
   drop?: string;
   dropDate?: string;
+  productType?: string;
+  artworkId?: string;
   showImage?: boolean;
   sortOrder?: number;
   masterSku?: string;
@@ -69,9 +71,11 @@ export async function getProductsAsync(): Promise<ExtendedProduct[]> {
           name: p.name,
           price: p.price,
           pixPrice: p.pixPrice,
+          productType: p.productType || 'CAMISETA',
           category: p.category,
-          drop: p.drop || 'Drop 01',
+          drop: p.drop || 'Drop 01 — Tarô Negro',
           dropDate: p.dropDate || undefined,
+          artworkId: p.artworkId || undefined,
           description: p.description || '',
           promptSchemaUrl: p.promptSchemaUrl || '',
           image: p.image || '',
@@ -105,9 +109,11 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           name: product.name,
           price: product.price,
           pixPrice: product.pixPrice,
+          productType: product.productType || 'CAMISETA',
           category: product.category,
-          drop: product.drop || 'Drop 01',
+          drop: product.drop || 'Drop 01 — Tarô Negro',
           dropDate: product.dropDate,
+          artworkId: product.artworkId,
           description: product.description,
           promptSchemaUrl: product.promptSchemaUrl,
           image: product.image,
@@ -127,9 +133,11 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           name: product.name,
           price: product.price,
           pixPrice: product.pixPrice,
+          productType: product.productType || 'CAMISETA',
           category: product.category,
-          drop: product.drop || 'Drop 01',
+          drop: product.drop || 'Drop 01 — Tarô Negro',
           dropDate: product.dropDate,
+          artworkId: product.artworkId,
           description: product.description,
           promptSchemaUrl: product.promptSchemaUrl,
           image: product.image,
