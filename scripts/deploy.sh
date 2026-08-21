@@ -131,7 +131,7 @@ if [ $DEPLOY_STATUS -eq 0 ]; then
     fi
   fi
   # Abre o site oficial seguro no navegador padrão
-  xdg-open "https://www.star-ink.com.br" &>/dev/null & || firefox "https://www.star-ink.com.br" &>/dev/null &
+  ( xdg-open "https://www.star-ink.com.br" || firefox "https://www.star-ink.com.br" ) &>/dev/null &
 else
   if command -v notify-send >/dev/null 2>&1; then
     if [ -f "$LOGO_ICON" ]; then
