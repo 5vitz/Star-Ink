@@ -15,6 +15,7 @@ model Product {
   pixPrice        Float    @default(171.00)
   category        String   @default("Tarô Negro")
   drop            String?  @default("Drop 01")
+  dropDate        String?  @default("2026-10-01")
   description     String?
   promptSchemaUrl String?
   image           String?

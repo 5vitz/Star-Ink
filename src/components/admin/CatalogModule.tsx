@@ -29,7 +29,8 @@ export default function CatalogModule() {
   const [products, setProducts] = useState<ExtendedProduct[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('ALL');
+  const [dropFilter, setDropFilter] = useState('ALL');
+  const [dropDateFilter, setDropDateFilter] = useState('ALL');
   const [supplierFilter, setSupplierFilter] = useState('ALL');
   
   // Media Library Modal state
@@ -50,7 +51,8 @@ export default function CatalogModule() {
     price: '180.00',
     pixPrice: '171.00',
     category: 'Tarô Negro',
-    drop: 'Drop 01',
+    drop: 'Drop 01 — Tarô Negro',
+    dropDate: '2026-10-01',
     description: '',
     promptSchemaUrl: '',
     image: '',
@@ -179,7 +181,8 @@ export default function CatalogModule() {
         price: product.price ? String(product.price) : '180.00',
         pixPrice: product.pixPrice ? String(product.pixPrice) : '171.00',
         category: product.category || 'Tarô Negro',
-        drop: product.drop || 'Drop 01',
+        drop: product.drop || 'Drop 01 — Tarô Negro',
+        dropDate: product.dropDate || '2026-10-01',
         description: product.description || '',
         promptSchemaUrl: product.promptSchemaUrl || '',
         image: product.image || '',
@@ -199,7 +202,8 @@ export default function CatalogModule() {
         price: '180.00',
         pixPrice: '171.00',
         category: 'Tarô Negro',
-        drop: 'Drop 01',
+        drop: 'Drop 01 — Tarô Negro',
+        dropDate: '2026-10-01',
         description: '',
         promptSchemaUrl: '',
         image: '',
@@ -253,7 +257,8 @@ export default function CatalogModule() {
       price: parseFloat(formData.price) || 180.0,
       pixPrice: parseFloat(formData.pixPrice) || 171.0,
       category: formData.category,
-      drop: formData.drop || 'Drop 01',
+      drop: formData.drop,
+      dropDate: formData.dropDate,
       description: formData.description,
       promptSchemaUrl: formData.promptSchemaUrl,
       image: formData.image,
@@ -320,13 +325,20 @@ export default function CatalogModule() {
   };
 
   const filteredProducts = products.filter((p) => {
+    const query = search.toLowerCase();
     const matchesSearch =
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.code.toLowerCase().includes(search.toLowerCase());
-    const matchesCat = categoryFilter === 'ALL' || p.category === categoryFilter;
+      !search ||
+      p.name.toLowerCase().includes(query) ||
+      p.code.toLowerCase().includes(query) ||
+      (p.drop && p.drop.toLowerCase().includes(query)) ||
+      (p.dropDate && p.dropDate.toLowerCase().includes(query));
+
+    const matchesDrop = dropFilter === 'ALL' || (p.drop || '').toLowerCase().includes(dropFilter.toLowerCase());
+    const matchesDropDate = dropDateFilter === 'ALL' || (p.dropDate || '').includes(dropDateFilter);
     const matchesSupplier =
       supplierFilter === 'ALL' || (p.supplierProvider || 'RESERVA_INK') === supplierFilter;
-    return matchesSearch && matchesCat && matchesSupplier;
+
+    return matchesSearch && matchesDrop && matchesDropDate && matchesSupplier;
   });
 
   const totalProducts = products.length;
@@ -421,16 +433,12 @@ export default function CatalogModule() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar por código ou nome..."
+            placeholder="Buscar por peça, código, Drop ou data..."
             className="w-full pl-9 pr-3 py-2 bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg text-xs text-white placeholder-[var(--text-muted)] focus:outline-none focus:border-[var(--accent-cyan)] transition-colors font-mono"
           />
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] font-mono text-[var(--text-muted)] hidden lg:inline-block">
-            💡 Dica: Arraste os cards para reordenar a vitrine em tempo real
-          </span>
-
+        <div className="flex items-center gap-2 flex-wrap sm:flex-nowrap">
           <div className="flex gap-2 w-full sm:w-auto overflow-x-auto items-center">
             {/* Supplier Filter Dropdown */}
             <select
@@ -446,19 +454,29 @@ export default function CatalogModule() {
               <option value="PRINTFUL">Printful Brasil</option>
             </select>
 
-            {['ALL', 'Tarô Negro', 'Oversized', 'Edição Mestre'].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setCategoryFilter(cat)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-colors whitespace-nowrap ${
-                  categoryFilter === cat
-                    ? 'bg-white text-black font-bold'
-                    : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border border-[var(--border-subtle)] hover:text-white'
-                }`}
-              >
-                {cat === 'ALL' ? 'Todas Cat.' : cat}
-              </button>
-            ))}
+            {/* Drop Name Filter Dropdown */}
+            <select
+              value={dropFilter}
+              onChange={(e) => setDropFilter(e.target.value)}
+              className="bg-[var(--bg-main)] text-white border border-[var(--border-subtle)] px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-cyan-400"
+            >
+              <option value="ALL">Todos os Drops (Nome)</option>
+              <option value="Drop 01">Drop 01 — Tarô Negro</option>
+              <option value="Drop 02">Drop 02 — Geometria Sagrada</option>
+              <option value="Edição Mestre">Edição Mestre</option>
+            </select>
+
+            {/* Drop Date Filter Dropdown */}
+            <select
+              value={dropDateFilter}
+              onChange={(e) => setDropDateFilter(e.target.value)}
+              className="bg-[var(--bg-main)] text-white border border-[var(--border-subtle)] px-3 py-1.5 rounded-lg text-xs font-mono focus:outline-none focus:border-cyan-400"
+            >
+              <option value="ALL">Todas as Datas</option>
+              <option value="2026-10">Out/2026</option>
+              <option value="2026-11">Nov/2026</option>
+              <option value="2026-12">Dez/2026</option>
+            </select>
           </div>
         </div>
       </div>
@@ -563,9 +581,9 @@ export default function CatalogModule() {
               <div className="space-y-2">
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <div className="flex items-center gap-2 mb-0.5">
+                    <div className="flex items-center gap-2 mb-0.5 flex-wrap">
                       <span className="text-[10px] font-mono text-[var(--accent-cyan)] uppercase tracking-wider block font-bold">
-                        {product.drop || 'Drop 01'} • {product.category}
+                        {product.drop || 'Drop 01'} {product.dropDate ? `• ${product.dropDate}` : ''}
                       </span>
                       <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase">
                         {product.supplierProvider || 'RESERVA_INK'}
@@ -773,20 +791,34 @@ export default function CatalogModule() {
                     className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
                   />
                 </div>
+              </div>
+
+              {/* Bloco de Rastreabilidade por Drop (Nome e Data independentes) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-[var(--border-subtle)]">
+                <div>
+                  <label className="text-[11px] font-mono text-cyan-400 uppercase block mb-1">
+                    Nome do Drop (Opcional)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.drop}
+                    onChange={(e) => setFormData({ ...formData, drop: e.target.value })}
+                    placeholder="Ex: Drop 01 — Tarô Negro"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400 font-mono"
+                  />
+                </div>
 
                 <div>
-                  <label className="text-[11px] font-mono text-[var(--text-muted)] uppercase block mb-1">
-                    Categoria *
+                  <label className="text-[11px] font-mono text-cyan-400 uppercase block mb-1">
+                    Data do Drop / Lançamento (Opcional)
                   </label>
-                  <select
-                    value={formData.category}
-                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-[var(--accent-cyan)] font-mono"
-                  >
-                    <option value="Tarô Negro">Tarô Negro</option>
-                    <option value="Oversized">Oversized</option>
-                    <option value="Edição Mestre">Edição Mestre</option>
-                  </select>
+                  <input
+                    type="text"
+                    value={formData.dropDate}
+                    onChange={(e) => setFormData({ ...formData, dropDate: e.target.value })}
+                    placeholder="Ex: 2026-10-01 ou Out/2026"
+                    className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400 font-mono"
+                  />
                 </div>
               </div>
 

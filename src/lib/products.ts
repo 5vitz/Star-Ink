@@ -5,6 +5,7 @@ import { prisma } from './db';
 
 export interface ExtendedProduct extends Product {
   drop?: string;
+  dropDate?: string;
   showImage?: boolean;
   sortOrder?: number;
   masterSku?: string;
@@ -70,6 +71,7 @@ export async function getProductsAsync(): Promise<ExtendedProduct[]> {
           pixPrice: p.pixPrice,
           category: p.category,
           drop: p.drop || 'Drop 01',
+          dropDate: p.dropDate || undefined,
           description: p.description || '',
           promptSchemaUrl: p.promptSchemaUrl || '',
           image: p.image || '',
@@ -105,6 +107,7 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           pixPrice: product.pixPrice,
           category: product.category,
           drop: product.drop || 'Drop 01',
+          dropDate: product.dropDate,
           description: product.description,
           promptSchemaUrl: product.promptSchemaUrl,
           image: product.image,
@@ -126,6 +129,7 @@ export async function saveProductAsync(product: ExtendedProduct): Promise<boolea
           pixPrice: product.pixPrice,
           category: product.category,
           drop: product.drop || 'Drop 01',
+          dropDate: product.dropDate,
           description: product.description,
           promptSchemaUrl: product.promptSchemaUrl,
           image: product.image,
