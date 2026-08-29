@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { X, Check, Truck, ShieldCheck, FileCode, ShoppingBag } from 'lucide-react';
+import { X, Check, Truck, ShieldCheck, FileCode, ShoppingBag, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Product } from './ProductCard';
 
@@ -14,6 +14,7 @@ interface ProductDetailModalProps {
 const SIZES = ['P', 'M', 'G', 'GG', 'EGG'];
 
 export default function ProductDetailModal({ product, onClose }: ProductDetailModalProps) {
+  const [modalIndex, setModalIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState('G');
   const [cep, setCep] = useState('');
   const [freightResult, setFreightResult] = useState<string | null>(null);
@@ -58,17 +59,63 @@ export default function ProductDetailModal({ product, onClose }: ProductDetailMo
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left Column: 9:16 Image Preview */}
-          <div className="relative aspect-[9/16] md:h-full w-full bg-zinc-900 overflow-hidden">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute top-4 left-4 bg-white text-black text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              {product.category}
+          {/* Left Column: 9:16 Image Gallery Preview */}
+          <div className="relative aspect-[9/16] md:h-full w-full bg-zinc-950 overflow-hidden flex flex-col justify-between">
+            {/* Main Image */}
+            <div className="relative w-full h-full">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={
+                  (product.images && product.images.length > 0
+                    ? product.images[modalIndex]
+                    : product.image) || product.image
+                }
+                alt={product.name}
+                className="w-full h-full object-cover object-center"
+              />
+
+              <div className="absolute top-4 left-4 bg-white text-black text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10 shadow-md">
+                {product.category}
+              </div>
+
+              {/* Setas do Modal (se houver mais de 1 imagem) */}
+              {product.images && product.images.length > 1 && (
+                <>
+                  <button
+                    onClick={() =>
+                      setModalIndex((prev) =>
+                        prev === 0 ? (product.images?.length || 1) - 1 : prev - 1
+                      )
+                    }
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center transition-colors z-20"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() =>
+                      setModalIndex((prev) =>
+                        prev === (product.images?.length || 1) - 1 ? 0 : prev + 1
+                      )
+                    }
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 flex items-center justify-center transition-colors z-20"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+
+                  {/* Dots no Rodapé da Imagem do Modal */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20 bg-black/60 px-3 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+                    {product.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setModalIndex(idx)}
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          idx === modalIndex ? 'bg-white scale-125' : 'bg-white/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
           </div>
 

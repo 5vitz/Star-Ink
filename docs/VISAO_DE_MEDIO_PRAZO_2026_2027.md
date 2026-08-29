@@ -20,8 +20,8 @@
 ---
 
 ### 🟢 Horizonte 1: Q4 2026 (Outubro — Dezembro 2026)
-* **Modelo Operacional:** *Print on Demand* automatizado via **Reserva INK** (Risco Financeiro Zero).
-* **Foco do Produto:** **Drop 01 — As 12 Artes Mestres do Tarô Negro** em camisetas 100% Algodão Premium.
+* **Modelo Operacional:** *Print on Demand* automatizado via **Reserva INK / Multi-Supplier** (Risco Financeiro Zero).
+* **Foco do Produto:** **Drop 01 — Coleção Autoral de Estreia (12 Artes)** em camisetas 100% Algodão Premium.
 * **Metas de Marketing & Vendas:**
   * Outubro: Reinvestimento de 100% da margem em Tráfego Pago (Treinamento de Pixels).
   * Novembro: Validação dos *Bestsellers* + Lista VIP de Natal.

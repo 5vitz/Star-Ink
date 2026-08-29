@@ -3,117 +3,74 @@
 > **Website Oficial:** `www.star-ink.com.br`  
 > **Modelo de Negócio:** Print on Demand (PoD 2.0 Multi-Supplier) & Startup D2C de Moda Contemporânea  
 > **Filosofia de Trabalho:** Metodologia do Machado ("9 dias afiando o machado para no 10º dia cortar a árvore com facilidade").  
-> **Última Atualização:** 21 de Agosto de 2026 (Sessão de Regularização Fiscal & REDARF e-CAC Concluída)
+> **Última Atualização:** 25/26 de Agosto de 2026 (Transmissão, Validação e Sincronização do DBE Limpo `ESP2605433824` na JUCEES / Simplifica ES)
 
 ---
 
 ## 1. O que realizamos nesta sessão (Estado Atual) ✅
 
+* **Consultoria Jurídica Dr. Lex & Reversão Pragmática do Processo JUCEES (25/26 de Agosto de 2026) ✅:**
+  * **Análise de Dependência do Sócio Retirante:** Diagnosticado pelo Dr. Lex que o travamento no Quadro de Assinantes do Simplifica ES decorreu exclusivamente da inclusão do Evento de Cessão de Cotas / Alteração do QSA (saída do ex-sócio Paulo Cesar de Souza, detentor de 1%). Como a cessão de cotas exige a assinatura de quem transfere a propriedade, o processo ficou aguardando a assinatura digital dele via Gov.br.
+  * **Decisão Pragmática do Fundador (Genera + Dr. Lex):**
+    * **Cancelamento/Abandono do Protocolo Atual:** Anulação a custo zero do processo eletrônico `ESP2605433824` na JUCEES (a taxa DUA ainda não havia sido paga nem o contrato assinado).
+    * **Tratamento em 2 Trilhas Independentes:**
+      1. **Trilha 1 (Operacional Imediata - Começo do Zero na Próxima Sessão):** Abertura de um processo limpo no Simplifica ES para registrar unicamente:
+         * **Alteração de Endereço:** Rua Marquês de Olinda, 60, Jardim da Penha, Vitória/ES (Baixo Risco A - Deferido).
+         * **Matriz de CNAEs:** `4790-3/00` (E-commerce D2C Principal), `4781-4/00` (Vestuário), `4783-1/01` (Joalheria em Prata), `7410-2/02` (Design Gráfico).
+         * **Nome Fantasia:** **STAR INK** (cadastrado na Receita Federal).
+         * **Assinatura Soberana:** Armando Sinkovitz (sócio-administrador detentor de 99% das cotas) assina **SOZINHO** via **Gov.br OURO**, respaldado pela regra da Maioria Absoluta (Arts. 1.071 e 1.076 do Código Civil).
+         * **Resultado:** Registro na JUCEES em 24h-48h, Inscrição Estadual emitida na SEFAZ-ES, e-CNPJ A1 liberado, Bling ERP integrado e operação 100% pronta para vendas no Q4 sem pendências.
+      2. **Trilha 2 (Societária / Saída do Paulo com Mínimo Atrito):** Busca amigável de contato do ex-sócio Paulo através de amigos em comum da época (1996) utilizando o CPF `979.667.467-04`. A transferência de cotas (1%) será colhida em segundo plano sem qualquer pressa, seja via assinatura de 1-clique no aplicativo Gov.br dele, seja por procuração simples, sem afetar o andamento comercial da Star INK.
+  * **Link do Repositório do Dr. Lex (JusChat):** Documentado e compartilhado (`https://github.com/protonspy/JusChat`).
+
+* **Transmissão e Deferimento Oficial do DBE no Coletor Nacional / REDESIM (`ESN2695198736`) ✅:**
+  * **Empresa:** STUDIO X LTDA ➔ **STAR INK LTDA** (Sociedade Limitada Unipessoal - SLU).
+  * **CNPJ:** `01.376.773/0001-30` (**100% ATIVO** na Receita Federal).
+  * **Certidão de Inteiro Teor (JUCEES):** Baixada sob o protocolo `ESC2600645030` com CPF do ex-sócio `979.667.467-04`.
+  * **DBE DEFERIDO (Receita Federal):** Protocolo **`ESN2695198736`** aprovado em 23/08/2026. Armando Sinkovitz homologado como Responsável Legal perante o CNPJ.
+
+* **Reorganização Estrutural da Pasta `docs/juridico/CNPJ/` ✅:**
+  * Toda a pasta reestruturada em subpastas semânticas (`REDESIM_DBE/`, `JUCEES/`, `Declaracoes_e_Recibos_DCTF/`, `Situacao_Fiscal/`, `Notas_Fiscais/`, `Softwares/`, `INDEX.md`).
+
+* **Arquitetura de Catálogo em 2 Divisões no Painel Admin (`/admin/catalogo`) ✅:**
+  * **Divisão 1 (`ArtworksProductionModule.tsx`)**: Módulo de gestão de Artes Matrizes 300 DPI e Prompts JSON A3.
+  * **Divisão 2 (`ShowcaseCatalogModule.tsx`)**: Módulo de Produtos Comerciais (Camiseta, Moletom, Bermuda, Quadro Fine Art A3, Ecobag) e mockups WebP 9:16.
+
+* **Modelagem de Banco de Dados Multi-Fornecedor & Artes (`schema.prisma` & ORM) ✅:**
+  * Criado o model `Artwork` e atualizado o model `Product` com relacionamento `artworkId` e `productType`.
+
+* **Organização Física & Gabarito Técnico Reserva INK (`FORNECEDORES/`) ✅:**
+  * Criada a estrutura `FORNECEDORES/Reserva INK/` e o [MANUAL_TECNICO_RESERVA_INK.md](file:///home/artz/Documentos/Antigravity/Star-Ink/FORNECEDORES/Reserva%20INK/Especificacoes_e_Gabaritos/MANUAL_TECNICO_RESERVA_INK.md) (4200x4800px @ 300 DPI PNG transparente, traço 1.5px+).
+
+* **Redesign do Card da Vitrine Pública (Proporção 9:16 com Imagem 3:4) ✅:**
+  * Reestruturada a geometria em [ProductCard.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/catalog/ProductCard.tsx) para contêiner 9:16 (`aspect-[9/16]`).
+
+* **Governança & Soberania Exclusiva de Deploy ✅:**
+  * Reafirmada a regra de governança em `docs/governanca/AGENTS.md`: o deploy em produção na VPS Contabo é ato soberano exclusivo do fundador (Genera).
+
+* **Estratégia de Loja Secundária na Plataforma Reserva INK ✅:**
+  * Loja nativa Reserva INK mantida como canal secundário; `star-ink.com.br` opera como Flagship Store oficial.
+
+* **Reativação Extraordinária do CNPJ para ATIVO (22/08/2026) ✅:**
+  * CNPJ `01.376.773/0001-30` alterado oficialmente para **ATIVO** no e-CAC/Receita Federal.
+
 * **Protocolo de Retificação REDARF e-CAC (21/08/2026) ✅:**
-  * Diagnosticada a causa raiz da divergência no Lançamento de Ofício de 2022 (Período de Apuração `22/03/2022` no DARF pago vs `23/03/2022` no débito).
-  * Transmitido o **Pedido Eletrônico de Retificação de DARF** via e-CAC sob o **Protocolo Nº `8cce.8819.40b1.610c`** referente à DARF Nº `1939321265` (R$ 100,00), alterando a PA para `23/03/2022`.
-  * Ação aguardando a rodada de processamento em lote da Receita Federal para homologação automática do desconto de 50% e extinção da cobrança de R$ 200,00.
+  * Transmitido o Pedido Eletrônico de Retificação de DARF sob o **Protocolo Nº `8cce.8819.40b1.610c`**.
 
 * **Modo Manutenção & Autenticação Híbrida (Google OAuth + Credentials) ✅:**
-  * Criada a página autoral [/manutencao](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/manutencao/page.tsx) com Modal de Acesso Unificado.
-  * Middleware [src/middleware.ts](file:///home/artz/Documentos/Antigravity/Star-Ink/src/middleware.ts) ativo protegendo todas as rotas da loja.
+  * Página autoral [/manutencao](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/manutencao/page.tsx) com Modal de Acesso Unificado e Middleware ativo.
 
 * **Integração Bling ERP v3 & Mercado Livre Conectado ✅:**
-  * OAuth 2.0 implementado e testado.
-  * Conta do **Mercado Livre** oficialmente autorizada e ativa no Bling ERP.
+  * OAuth 2.0 funcional e Mercado Livre autorizado no Bling.
 
-* **Conta de Vendedor na Amazon Aprovada ✅:**
-  * Verificação de identidade concluída com êxito e conta ativada no Amazon Seller Central (`sellercentral.amazon.com.br`).
-
-* **Google Merchant Center & Google Shopping Homologado ✅:**
-  * Domínio `www.star-ink.com.br` verificado com sucesso via Meta Tag estática e propriedade confirmada no Google Merchant Center (ID: `5837249882`).
-  * 4 de 6 etapas de onboarding concluídas (Verificação de 2 Etapas, Nome da Marca Star INK, Validação de Domínio e URL da Política de Trocas `https://www.star-ink.com.br/trocas` com Schema JSON-LD `MerchantReturnPolicy`).
-  * Adição do Feed de Produtos e Tabela de Frete pausadas para o momento do lançamento do Drop 01.
+* **Conta de Vendedor na Amazon & Google Merchant Center Aprovados ✅:**
+  * Amazon Seller Central ativo e Google Merchant Center (ID: `5837249882`) com domínio verificado.
 
 * **Páginas de Políticas Institucionais & Links no Rodapé ✅:**
-  * Analisados e adaptados os arquivos textuais da pasta `public/POLITICAS/` para a identidade **Star INK**.
-  * Criadas 4 novas páginas institucionais em Next.js com tema claro (Light Mode) e Schemas JSON-LD:
-    1. [/politica-de-devolucao](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-devolucao/page.tsx) (Trocas & Devoluções)
-    2. [/politica-de-privacidade](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/politica-de-privacidade/page.tsx) (Privacidade LGPD)
-    3. [/termos-e-condicoes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/termos-e-condicoes/page.tsx) (Termos de Compra & Entrega)
-    4. [/duvidas-frequentes](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/duvidas-frequentes/page.tsx) (FAQ com Schema FAQPage)
-  * Links integrados na quarta coluna (*Políticas & Legal*) do [Footer.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/layout/Footer.tsx).
+  * 4 páginas institucionais em Next.js (Trocas, Privacidade LGPD, Termos de Compra e FAQ JSON-LD) integradas no [Footer.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/layout/Footer.tsx).
 
 * **Reorganização do Batalhão de Agentes em 5 Categorias ✅:**
-  * Organizados todos os agentes em [docs/agentes/INDEX.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/INDEX.md).
-  * Incluídos manifestos de [ASK_NEXUS](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/02_ARTES_E_PROMPTS/ASK_NEXUS.md), [PLAN_NARRATIVE](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/02_ARTES_E_PROMPTS/PLAN_NARRATIVE.md), [ARTWORK_ARCHITECT](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/02_ARTES_E_PROMPTS/ARTWORK_ARCHITECT.md) e do Agente Jurídico [DR_LEX_JUSCHAT](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/03_JURIDICO_E_COMPLIANCE/DR_LEX_JUSCHAT.md).
-
-* **Especificação da Arquitetura de Projetos de Arte & Matriz de SKUs ✅:**
-  * Criado o documento [ESTRUTURA_DE_PROJETOS_DE_ARTE_E_SKUS.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/ESTRUTURA_DE_PROJETOS_DE_ARTE_E_SKUS.md) detalhando a hierarquia em 5 níveis (Drop ➔ Projeto da Arte ➔ Categoria ➔ Inversão de Cores ➔ Graduação de Tamanho P/M/G/GG/XG).
-  * Definida a estrutura física de subpastas do Asset Bundle (`MASTER/`, `PRINT_FILES/`, `SHOWCASE_CAROUSEL/`, `DRAFTS_ARCHIVE/` e `prompt_autoral.json`).
-
-* **Feed XML Meta Commerce / Instagram Shopping ✅:**
-  * Criada e compilada a rota `/api/catalog/meta-feed` para a Sacolinha do Instagram.
-  * Build de produção validado (24/24 páginas estáticas e dinâmicas geradas com sucesso).
-
-* **Google Drive Nativo no Linux Ubuntu ✅:**
-  * Conta `starink.oficial@gmail.com` conectada no sistema. Fluxo direto do Photoshop sem pendrive.
-
-* **Seção de Canais de Venda Oficiais (9 Marcas Premium) ✅:**
-  * [SalesChannelsSection.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/channels/SalesChannelsSection.tsx) exibindo Mercado Livre, Amazon, Shein, TikTok Shop, Dafiti, Google Shopping, Instagram Shopping, Meta Commerce e **RESERVA**.
-
-* **Especificações Técnicas de Estrutura & Marketing ✅:**
-  * [ROTAS_E_ENDPOINTS_OFICIAIS.md](file:///home/artz/Documentos/Antigravity/Star-Ink/ROTAS_E_ENDPOINTS_OFICIAIS.md): Guia mestre de links.
-  * [EMBALAGEM_E_EXPERIENCIA_UNBOXING.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/EMBALAGEM_E_EXPERIENCIA_UNBOXING.md): Kit Unboxing Ziplock fosco + Cartão Soft-Touch.
-  * [ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md): Plano Meta Ads (R$ 15/dia).
-  * [ESTRATEGIA_DE_PRODUCAO_E_STARTUP.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/ESTRATEGIA_DE_PRODUCAO_E_STARTUP.md): Governança Solo-Founder.
-
-* **Especificação dos 6 Fornecedores PoD & Estratégia de Moda Praia ✅:**
-  * Mapeamento completo e comparativo dos 6 principais fornecedores PoD do mercado: Reserva INK, Dimona, Hotprinti, Printful Brasil, Gelato e Montink.
-  * Definida a estratégia de **Moda Praia / Biquínis** operada via Private Label CMT em confecções especializadas (Poliamida/UV50+), faturada de forma híbrida no Bling ERP.
-  * Alinhamento da janela de lançamento flexível com foco em qualidade absoluta de produto, atendimento concierge e cumprimento de prazos, mirando o pico de vendas do Natal (Q4 2026).
-  * Atualização da [ESTRATEGIA_DE_PRODUCAO_E_STARTUP.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/ESTRATEGIA_DE_PRODUCAO_E_STARTUP.md).
-
-* **Atualização do HERO Component (Visual 2D / 3D) ✅:**
-  * Substituição das imagens recortadas do boné no componente HERO para a versão 2 com refinamento de recorte e aplicação vetorial da logo: `BoneRecortadoDesktop2.png` e `BoneRecortadoCelular2.png` em [HeroSection.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/hero/HeroSection.tsx).
-  * Build validado em produção com Next.js 15 (20/20 páginas estáticas geradas com sucesso).
-
-* **Especifição de Dados Canônicos (Padrão Meta Commerce) ✅:**
-  * Modelagem de banco baseada na especificação do Meta Commerce Manager, cobrindo campos públicos e operacionais de negócio (`cost_price`, `supplier_provider`, `prompt_schema_url`).
-  * Registro na [TASK-002: Esquema Canônico Meta Commerce & Painel de Controle Multicanal](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/002-esquema-canonico-meta-e-painel-admin.md).
-
-* **Arquitetura de Atendimento Concierge & IA 24/7 ✅:**
-  * Módulo 1 detalhado com suporte artesanal WhatsApp 1-Click, CRM de clientes e logística reversa automática de trocas (`/trocas`).
-  * Especificação da IA Concierge 24h rodando na Contabo VPS com Gemini API e *Function Calling* no PostgreSQL.
-  * Registro na [TASK-003: Módulo 1 — Atendimento Concierge & Arquitetura de IA 24/7](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/003-modulo-1-atendimento-concierge-e-ia-24h.md).
-
-* **Detalhamento Completo dos 4 Módulos do Painel Admin (`/admin`) ✅:**
-  * Módulo 1 (SAC Concierge & IA 24h), Módulo 2 (Produção PoD & Kanban 5 etapas), Módulo 3 (Catálogo Canônico & Prompts JSON A3) e Módulo 4 (Financeiro, Unit Economics de R$ 122/peça & Bling ERP NFe).
-  * Gerados 5 Mockups 2D de alta fidelidade visual em *Dark Mode*.
-  * Registro na [TASK-004: Arquitetura Completa do Painel Admin Multicanal](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/TASKS/004-arquitetura-completa-painel-admin.md).
-
-* **Canais de Redes Sociais & Contato Registrados ✅:**
-  * Instagram Oficial: `@starink.oficial` ([instagram.com/starink.oficial](https://www.instagram.com/starink.oficial/))
-  * Página do Facebook: `STAR INK` (ID: `61592620912452`)
-  * E-mail Oficial: `starink.oficial@gmail.com`
-
-* **Integração OAuth 2.0 Bling ERP API v3 ✅:**
-  * Rotas `/api/auth/bling/authorize` e `/api/auth/bling/callback` implementadas e testadas.
-  * Credenciais de aplicativo privado formatadas e sincronizadas.
-
-* **Modo Manutenção & Autenticação Híbrida (NextAuth.js) ✅:**
-  * Criada a página autoral `/manutencao` com Modal de Acesso Unificado (Login Nativo E-mail/Senha + Google OAuth em 1-clique).
-  * Middleware `src/middleware.ts` com suporte à flag `MAINTENANCE_MODE`.
-
-* **Seção de Canais de Venda Oficiais (9 Plataformas de Alto Padrão) ✅:**
-  * Seção minimalista atualizada em [SalesChannelsSection.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/channels/SalesChannelsSection.tsx) exibindo Mercado Livre, Amazon, Shein, TikTok Shop, Dafiti, Google Shopping, Instagram Shopping, Meta Commerce e RESERVA.
-
-* **Especificação do Formulário Canônico Unificado Multicanal ✅:**
-  * Documentada a arquitetura Single Source of Truth no arquivo [FORMULARIO_CANONICO_UNIFICADO_MULTICANAL.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/FORMULARIO_CANONICO_UNIFICADO_MULTICANAL.md) para desenvolvimento futuro pós-planejamento.
-
-* **Especificação de Embalagens & Experiência de Unboxing ✅:**
-  * Criada a diretriz de Unboxing em [EMBALAGEM_E_EXPERIENCIA_UNBOXING.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/EMBALAGEM_E_EXPERIENCIA_UNBOXING.md) contemplando o saco Ziplock fosco personalizado (R$ 0,71), Cartão Manifesto A6, Sticker Vinílico e Sacola Bolsa para pedidos múltiplos (2+ unidades).
-
-* **Estratégia de Marketing, Tráfego Pago & Growth ✅:**
-  * Criada a diretriz de aquisição em [ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura/ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md) alocando 85% no Meta Ads (Descoberta + Remarketing Certeiro no Instagram) e 15% na Proteção de Marca do Google Ads.
-
-* **Guia de Rotas & Endpoints Oficiais ✅:**
-  * Criado o documento centralizador [ROTAS_E_ENDPOINTS_OFICIAIS.md](file:///home/artz/Documentos/Antigravity/Star-Ink/ROTAS_E_ENDPOINTS_OFICIAIS.md) na raiz do repositório para acesso rápido e sincronização.
+  * Organizados em [docs/agentes/INDEX.md](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/agentes/INDEX.md) (Diretoria, Artes, Jurídico Dr. Lex, Engenharia e Growth/Concierge).
 
 ---
 
@@ -127,10 +84,27 @@
 
 ---
 
-## 3. Próximos Passos Imediatos
+## 3. PONTO DE PARTIDA EXATO DA PRÓXIMA ETAPA (`ESP2605453571`) 🎯
 
-1. **Desenvolvimento da Esteira das 12 Artes Autorais (Drop 01):**
-   * Criação e parametrização das 12 Artes Mestre no modelo MetaPrompt (ASK ➔ PLAN ➔ ARTWORK) divididas nos 4 Capítulos Conceituais.
-   * Curadoria cromática individual de tecidos e enquadramento A3 (300DPI).
-2. **Desenvolvimento de Conteúdo de Campanha 9:16 (Lookbooks):**
-   * Geração das 36 mídias cinematográficas para vitrine e Instagram comercial.
+> **Status Atualizado (28/08/2026 às 13:40):**  
+> 🟢 **Novo Protocolo Limpo Gerado:** `ESP2605453571`  
+> 🟢 **Viabilidade da Prefeitura Reaproveitada:** Baixo Risco A em Jardim da Penha / Vitória-ES.  
+> 🟢 **DBE Limpo APROVADO PELA RECEITA FEDERAL:** *Solicitação validada*.  
+> 🟢 **Ficha de Cadastro Nacional (FCN):** **TRANSMITIDO 🟢** na JUCEES!  
+> 🟢 **Taxa DUA JUCEES (R$ 437,43):** **PAGA E CONCILIADA COM SUCESSO!**  
+> 🟢 **Assinaturas Digitais Gov.br OURO:** **100% CONCLUÍDAS COM SUCESSO!** (Armando Sinkovitz assinou sozinho com 99% das cotas).  
+> 🟢 **Protocolo Eletrônico de Registro Digital:** **TRANSMITIDO E PROTOCOLADO COM SUCESSO!**  
+> 🟡 **Status Oficial na JUCEES:** **Ato Constitutivo: EM ANÁLISE 🟡**  
+> **URL Oficial de Acompanhamento JUCEES:** `https://simplifica.es.gov.br/sigfacil/processo/acompanhar/co_protocolo/ESP2605453571`  
+
+### 📋 Próximos Passos Imediatos:
+
+1. **Acompanhar o Deferimento da JUCEES (Janela de 24h a 48h):**
+   * O analista da JUCEES (ou o sistema automatizado de deferimento) irá homologar a 1ª Alteração Contratual do protocol `ESP2605453571`.
+2. **Emissão da Inscrição Estadual (SEFAZ-ES):**
+   * Após o deferimento da JUCEES, a Inscrição Estadual do Espírito Santo será gerada automaticamente para a **STAR INK LTDA**.
+3. **Emissão do e-CNPJ A1 & Integração Bling ERP v3:**
+   * Com a IE ativa e o contrato alterado registrado, faremos a ativação do e-CNPJ A1 para a emissão automática de NF-e Modelo 55 no Bling ERP.
+
+
+

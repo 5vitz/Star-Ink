@@ -15,14 +15,17 @@ Todos os documentos legais, tributários, regulatórios e políticas institucion
 docs/juridico/
 ├── INDEX.md                                  <-- Este portal centralizador
 ├── REGULARIZACAO_CNPJ_E_ALTERACAO_CONTRATUAL.md <-- Task da Alteração Contratual JUCEES via Gov.br OURO
+├── ANALISE_DE_RISCOS_E_COMPLIANCE_NFE_BLING.md <-- Análise tributária e fiscal
+├── ContratoSocial/                           <-- 📁 Nova Estrutura de Contratos Sociais
+│   ├── Contrato_Original_2009/              <-- Certidão de Inteiro Teor JUCEES 2009
+│   ├── Alteracao_Atual_2026/               <-- 🟡 Novo Processo Limpo (Endereço, CNAEs e Nome Fantasia)
+│   └── OLDS/                               <-- 📦 Documentos/DBEs anteriores arquivados
+├── CNPJ/                                     <-- Relatórios Fiscais e Declarações DCTF/e-CAC
+│   ├── Situacao_Fiscal/                     <-- Relatório e-CAC da Receita Federal
+│   ├── Declaracoes_e_Recibos_DCTF/          <-- Recibos e Declarações DCTF/DCTFWeb
+│   └── Softwares/                           <-- Instalador validador DCTF
 ├── INPI/                                     <-- Certificados e Protocolos da Marca INPI
-│   └── 29409172362782623.pdf                <-- PDF Oficial do Protocolo INPI Processo Nº 944841171
-├── CNPJ/                                     <-- Relatórios Fiscais e Documentos Societários
-│   ├── RelatórioSituaçãoFiscal-01376773000130-20260813.pdf <-- Relatório e-CAC Receita Federal
-│   └── dctfmensalv3-9.exe                    <-- Instalador validador DCTF
 └── POLITICAS/                                <-- Políticas Institucionais & LGPD
-    ├── POLITICA_DE_TROCAS_E_DEVOLUCOES.md   (Trocas, devoluções & CDC)
-    └── POLITICA_DE_PRIVACIDADE_LGPD.md      (Proteção de dados LGPD)
 ```
 
 ---

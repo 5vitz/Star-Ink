@@ -33,7 +33,8 @@ model Product {
   dropDate        String?  @default("2026-10-01")
   description     String?
   promptSchemaUrl String?
-  image           String?  // WebP 9:16
+  image           String?  // WebP 9:16 (Capa Principal)
+  images          String[] // Galeria 9:16 (Carrossel)
   showImage       Boolean  @default(true)
   sortOrder       Int      @default(0)
 

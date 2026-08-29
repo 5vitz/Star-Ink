@@ -99,6 +99,8 @@ ENVFILE
       npm install || { echo "❌ ERRO: Falha ao rodar npm install no VPS!"; exit 1; }
 
       if [ -d "prisma" ]; then
+          echo "⚡ Gerando cliente do Prisma na VPS..."
+          npx prisma generate || echo "⚠️ Prisma generate ignorado."
           echo "⚡ Executando migrações do banco de dados (Prisma)..."
           npx prisma db push || echo "⚠️ Prisma db push ignorado/sem alterações."
       fi

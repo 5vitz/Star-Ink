@@ -18,15 +18,18 @@ A linha de joalheria em Prata 925 conecta-se perfeitamente com a proposta estét
 
 ## 🏛️ Enquadramento Fiscal & Societário (Dr. Lex / JUCEES)
 
-Na Alteração Contratual da **STAR INK LTDA** via Gov.br OURO na JUCEES (`simplifica.es.gov.br`), serão incluídos os seguintes CNAEs:
+Na Alteração Contratual da **STAR INK LTDA** via Gov.br OURO na JUCEES (`simplifica.es.gov.br`), serão mantidos e incluídos **estritamente CNAEs de Comércio e Serviços de Design (100% Baixo Risco / Isenção CBMES)**:
 
-| CNAE | Atividade Oficial IBGE | Aplicação na STAR INK | Simples Nacional |
-| :--- | :--- | :--- | :--- |
-| **`4781-4/00`** *(Principal)* | Comércio varejista de artigos do vestuário e acessórios | Venda de Camisetas D2C | **Anexo I** (Comércio — 4%) |
-| **`4790-3/00`** *(Secundário)* | Comércio varejista via internet / D2C | Operação de E-commerce | **Anexo I** (Comércio — 4%) |
-| **`7410-2/02`** *(Secundário)* | Design gráfico e criação de artes/modelos | Modelagem 3D & Design | **Anexo III** (Serviços) |
-| **`4783-1/01`** *(Secundário)* | **Comércio varejista de artigos de joalheria** | **Venda de Anéis e Acessórios em Prata 925** | **Anexo I (Permitido — Sem Fator R)** |
-| **`3211-6/02`** *(Secundário)* | **Fabricação de artefatos de joalheria e ourivesaria** | **Fundição / Modelagem em Cera Perdida** | **Anexo II (Indústria)** |
+| CNAE | Atividade Oficial IBGE | Aplicação na STAR INK | Simples Nacional | Risco CBMES / Alvará |
+| :--- | :--- | :--- | :--- | :--- |
+| **`4781-4/00`** *(Principal)* | Comércio varejista de artigos do vestuário e acessórios | Venda de Camisetas D2C | **Anexo I** (Comércio — 4%) | **Baixo Risco (Isento)** |
+| **`4790-3/00`** *(Secundário)* | Comércio varejista via internet / D2C | Operação de E-commerce | **Anexo I** (Comércio — 4%) | **Baixo Risco (Isento)** |
+| **`7410-2/02`** *(Secundário)* | Design gráfico e criação de artes/modelos | Modelagem 3D & Design | **Anexo III** (Serviços) | **Baixo Risco (Isento)** |
+| **`7410-2/03`** *(Secundário)* | Design de produto e criação de modelos | Modelagem 3D de Joalheria | **Anexo III** (Serviços) | **Baixo Risco (Isento)** |
+| **`4783-1/01`** *(Secundário)* | **Comércio varejista de artigos de joalheria** | **Venda D2C de Anéis e Acessórios em Prata 925** | **Anexo I (Permitido)** | **Baixo Risco (Isento)** |
+
+> 🚨 **ATENÇÃO JURÍDICA E DE SEGURANÇA (GOVERNANÇA CBMES):**  
+> É **PROIBIDO** incluir o CNAE `3211-6/02` (*Fabricação de artefatos de joalheria e ourivesaria*) no CNPJ da STAR INK. Por ser uma atividade industrial/fabril, a inclusão desse CNAE exigiria habite-se industrial, licença ambiental e vistoria presencial obrigatória do **Corpo de Bombeiros Militar do Espírito Santo (CBMES)**, o que reprovaria a sede da empresa. Como **100% da fundição física de prata é terceirizada via Private Label** em fundições licenciadas (ex: Casa de Fundição Skaf), a STAR INK atua exclusivamente no **Design 3D** (`7410-2/03`) e no **Comércio Varejista D2C de Joias** (`4783-1/01`), mantendo **100% de Isenção Automática de Vistoria de Bombeiros e Licenciamento**.
 
 ---
 

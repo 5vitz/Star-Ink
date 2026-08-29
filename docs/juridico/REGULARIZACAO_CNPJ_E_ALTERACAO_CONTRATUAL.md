@@ -1,10 +1,16 @@
 # ⚖️ Regularização do CNPJ & Alteração Contratual — STAR INK LTDA
 
-> **Status:** Aguardando baixa das DARFs na Receita Federal (24h a 72h úteis)  
+> **Status:** 🟢 **ASSINATURAS DIGITAIS GOV.BR OURO 100% CONCLUÍDAS E GRAVADAS EM 27/08/2026!**  
 > **CNPJ:** `01.376.773/0001-30` (Studio X LTDA ➔ STAR INK LTDA)  
-> **Protocolo:** Simplifica ES (`simplifica.es.gov.br`) via **Gov.br Nível OURO**  
+> **Protocolo REDESIM / Viabilidade:** `ESP2605453571` (Versão Limpa sem QSA)  
+> **Status Assinatura Digital:** *Processo assinado com sucesso via Gov.br OURO por Armando Sinkovitz (Sócio-Administrador 99%)*.  
+> **Taxa JUCEES:** *DUA Nº 4032157905 (R$ 437,43) PAGO (NSU: `bacd6d00-abcf-4c9b-b20b-3157eff01cab`)*.  
+> **Matriz de Eventos Unificados Liberados:**  
+>   1. **Evento 211:** Alteração de Endereço (Rua Marquês de Olinda, 60, Jardim da Penha, Vitória/ES)  
+>   2. **Evento 244:** Alteração de Atividades Econômicas (`4781-4/00.67` Vestuário Principal + `4783-1/01.65` Joalheria + `7410-2/03.466` Design)  
+> **Próxima Etapa:** Clicar no botão **Protocolar** no Simplifica ES para envio final à JUCEES. Prazo de homologação automática / deferimento em 24h-48h!  
 > **Responsáveis:** Genera / Armando (Proprietário) & Dr. Lex / Lincoln (Suporte Técnico)  
-> **Última Atualização:** Agosto de 2026  
+> **Última Atualização:** 27 de Agosto de 2026 (17:00)  
 
 ---
 
@@ -12,16 +18,16 @@
 
 1. **Manutenção da Razão Social & Inclusão do Nome Fantasia:** Manutenção de **Studio X LTDA** como Razão Social jurídica e cadastro de **STAR INK** como Nome Fantasia/Comercial na Receita Federal.
 2. **Transição para Sociedade Limitada Unipessoal (SLU):** Exclusão/saída do sócio minoritário (1%) com transferência total das quotas para Armando Sinkovitz (100%), consolidando a empresa como **Sociedade Limitada Unipessoal (SLU)** com amparo no Art. 1.052, § 1º e § 2º do Código Civil (Lei nº 13.874/2019 - Lei da Liberdade Econômica). Mantém-se a proteção patrimonial da LTDA com um único sócio.
-3. **Atualização da Matriz de CNAEs & Endereço:**
-   * `4781-4/00` (Principal): Comércio Varejista de Artigos do Vestuário e Acessórios.
-   * `4790-3/00` (Secundário): Comércio Varejista via Internet (E-commerce D2C / Marketplaces).
+3. **Atualização da Matriz de CNAEs (100% Baixo Risco - E-Commerce D2C como Principal):**
+   * `4790-3/00` **(PRINCIPAL):** Comércio Varejista via Internet / E-commerce D2C (Define o canal nativo digital da empresa, permitindo flexibilidade total de catálogo).
+   * `4781-4/00` (Secundário): Comércio Varejista de Artigos do Vestuário e Acessórios.
+   * `4783-1/01` (Secundário): Comércio Varejista de Artigos de Joalheria / Prata 925.
    * `7410-2/02` (Secundário): Design Gráfico e Criação de Artes/Modelos 3D.
-   * `4783-1/01` (Secundário - Joalheria): Comércio Varejista de Artigos de Joalheria / Prata 925 (Anexo I Simples Nacional).
-   * `3211-6/02` (Secundário - Fundição/Ourivesaria): Fabricação de Artefatos de Joalheria / Cera Perdida (Anexo II Simples Nacional).
+   * `7410-2/03` (Secundário): Design de Produto e Criação de Modelos de Joalheria.
    * **Mudança de Endereço Comercial/Sede:** Atualização do endereço da empresa no Estado do Espírito Santo.
-3. **Emissão de Inscrição Estadual (SEFAZ-ES):** Habilitação de I.E. automática no ES para emissão de NF-e Modelo 55 via Bling ERP.
-4. **Enquadramento Tributário:** Simples Nacional (Anexo I - alíquota inicial ~4% no DAS) com distribuição de lucros 100% isenta no IRPF.
-5. **Proteção da Marca INPI (Classe 25 - Vestuário):** Pesquisa de anterioridade realizada com sucesso no INPI em 16/08/2026. **PEDIDO PROTOCOLADO COM SUCESSO!**
+4. **Emissão de Inscrição Estadual (SEFAZ-ES):** Habilitação de I.E. automática no ES para emissão de NF-e Modelo 55 via Bling ERP.
+5. **Enquadramento Tributário:** Simples Nacional (Anexo I - alíquota inicial ~4% no DAS) com distribuição de lucros 100% isenta no IRPF.
+6. **Proteção da Marca INPI (Classe 25 - Vestuário):** Pesquisa de anterioridade realizada com sucesso no INPI em 16/08/2026. **PEDIDO PROTOCOLADO COM SUCESSO!**
    * **Número do Pedido / Processo INPI:** `944841171`
    * **Número do Protocolo:** `850260415642`
    * **Data/Hora do Protocolo:** 16/08/2026 às 00:47:11
@@ -55,10 +61,10 @@
 | :--- | :--- | :--- |
 | **Honorários Contábeis** | Processo feito direto pelo proprietário no Simplifica ES | **R$ 0,00** *(Economia de R$ 500,00)* |
 | **Assinatura do Contrato** | Assinatura Eletrônica Avançada via **Gov.br OURO** | **R$ 0,00** *(Gratuito no Gov.br)* |
-| **Taxa Estadual JUCEES** | Guia DUA de Alteração Contratual na Junta Comercial ES | **~R$ 220,00** *(Taxa obrigatória)* |
+| **Taxa Estadual JUCEES** | Guia DUA de Alteração Contratual (LTDA / Código 206-2) na JUCEES | **R$ 437,43** *(Tabela oficial ES / Isento de DARF Federal)* |
 | **Inscrição Estadual SEFAZ-ES** | Habilitação de I.E. no Estado do Espírito Santo | **R$ 0,00** *(Gratuito no ES)* |
 | **Certificado Digital e-CNPJ A1** | Arquivo para emissão automática de NF-e no Bling ERP | **~R$ 150,00 / ano** |
-| **INVESTIMENTO TOTAL** | **Regularização completa + NFe habilitada** | **~R$ 370,00** |
+| **INVESTIMENTO TOTAL** | **Regularização completa + NFe habilitada** | **~R$ 587,43** |
 
 ---
 
@@ -69,12 +75,13 @@
 - [x] **Transmitir DCTFs de Inatividade (2021 a 2024):** Concluído! Transmitidas via ReceitaNet com recibos e dados arquivados em [`docs/juridico/CNPJ/Declarações_21a24`](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/juridico/CNPJ/Declara%C3%A7%C3%B5es_21a24).
 - [x] **Transmitir DCTFWeb Sem Movimento (01/2025):** CONCLUÍDO COM SUCESSO EM 21/08/2026! Transmitida via MIT/DCTFWeb no e-CAC com "Transmissão Imediata" e saldo R$ 0,00. As omissões de 2025 e 2026 foram desativadas automaticamente em cascata.
 - [x] **Transmitir Pedido Eletrônico de REDARF (21/08/2026):** CONCLUÍDO COM SUCESSO! Protocolo Nº `8cce.8819.40b1.610c` recepcionado no e-CAC para retificação da DARF (Nº `1939321265`), alterando o Período de Apuração de `22/03/2022` para `23/03/2022` e vinculando o Lançamento de Ofício de R$ 200,00.
+- [x] **Reativação do CNPJ na Receita Federal (22/08/2026):** CONCLUÍDO COM SUCESSO VITAL! O CNPJ `01.376.773/0001-30` foi alterado para a situação cadastral **ATIVA** em menos de 24h pós-DCTFWeb. A pendência de QSA será sanada automaticamente no próprio protocolo de alteração contratual (SLU) na JUCEES / REDESIM.
 - [ ] **Pagar DARF MAED DCTFWeb (R$ 100,00):** Baixar e pagar a guia com 50% de desconto emitida no portal DCTFWeb.
 - [ ] **Acompanhar Publicação na RPI do INPI (Terça-Feira 25/08):** Monitorar a publicação da Revista da Propriedade Industrial para o Processo Nº `944841171`.
 - [ ] **Reivindicação do Handle `@starink` no Instagram:** Assim que formalizada a publicação na RPI do INPI, acionar o suporte de Propriedade Intelectual da Meta (`instagram.com/legal/trademark`) com o comprovante do RPI/INPI para reivindicação/migração do handle de marca **`@starink`** (atualmente `@starink.oficial`).
-- [ ] **Iniciar Consulta Prévia no Simplifica ES:** Manter a Razão Social **Studio X LTDA** e cadastrar o Nome Fantasia **STAR INK**.
-- [ ] **Preencher Ficha de Cadastro Nacional (FCN):** Incluir os CNAEs `4781-4/00`, `4790-3/00`, `7410-2/02`, `4783-1/01` (Joalheria/Prata) e `3211-6/02` (Fundição/Ourivesaria).
-- [ ] **Assinar o Contrato Social no Simplifica ES:** Utilizar a chave da **Conta Gov.br OURO**.
+- [x] **Iniciar e Deferir Consulta Prévia no Simplifica ES (24/08/2026):** CONCLUÍDO COM SUCESSO ABSOLUTO! Protocolo de Viabilidade **`ESP2605423853`** APROVADO e DEFERIDO pela Prefeitura de Vitória / Simplifica ES com novo endereço em Jardim da Penha (Inscrição `8211876`), CNAEs de E-commerce D2C (`4781-4/00.67`), Joalheria em Prata (`4783-1/01.65`) e Design de Produto (`7410-2/03.466`), enquadrado 100% em **Baixo Risco A** (dispensa de vistoria dos Bombeiros).
+- [x] **Preencher e Transmitir o DBE Unificado no Coletor Nacional / SERPRO (24/08/2026 às 20:58:53):** CONCLUÍDO COM SUCESSO ABSOLUTO! Solicitação de Alteração Cadastral recepcionada via Internet pelo Agente Receptor SERPRO sob o protocolo **`ESP2605423853`**, integrando Viabilidade + QSA (Saída do Paulo, 100% Armando SLU, Capital R$ 10.000,00).
+- [ ] **Acompanhar Processamento SERPRO & Assinar Contrato Social no Simplifica ES:** Assim que o SERPRO processar a recepção (automático em breve), assinar a alteração contratual via **Gov.br OURO**.
 - [ ] **Emitir e pagar a Guia DUA JUCEES (R$ 220,00).**
 - [ ] **Acompanhar deferimento da JUCEES & Emissão da I.E. na SEFAZ-ES.**
 - [ ] **Adquirir e-CNPJ A1 (R$ 150,00) e cadastrar I.E. no Bling ERP.**

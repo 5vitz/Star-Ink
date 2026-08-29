@@ -6,7 +6,7 @@ Bem-vindo ao repositório oficial do projeto **Star-Ink**, uma operação de e-c
 
 ## 🎯 Metas & Lançamento
 
-- **Data Alvo de Lançamento (Go-Live):** 01 de Outubro de 2026
+- **Data Alvo de Lançamento (Go-Live):** 12 de Outubro de 2026 (Segunda-Feira / Feriado Nacional)
 - **Meta Comercial de Dezembro:** 420+ camisetas vendidas (R$ 60.000,00+ Faturamento Bruto / R$ 40.000,00+ Lucro Líquido para quitação do setup DTG próprio)
 
 ---

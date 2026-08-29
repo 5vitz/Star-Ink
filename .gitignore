@@ -35,5 +35,7 @@ next-env.d.ts
 
 # large files (>100MB limit for GitHub)
 docs/juridico/INPI/Marcas2902.pdf
+docs/juridico/INPI/Marcas2903.pdf
+docs/juridico/INPI/Marcas*.pdf
 *.exe
 

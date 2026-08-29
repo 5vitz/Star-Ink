@@ -1,6 +1,6 @@
 # 🚀 Roadmap Estratégico de Lançamento & Marketing Q4 (Star-Ink)
 
-**Data Alvo de Lançamento (Go-Live):** 01 de Outubro de 2026  
+**Data Alvo de Lançamento (Go-Live):** 12 de Outubro de 2026 (Segunda-Feira / Feriado Nacional)  
 **Meta Comercial de Dezembro:** 420+ camisetas vendidas (R$ 60.000,00+ Faturamento Bruto / R$ 40.000,00+ Lucro Líquido para quitação/autofinanciamento do setup DTG próprio)
 
 ---
@@ -18,15 +18,19 @@
 
 ---
 
-## 🗓️ Cronograma Cronológico de Execução (8 Semanas)
+## 🗓️ Cronograma Cronológico de Execução (6 Semanas de Reta Final)
+
+> **Filosofia de Trabalho:** Primeiro consolidar toda a infraestrutura burocrática, fiscal e de integrações ("resolver o chato") para depois focar com tranquilidade na criação das 12 artes autorais e montar o catálogo ("curtir o gostoso").
 
 ```
-Semanas 1-2: Base Fiscal & Jurídica (Studio X -> STAR INK LTDA)
-Semanas 3-4: D2C Light Mode, Matriz de SKUs & Catálogo Drop 01
-Semanas 5-6: Bling ERP, NFe & Integrações (SHEIN, TikTok Shop, ML, Amazon, Shopee)
-Semanas 7-8: Testes Operacionais & Aquecimento de Pixels de Anúncio
+Semana 1 (28/Ago - 04/Set): Deferimento JUCEES, IE, e-CNPJ A1 e Publicação INPI
+Semana 2 (05/Set - 11/Set): Migração de Canais (CPF -> CNPJ STAR INK LTDA) & Bling ERP v3
+Semana 3 (12/Set - 18/Set): Roteamento PoD Multi-Supplier, Matriz Canônica & Testes de Ponta a Ponta
+Semana 4 (19/Set - 25/Set): Criação Artística das 12 Artes Autorais do Drop 01 & JSON Prompts
+Semana 5 (26/Set - 02/Out): Catálogo Comercial D2C (/admin/catalogo) & Mockups WebP 9:16
+Semana 6 (03/Out - 11/Out): Aquecimento VIP Gate, Pixels de Anúncio & Tráfego Pago
 -------------------------------------------------------------------------------
-01/OUTUBRO: 🟢 GO LIVE OFICIAL
+12/OUTUBRO (Segunda-Feira / Feriado): 🟢 GO LIVE OFICIAL
 ```
 
 ### 📋 Detalhamento das Fases
@@ -39,11 +43,15 @@ Semanas 7-8: Testes Operacionais & Aquecimento de Pixels de Anúncio
 - **Inscrição Estadual (SEFAZ/ES):** Emissão automática da IE para habilitação da Nota Fiscal Eletrônica (NF-e Modelo 55).
 
 #### Fase 2: Front-End D2C, Matriz de SKUs & Catálogo Drop 01 (Semanas 3 e 4 - Agosto)
-- **Design System D2C:** Manutenção rigorosa do visual em **Light Mode 100% limpo e refinado (`#ffffff`)**, destinando a estética escura exclusivamente para o Cockpit Admin.
-- **Matriz de Artes & SKUs:**
-  - Estruturação do catálogo em `docs/projetos/` e `public/artes/`.
-  - Vínculo de cada peça ao seu arquivo de metadados JSON e Prompt Autoral.
-  - Carrossel dinâmico de 6 apresentações visuais por produto na vitrine.
+- **Design System D2C & Vitrine 9:16:**
+  - Redesign do card público em proporção 9:16 com área de imagem superior 3:4 e caixa de texto branca inferior ([ProductCard.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/catalog/ProductCard.tsx)).
+- **Arquitetura de Catálogo em 2 Divisões (`/admin/catalogo`) ✅:**
+  - **Divisão 1 (`ArtworksProductionModule.tsx`)**: Gestão de Artes Matrizes 300DPI (4200x4800px PNG transparente), Prompts JSON A3 e fornecedor preferencial.
+  - **Divisão 2 (`ShowcaseCatalogModule.tsx`)**: Aplicação comercial das artes em suporte físico (Camiseta, Moletom, Bermuda, Quadro Fine Art A3, Ecobag), mídias WebP 9:16, preços retail/PIX e rastreabilidade por Nome e Data do Drop.
+- **Roteamento Multi-Fornecedor & Reserva INK ✅:**
+  - Estrutura física de pastas `FORNECEDORES/Reserva INK/` (`Artes/`, `Especificacoes_e_Gabaritos/`, `Recibos/`).
+  - [MANUAL_TECNICO_RESERVA_INK.md](file:///home/artz/Documentos/Antigravity/Star-Ink/FORNECEDORES/Reserva%20INK/Especificacoes_e_Gabaritos/MANUAL_TECNICO_RESERVA_INK.md) padronizado.
+  - Schema Prisma atualizado com tabela `Artwork` e campos `productType`, `supplierProvider`, `supplierSku`, `printFileUrl`.
 
 #### Fase 3: Bling ERP & Integrações (Semanas 5 e 6 - Setembro)
 - **Configuração do Bling ERP:** Cadastro emitente STAR INK LTDA, certificado A1, regimes de tributação e emissão NFe.

@@ -458,7 +458,10 @@ export default function ShowcaseCatalogModule() {
                   </div>
 
                   {/* Hover Overlay Button */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 space-y-2 text-center backdrop-blur-[2px] z-20">
+                  <div
+                    onClick={() => handleOpenMediaPickerForCard(product)}
+                    className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-4 space-y-2 text-center backdrop-blur-[2px] z-20 cursor-pointer"
+                  >
                     <MousePointerClick className="w-6 h-6 text-[var(--accent-cyan)] animate-bounce" />
                     <span className="text-xs font-mono font-bold text-white bg-black/80 px-3 py-1.5 rounded-lg border border-white/20">
                       {product.image ? 'Alterar Mídia do Card' : 'Vincular Mídia 3:4'}
