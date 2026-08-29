@@ -21,6 +21,22 @@ model Artwork {
   products         Product[]
 }
 
+model Drop {
+  id          String    @id @default(uuid())
+  code        String    @unique // ex: DROP-01
+  name        String    // ex: Drop 01 — Tarô Negro
+  title       String    // ex: Drop Arcanos do Tarô (Exibido na Vitrine)
+  tagline     String    // ex: COLEÇÃO MESTRE • TARÔ NEGRO (Exibido acima do título)
+  description String?   // Manifesto / Descrição curta da coleção
+  releaseDate String?   // ex: 2026-10-12
+  status      String    @default("ACTIVE") // ACTIVE, COMING_SOON, ARCHIVED
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+}
+
 model Product {
   id              String   @id @default(uuid())
   code            String
@@ -38,9 +54,11 @@ model Product {
   showImage       Boolean  @default(true)
   sortOrder       Int      @default(0)
 
-  // Relacionamento com a Arte Matriz
+  // Relacionamento com a Arte Matriz & Drop
   artworkId       String?
   artwork         Artwork? @relation(fields: [artworkId], references: [id], onDelete: SetNull)
+  dropId          String?
+  dropRef         Drop?    @relation(fields: [dropId], references: [id], onDelete: SetNull)
 
   // Roteamento de Fábrica / Canais
   masterSku       String?

@@ -21,16 +21,26 @@ import {
   ShoppingBag,
   ExternalLink,
   Frame,
-  Shirt
+  Shirt,
+  ChevronDown,
+  ChevronUp,
+  Settings
 } from 'lucide-react';
 import { ExtendedProduct } from '@/lib/products';
 import { ArtworkData } from '@/lib/artworks';
 import MediaLibraryModal from './MediaLibraryModal';
 
+import { DropData, INITIAL_DROP } from '@/lib/drops';
+
 export default function ShowcaseCatalogModule() {
   const [mounted, setMounted] = useState(false);
   const [products, setProducts] = useState<ExtendedProduct[]>([]);
   const [artworks, setArtworks] = useState<ArtworkData[]>([]);
+  const [drops, setDrops] = useState<DropData[]>([]);
+  const [activeDrop, setActiveDrop] = useState<DropData>(INITIAL_DROP);
+  const [isDropPanelOpen, setIsDropPanelOpen] = useState(false);
+  const [dropFormData, setDropFormData] = useState<DropData>(INITIAL_DROP);
+  const [savingDrop, setSavingDrop] = useState(false);
   const [loading, setLoading] = useState(true);
   
   // Filters
@@ -85,17 +95,53 @@ export default function ShowcaseCatalogModule() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [resProd, resArt] = await Promise.all([
+      const [resProd, resArt, resDrop] = await Promise.all([
         fetch('/api/products'),
         fetch('/api/artworks'),
+        fetch('/api/drops'),
       ]);
 
       if (resProd.ok) setProducts(await resProd.json());
       if (resArt.ok) setArtworks(await resArt.json());
+      if (resDrop.ok) {
+        const dropList: DropData[] = await resDrop.json();
+        if (dropList && dropList.length > 0) {
+          setDrops(dropList);
+          const active = dropList.find((d) => d.isActive || d.status === 'ACTIVE') || dropList[0];
+          setActiveDrop(active);
+          setDropFormData(active);
+        }
+      }
     } catch (err) {
       console.error('Erro ao carregar dados:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSaveDrop = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSavingDrop(true);
+    try {
+      const res = await fetch('/api/drops', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dropFormData),
+      });
+
+      if (res.ok) {
+        const saved: DropData = await res.json();
+        setActiveDrop(saved);
+        fetchData();
+        alert('Configurações do Drop salvas com sucesso!');
+      } else {
+        alert('Erro ao salvar as configurações do Drop.');
+      }
+    } catch (err) {
+      console.error('Erro ao salvar Drop:', err);
+      alert('Erro de conexão ao salvar Drop.');
+    } finally {
+      setSavingDrop(false);
     }
   };
 
@@ -321,6 +367,15 @@ export default function ShowcaseCatalogModule() {
 
         <div className="flex items-center gap-3 flex-wrap">
           <button
+            onClick={() => setIsDropPanelOpen(!isDropPanelOpen)}
+            className="px-4 py-2.5 rounded-lg border border-[var(--accent-cyan)]/40 bg-[var(--accent-cyan)]/10 text-[var(--accent-cyan)] font-semibold text-xs tracking-wide hover:bg-[var(--accent-cyan)]/20 transition-colors flex items-center gap-2 font-mono"
+          >
+            <Settings className="w-4 h-4" />
+            <span>🎯 Configurar Drop Ativo</span>
+            {isDropPanelOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </button>
+
+          <button
             onClick={() => handleOpenModal()}
             className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs tracking-wide hover:bg-zinc-200 transition-colors flex items-center gap-2 shadow-md font-mono"
           >
@@ -329,6 +384,113 @@ export default function ShowcaseCatalogModule() {
           </button>
         </div>
       </div>
+
+      {/* Expandable Active Drop Management Panel */}
+      {isDropPanelOpen && (
+        <form
+          onSubmit={handleSaveDrop}
+          className="bg-[var(--bg-card)] border border-[var(--accent-cyan)]/30 rounded-2xl p-5 space-y-4 shadow-xl font-mono relative overflow-hidden"
+        >
+          <div className="flex justify-between items-center border-b border-[var(--border-subtle)] pb-3">
+            <div>
+              <span className="text-[10px] uppercase font-bold text-[var(--accent-cyan)] tracking-wider">
+                Cabeçalho Dinâmico da Vitrine Pública
+              </span>
+              <h2 className="text-base font-bold text-white tracking-tight">
+                Gerenciar Textos & Lançamento do Drop Ativo
+              </h2>
+            </div>
+            <span className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-bold">
+              Drop Atual: {activeDrop.name}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
+              <label className="text-[11px] text-zinc-400 uppercase block mb-1">
+                Nome Interno do Drop *
+              </label>
+              <input
+                type="text"
+                required
+                value={dropFormData.name}
+                onChange={(e) => setDropFormData({ ...dropFormData, name: e.target.value })}
+                placeholder="Ex: Drop 01 — Tarô Negro"
+                className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] text-cyan-400 uppercase block mb-1">
+                Título Principal da Vitrine (H2) *
+              </label>
+              <input
+                type="text"
+                required
+                value={dropFormData.title}
+                onChange={(e) => setDropFormData({ ...dropFormData, title: e.target.value })}
+                placeholder="Ex: Drop Arcanos do Tarô"
+                className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] text-cyan-400 uppercase block mb-1">
+                Tagline / Coleção Mestre (Topo) *
+              </label>
+              <input
+                type="text"
+                required
+                value={dropFormData.tagline}
+                onChange={(e) => setDropFormData({ ...dropFormData, tagline: e.target.value })}
+                placeholder="Ex: COLEÇÃO MESTRE • TARÔ NEGRO"
+                className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label className="text-[11px] text-zinc-400 uppercase block mb-1">
+                Data do Lançamento Oficial
+              </label>
+              <input
+                type="text"
+                value={dropFormData.releaseDate || ''}
+                onChange={(e) => setDropFormData({ ...dropFormData, releaseDate: e.target.value })}
+                placeholder="Ex: 12 de Outubro de 2026"
+                className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"
+              />
+            </div>
+
+            <div>
+              <label className="text-[11px] text-zinc-400 uppercase block mb-1">
+                Status da Coleção
+              </label>
+              <select
+                value={dropFormData.status}
+                onChange={(e) => setDropFormData({ ...dropFormData, status: e.target.value as any })}
+                className="w-full bg-[var(--bg-main)] border border-[var(--border-subtle)] rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400 font-mono"
+              >
+                <option value="ACTIVE">Ativo / Vendas Liberadas</option>
+                <option value="COMING_SOON">Em Aquecimento / VIP Gate</option>
+                <option value="ARCHIVED">Arquivado / Esgotado</option>
+              </select>
+            </div>
+
+            <div className="flex items-end justify-end gap-2">
+              <button
+                type="submit"
+                disabled={savingDrop}
+                className="w-full py-2 px-4 rounded-lg bg-white text-black font-bold text-xs hover:bg-zinc-200 transition-colors flex items-center justify-center gap-1.5"
+              >
+                <Check className="w-4 h-4" />
+                <span>{savingDrop ? 'Salvando...' : 'Salvar Drop Ativo'}</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
 
       {/* Filter Bar */}
       <div className="flex flex-col lg:flex-row gap-4 justify-between items-center bg-[var(--bg-card)] p-3 rounded-xl border border-[var(--border-subtle)]">

@@ -75,22 +75,40 @@ interface ProductGridProps {
 export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
   const [filter, setFilter] = useState<'all' | 'tarot' | 'oversized'>('all');
   const [products, setProducts] = useState<Product[]>(DROP_01_PRODUCTS);
+  const [activeDrop, setActiveDrop] = useState<{ tagline: string; title: string }>({
+    tagline: 'COLEÇÃO MESTRE • TARÔ NEGRO',
+    title: 'Drop Arcanos do Tarô',
+  });
 
   useEffect(() => {
-    async function loadProducts() {
+    async function loadData() {
       try {
-        const res = await fetch('/api/products');
-        if (res.ok) {
-          const data = await res.json();
+        const [resProd, resDrop] = await Promise.all([
+          fetch('/api/products'),
+          fetch('/api/drops?active=true'),
+        ]);
+
+        if (resProd.ok) {
+          const data = await resProd.json();
           if (Array.isArray(data) && data.length > 0) {
             setProducts(data);
           }
         }
+
+        if (resDrop.ok) {
+          const dropData = await resDrop.json();
+          if (dropData && dropData.title) {
+            setActiveDrop({
+              tagline: dropData.tagline || 'COLEÇÃO MESTRE • TARÔ NEGRO',
+              title: dropData.title || 'Drop Arcanos do Tarô',
+            });
+          }
+        }
       } catch (err) {
-        console.error('Erro ao carregar produtos na vitrine:', err);
+        console.error('Erro ao carregar dados na vitrine:', err);
       }
     }
-    loadProducts();
+    loadData();
   }, []);
 
   const filteredProducts = products.filter((product) => {
@@ -106,10 +124,10 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
           <div className="max-w-xl">
             <span className="text-zinc-500 font-mono text-xs uppercase tracking-[0.3em] mb-2 block">
-              COLEÇÃO MESTRE • TARÔ NEGRO
+              {activeDrop.tagline}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 mb-1 whitespace-nowrap">
-              Drop Arcanos do Tarô
+              {activeDrop.title}
             </h2>
           </div>
 
