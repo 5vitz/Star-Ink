@@ -48,8 +48,21 @@
 * **Governança & Soberania Exclusiva de Deploy ✅:**
   * Reafirmada a regra de governança em `docs/governanca/AGENTS.md`: o deploy em produção na VPS Contabo é ato soberano exclusivo do fundador (Genera).
 
-* **Estratégia de Loja Secundária na Plataforma Reserva INK ✅:**
-  * Loja nativa Reserva INK mantida como canal secundário; `star-ink.com.br` opera como Flagship Store oficial.
+* **Mini Cards 9:16 com Grade Interativa de Tamanhos & Cores ✅:**
+  * Implementada a grade de tamanhos (`P`, `M`, `G`, `GG`, `XGG`) e indicador de cores no rodapé (25% de altura, fundo branco) de [ProductCard.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/catalog/ProductCard.tsx).
+  * O tamanho selecionado pelo comprador no Mini Card da vitrine é repassado em 1-clique diretamente para o `initialSize` do [ProductDetailModal.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/catalog/ProductDetailModal.tsx).
+
+* **Módulo de Gestão Dinâmica de Drops no Admin & Vitrine ✅:**
+  * Adicionado model `Drop` em [schema.prisma](file:///home/artz/Documentos/Antigravity/Star-Ink/prisma/schema.prisma), rotas de API `/api/drops` e utilitário [src/lib/drops.ts](file:///home/artz/Documentos/Antigravity/Star-Ink/src/lib/drops.ts) com resiliência ao Webpack.
+  * Criado o painel expansível "🎯 Configurar Drop Ativo" em [ShowcaseCatalogModule.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/admin/ShowcaseCatalogModule.tsx) e conectado dinamicamente ao cabeçalho de [ProductGrid.tsx](file:///home/artz/Documentos/Antigravity/Star-Ink/src/components/catalog/ProductGrid.tsx).
+
+* **Textura Halftone Global Calibrável em CSS ✅:**
+  * Adicionada a retícula fina de pontos pretos (`body::after`) em [globals.css](file:///home/artz/Documentos/Antigravity/Star-Ink/src/app/globals.css) com variáveis CSS de opacidade (`--halftone-opacity: 0.06`).
+
+* **Estratégia de Marketing Dual-Store (Flagship Star-Ink + Loja Nativa na Plataforma Reserva INK) ✅:**
+  * **Sacada de Marketing & Alavancagem de Tráfego:** A Reserva INK investe pesado em marketing digital, tráfego pago e SEO para a plataforma deles.
+  * **Modelo de Captura:** Mantemos uma loja espelho nativa dentro do marketplace da Reserva INK para capturar o tráfego gerado pelo investimento deles a custo zero de aquisição.
+  * **Funil de Migração (Unboxing & QR Code):** No envio dos pedidos (seja via loja nativa ou e-commerce próprio), o encarte físico Ziplock, tag autoral e cupom exclusivo com QR Code migram o comprador para a nossa **Flagship Store oficial (`star-ink.com.br`)**, garantindo controle de dados, maior margem e LTV do cliente.
 
 * **Reativação Extraordinária do CNPJ para ATIVO (22/08/2026) ✅:**
   * CNPJ `01.376.773/0001-30` alterado oficialmente para **ATIVO** no e-CAC/Receita Federal.

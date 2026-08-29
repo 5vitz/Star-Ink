@@ -8,14 +8,15 @@ import { Product } from './ProductCard';
 
 interface ProductDetailModalProps {
   product: Product | null;
+  initialSize?: string;
   onClose: () => void;
 }
 
-const SIZES = ['P', 'M', 'G', 'GG', 'EGG'];
+const SIZES = ['P', 'M', 'G', 'GG', 'XGG'];
 
-export default function ProductDetailModal({ product, onClose }: ProductDetailModalProps) {
+export default function ProductDetailModal({ product, initialSize, onClose }: ProductDetailModalProps) {
   const [modalIndex, setModalIndex] = useState(0);
-  const [selectedSize, setSelectedSize] = useState('G');
+  const [selectedSize, setSelectedSize] = useState(initialSize || 'G');
   const [cep, setCep] = useState('');
   const [freightResult, setFreightResult] = useState<string | null>(null);
   const [isCalculatingFreight, setIsCalculatingFreight] = useState(false);

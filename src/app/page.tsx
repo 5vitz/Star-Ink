@@ -13,6 +13,12 @@ import { Product } from '@/components/catalog/ProductCard';
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string>('G');
+
+  const handleSelectProduct = (product: Product, size?: string) => {
+    setSelectedProduct(product);
+    if (size) setSelectedSize(size);
+  };
 
   return (
     <main className="min-h-screen bg-[#f8fafc] text-zinc-900 selection:bg-black selection:text-white overflow-x-hidden">
@@ -23,7 +29,7 @@ export default function Home() {
       <HeroSection />
 
       {/* Catalog Grid Section (3 Columns, 9:16 Cards, Subtração Absoluta) */}
-      <ProductGrid onSelectProduct={(product) => setSelectedProduct(product)} />
+      <ProductGrid onSelectProduct={handleSelectProduct} />
 
       {/* Philosophy & Design Manifesto Section */}
       <PhilosophySection />
@@ -40,6 +46,7 @@ export default function Home() {
       {/* Product Detail Modal */}
       <ProductDetailModal
         product={selectedProduct}
+        initialSize={selectedSize}
         onClose={() => setSelectedProduct(null)}
       />
     </main>

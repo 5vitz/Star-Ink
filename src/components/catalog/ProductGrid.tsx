@@ -69,7 +69,7 @@ export const DROP_01_PRODUCTS: Product[] = [
 ];
 
 interface ProductGridProps {
-  onSelectProduct: (product: Product) => void;
+  onSelectProduct: (product: Product, size?: string) => void;
 }
 
 export default function ProductGrid({ onSelectProduct }: ProductGridProps) {

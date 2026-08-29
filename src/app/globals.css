@@ -59,13 +59,17 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Halftone Pattern Overlay em todo o Background */
-body::after {
+/* Halftone Pattern Utilitário Seletivo (Aplicado apenas onde desejado, ex: Mini Card) */
+.halftone-pattern {
+  position: relative;
+}
+
+.halftone-pattern::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
   background-image: radial-gradient(#000000 var(--halftone-dot-size), transparent var(--halftone-dot-size));
   background-size: var(--halftone-grid-size) var(--halftone-grid-size);
   opacity: var(--halftone-opacity);
