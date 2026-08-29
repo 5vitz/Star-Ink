@@ -59,7 +59,19 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Halftone Pattern Utilitário Seletivo (Aplicado apenas onde desejado, ex: Mini Card) */
+/* Halftone Global Background Overlay (Camada 0 do site) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(#000000 var(--halftone-dot-size), transparent var(--halftone-dot-size));
+  background-size: var(--halftone-grid-size) var(--halftone-grid-size);
+  opacity: var(--halftone-opacity);
+}
+
+/* Halftone Pattern Utilitário Seletivo (para Mini Cards) */
 .halftone-pattern {
   position: relative;
 }

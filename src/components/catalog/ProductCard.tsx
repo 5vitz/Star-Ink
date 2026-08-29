@@ -108,7 +108,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       className="group cursor-pointer relative aspect-[9/16] w-full flex flex-col bg-white border border-black rounded-none overflow-hidden transition-shadow hover:shadow-lg"
     >
       {/* 3:4 Image Container (Alinhado ao topo, ocupando 75% da altura vertical do card 9:16) */}
-      <div className="relative aspect-[3/4] w-full bg-zinc-950 border-b border-black overflow-hidden shrink-0">
+      <div className="relative z-10 aspect-[3/4] w-full bg-zinc-950 border-b border-black overflow-hidden shrink-0">
         {product.showImage !== false && currentImgUrl ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
