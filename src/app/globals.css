@@ -31,6 +31,11 @@
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
 
+  /* Halftone BG Overlay Parameters */
+  --halftone-opacity: 0.06;   /* Intensidade sutil calibrável (0.02 = ultra leve, 0.15 = bem visível) */
+  --halftone-dot-size: 1.2px; /* Raio do pontinho preto */
+  --halftone-grid-size: 6px;  /* Espaçamento da retícula */
+
   --font-heading: 'Brave Ember', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -52,6 +57,18 @@ html, body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Halftone Pattern Overlay em todo o Background */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: radial-gradient(#000000 var(--halftone-dot-size), transparent var(--halftone-dot-size));
+  background-size: var(--halftone-grid-size) var(--halftone-grid-size);
+  opacity: var(--halftone-opacity);
 }
 
 /* Custom Scrollbar */
