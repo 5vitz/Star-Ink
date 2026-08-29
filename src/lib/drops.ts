@@ -1,5 +1,3 @@
-import fs from 'fs';
-import path from 'path';
 import { prisma } from './db';
 
 export interface DropData {
@@ -28,16 +26,31 @@ export const INITIAL_DROP: DropData = {
   isActive: true,
 };
 
-const DROPS_FILE_PATH = path.join(process.cwd(), 'public', 'data', 'drops.json');
+const DROPS_FILE_PATH = pathJoin(process.cwd(), 'public', 'data', 'drops.json');
 
-// Read Fallback JSON
+function pathJoin(...args: string[]) {
+  if (typeof window !== 'undefined') return '';
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const path = require('path');
+  return path.join(...args);
+}
+
+// Read Fallback JSON (Server-side Only)
 function getFallbackDrops(): DropData[] {
+  if (typeof window !== 'undefined') {
+    return [INITIAL_DROP];
+  }
+
   try {
-    if (!fs.existsSync(DROPS_FILE_PATH)) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const fs = require('fs');
+    const dropsPath = DROPS_FILE_PATH || pathJoin(process.cwd(), 'public', 'data', 'drops.json');
+
+    if (!fs.existsSync(dropsPath)) {
       saveFallbackDrops([INITIAL_DROP]);
       return [INITIAL_DROP];
     }
-    const fileData = fs.readFileSync(DROPS_FILE_PATH, 'utf-8');
+    const fileData = fs.readFileSync(dropsPath, 'utf-8');
     const parsed: DropData[] = JSON.parse(fileData);
     return parsed.length > 0 ? parsed : [INITIAL_DROP];
   } catch (err) {
@@ -46,14 +59,23 @@ function getFallbackDrops(): DropData[] {
   }
 }
 
-// Save Fallback JSON
+// Save Fallback JSON (Server-side Only)
 function saveFallbackDrops(drops: DropData[]): boolean {
+  if (typeof window !== 'undefined') return false;
+
   try {
-    const dirPath = path.dirname(DROPS_FILE_PATH);
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const fs = require('fs');
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const path = require('path');
+
+    const dropsPath = DROPS_FILE_PATH || path.join(process.cwd(), 'public', 'data', 'drops.json');
+    const dirPath = path.dirname(dropsPath);
+
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
     }
-    fs.writeFileSync(DROPS_FILE_PATH, JSON.stringify(drops, null, 2), 'utf-8');
+    fs.writeFileSync(dropsPath, JSON.stringify(drops, null, 2), 'utf-8');
     return true;
   } catch (err) {
     console.error('Erro ao salvar drops.json:', err);
