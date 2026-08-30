@@ -146,10 +146,17 @@ export default function ProductDetailModal({ product, initialSize, onClose }: Pr
 
               {/* Size Selector */}
               <div className="mb-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
-                    Selecione o Tamanho:
-                  </span>
+                <div className="flex flex-wrap justify-between items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider">
+                      Selecione o Tamanho:
+                    </span>
+                    {initialSize && (
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold">
+                        ✓ Tamanho {selectedSize} selecionado na Vitrine
+                      </span>
+                    )}
+                  </div>
                   <span className="text-xs text-zinc-500 underline cursor-pointer hover:text-white transition-colors">
                     Tabela de Medidas (cm)
                   </span>
@@ -161,7 +168,7 @@ export default function ProductDetailModal({ product, initialSize, onClose }: Pr
                       onClick={() => setSelectedSize(size)}
                       className={`flex-1 py-2.5 rounded-xl font-mono text-xs font-bold transition-all border ${
                         selectedSize === size
-                          ? 'bg-white text-black border-white'
+                          ? 'bg-white text-black border-white shadow-md'
                           : 'bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700 hover:text-white'
                       }`}
                     >

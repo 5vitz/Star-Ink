@@ -113,12 +113,14 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
       ref={cardRef}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      onClick={() => onSelect(product, selectedSize)}
       onMouseLeave={handleMouseLeave}
-      className="group cursor-pointer relative aspect-[9/16] w-full flex flex-col bg-white border border-black rounded-none overflow-hidden transition-shadow hover:shadow-lg"
+      className="group relative aspect-[9/16] w-full flex flex-col bg-white border border-black rounded-none overflow-hidden transition-shadow hover:shadow-lg"
     >
-      {/* 3:4 Image Container (Alinhado ao topo, ocupando 75% da altura vertical do card 9:16) */}
-      <div className="relative z-10 aspect-[3/4] w-full bg-zinc-950 border-b border-black overflow-hidden shrink-0">
+      {/* 3:4 Image Container (Clique abre o modal de detalhes com o tamanho pré-selecionado) */}
+      <div 
+        onClick={() => onSelect(product, selectedSize)}
+        className="relative z-10 aspect-[3/4] w-full bg-zinc-950 border-b border-black overflow-hidden shrink-0 cursor-pointer"
+      >
         {product.showImage !== false && currentImgUrl ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img
@@ -137,7 +139,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           </div>
         )}
 
-        {/* Setas de Navegação Lateral do Carrossel (Visíveis no Hover no Desktop e no Viewport no Mobile) */}
+        {/* Setas de Navegação Lateral do Carrossel */}
         {imageList.length > 1 && (
           <>
             <button
@@ -168,7 +170,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           </>
         )}
 
-        {/* Indicadores em Bolinhas (Dots estilo Instagram) */}
+        {/* Indicadores em Bolinhas */}
         {imageList.length > 1 && (
           <div
             className={`absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 transition-all duration-200 ${
@@ -194,10 +196,13 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
         )}
       </div>
 
-      {/* MINI CARD: Área de Informações em Texto (Fundo Branco com Halftone Sutil, 25% da altura total) */}
+      {/* MINI CARD: Área de Informações em Texto (Clique no texto abre o modal; clique nos botões seleciona o tamanho) */}
       <div className="flex-1 w-full bg-white p-3 sm:p-3.5 flex flex-col justify-between overflow-hidden halftone-pattern relative">
-        {/* Linha 1: Código + Nome Comercial + Preço Retail */}
-        <div className="flex items-start justify-between gap-2 relative z-10">
+        {/* Linha 1: Código + Nome Comercial + Preço Retail (Clique abre o modal) */}
+        <div 
+          onClick={() => onSelect(product, selectedSize)}
+          className="flex items-start justify-between gap-2 relative z-10 cursor-pointer"
+        >
           <h3 className="text-xs sm:text-sm font-bold text-black tracking-tight group-hover:text-zinc-700 transition-colors line-clamp-1">
             {product.code} {product.name}
           </h3>
