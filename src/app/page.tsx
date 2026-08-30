@@ -31,11 +31,11 @@ export default function Home() {
       {/* Catalog Grid Section (3 Columns, 9:16 Cards, Subtração Absoluta) */}
       <ProductGrid onSelectProduct={handleSelectProduct} />
 
-      {/* Philosophy & Design Manifesto Section */}
-      <PhilosophySection />
-
-      {/* Sales Channels & Multichannel Marketplace Section */}
+      {/* Sales Channels & Multichannel Marketplace Section (ONDE ENCONTRAR) */}
       <SalesChannelsSection />
+
+      {/* Philosophy & Design Manifesto Section (MANIFESTO DE DESIGN - A ESTÉTICA DA SUBTRAÇÃO) */}
+      <PhilosophySection />
 
       {/* Concierge Stardust AI Section */}
       <AIAssistantSection />
