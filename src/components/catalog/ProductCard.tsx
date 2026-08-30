@@ -40,6 +40,7 @@ const COLOR_MAP: Record<string, { label: string; bg: string; border: string }> =
 export default function ProductCard({ product, onSelect }: ProductCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedSize, setSelectedSize] = useState<string>('G');
+  const [selectedColor, setSelectedColor] = useState<string>('black');
   const [isVisibleInViewport, setIsVisibleInViewport] = useState(false);
   const cardRef = useRef<HTMLElement>(null);
 
@@ -239,18 +240,28 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
             })}
           </div>
 
-          {/* Indicador Visual das 6 Cores Homologadas (Algodão Peruano) */}
+          {/* Indicador Visual das 6 Cores Homologadas com Destaque de Seleção */}
           <div className="flex items-center gap-1 shrink-0" title="Cores Algodão Peruano: Preta, Off-White, Marinho, Cinza Mescla, Vinho, Verde Militar">
             {(product.availableColors && product.availableColors.length > 0
               ? product.availableColors
               : ['black', 'white', 'navy', 'gray', 'wine', 'military_green']
             ).map((colorKey) => {
               const colorInfo = COLOR_MAP[colorKey] || { label: colorKey, bg: 'bg-zinc-400', border: 'border-zinc-500' };
+              const isSelectedColor = selectedColor === colorKey;
+
               return (
-                <span
+                <button
                   key={colorKey}
-                  title={`Cor: ${colorInfo.label}`}
-                  className={`w-2.5 h-2.5 rounded-full ${colorInfo.bg} ${colorInfo.border} border shrink-0 transition-transform hover:scale-125`}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setSelectedColor(colorKey);
+                  }}
+                  title={`Selecionar Cor: ${colorInfo.label}${isSelectedColor ? ' (Selecionada)' : ''}`}
+                  className={`w-2.5 h-2.5 rounded-full ${colorInfo.bg} ${colorInfo.border} border shrink-0 transition-all ${
+                    isSelectedColor ? 'ring-2 ring-black scale-125 z-10 shadow-sm' : 'opacity-70 hover:opacity-100 hover:scale-110'
+                  }`}
                 />
               );
             })}
