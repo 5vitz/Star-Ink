@@ -260,7 +260,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
                   }}
                   title={`Selecionar Cor: ${colorInfo.label}${isSelectedColor ? ' (Selecionada)' : ''}`}
                   className={`w-2.5 h-2.5 rounded-full ${colorInfo.bg} ${colorInfo.border} border shrink-0 transition-all ${
-                    isSelectedColor ? 'ring-2 ring-black scale-125 z-10 shadow-sm' : 'opacity-70 hover:opacity-100 hover:scale-110'
+                    isSelectedColor ? 'ring-1 ring-zinc-700 ring-offset-2 ring-offset-white scale-110 z-10 shadow-sm' : 'opacity-70 hover:opacity-100 hover:scale-110'
                   }`}
                 />
               );
