@@ -112,17 +112,11 @@ export default function SalesChannelsSection() {
   return (
     <section id="channels" className="py-20 bg-[#f8fafc] text-zinc-900 border-t border-zinc-200">
       <div className="container mx-auto px-6 space-y-12">
-        {/* Minimalist Header */}
-        <div className="max-w-2xl mx-auto text-center space-y-3">
-          <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-zinc-400 block">
-            CANAIS DE VENDA OFICIAIS
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 uppercase font-mono">
-            ONDE ENCONTRAR
+        {/* Single Line Header — Mesma Fonte e Tipografia da Vitrine */}
+        <div className="max-w-2xl mx-auto text-center mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-zinc-900">
+            Canais de Venda
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-500 font-mono">
-            Encontre o catálogo autoral da STAR INK nas principais plataformas.
-          </p>
         </div>
 
         {/* Pure Clean Logo Grid */}
