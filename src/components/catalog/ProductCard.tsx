@@ -241,7 +241,7 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
           </div>
 
           {/* Indicador Visual das 6 Cores Homologadas com Destaque de Seleção */}
-          <div className="flex items-center gap-1 shrink-0" title="Cores Algodão Peruano: Preta, Off-White, Marinho, Cinza Mescla, Vinho, Verde Militar">
+          <div className="flex items-center gap-2 shrink-0 pl-1" title="Cores Algodão Peruano: Preta, Off-White, Marinho, Cinza Mescla, Vinho, Verde Militar">
             {(product.availableColors && product.availableColors.length > 0
               ? product.availableColors
               : ['black', 'white', 'navy', 'gray', 'wine', 'military_green']
