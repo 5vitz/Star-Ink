@@ -118,7 +118,7 @@ export default function ProductGrid({ onSelectProduct }: ProductGridProps) {
   });
 
   return (
-    <section id="catalog" className="pt-12 sm:pt-16 pb-16 bg-[#f8fafc] text-zinc-900">
+    <section id="catalog" className="pt-8 sm:pt-10 md:pt-12 pb-16 bg-[#f8fafc] text-zinc-900 border-t border-zinc-200">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
