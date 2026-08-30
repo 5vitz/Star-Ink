@@ -18,6 +18,7 @@ export interface Product {
   description: string;
   showImage?: boolean;
   availableSizes?: string[];
+  availableColors?: string[];
 }
 
 interface ProductCardProps {
@@ -26,6 +27,15 @@ interface ProductCardProps {
 }
 
 const DEFAULT_SIZES = ['P', 'M', 'G', 'GG', 'XGG'];
+
+const COLOR_MAP: Record<string, { label: string; bg: string; border: string }> = {
+  black: { label: 'Preta', bg: 'bg-black', border: 'border-zinc-600' },
+  white: { label: 'Off-White', bg: 'bg-white', border: 'border-zinc-400' },
+  navy: { label: 'Azul Marinho', bg: 'bg-[#0f172a]', border: 'border-zinc-500' },
+  gray: { label: 'Cinza Mescla', bg: 'bg-[#94a3b8]', border: 'border-zinc-400' },
+  wine: { label: 'Vinho', bg: 'bg-[#7f1d1d]', border: 'border-zinc-400' },
+  military_green: { label: 'Verde Militar', bg: 'bg-[#14532d]', border: 'border-zinc-400' },
+};
 
 export default function ProductCard({ product, onSelect }: ProductCardProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -224,10 +234,21 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
             })}
           </div>
 
-          {/* Indicador Visual de Cores Homologadas */}
-          <div className="flex items-center gap-1 shrink-0" title="Cores Homologadas: Preto & Off-White">
-            <span className="w-2.5 h-2.5 rounded-full bg-black border border-zinc-400" />
-            <span className="w-2.5 h-2.5 rounded-full bg-white border border-zinc-400" />
+          {/* Indicador Visual das 6 Cores Homologadas (Algodão Peruano) */}
+          <div className="flex items-center gap-1 shrink-0" title="Cores Algodão Peruano: Preta, Off-White, Marinho, Cinza Mescla, Vinho, Verde Militar">
+            {(product.availableColors && product.availableColors.length > 0
+              ? product.availableColors
+              : ['black', 'white', 'navy', 'gray', 'wine', 'military_green']
+            ).map((colorKey) => {
+              const colorInfo = COLOR_MAP[colorKey] || { label: colorKey, bg: 'bg-zinc-400', border: 'border-zinc-500' };
+              return (
+                <span
+                  key={colorKey}
+                  title={`Cor: ${colorInfo.label}`}
+                  className={`w-2.5 h-2.5 rounded-full ${colorInfo.bg} ${colorInfo.border} border shrink-0 transition-transform hover:scale-125`}
+                />
+              );
+            })}
           </div>
         </div>
 
