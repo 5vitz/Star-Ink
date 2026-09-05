@@ -12,6 +12,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
+  { name: '🏛️ Cockpit (8 Departamentos)', href: '/admin/dashboard' },
   { name: '1. Atendimento', href: '/admin/atendimento' },
   { name: '2. Produção', href: '/admin/producao' },
   { name: '3. Catálogo', href: '/admin/catalogo' },
