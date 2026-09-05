@@ -24,6 +24,7 @@ Bem-vindo ao repositório oficial do projeto **Star-Ink**, uma operação de e-c
 
 Toda a documentação técnica, jurídica e estratégica do projeto está organizada no diretório [`docs/`](file:///home/artz/Documentos/Antigravity/Star-Ink/docs):
 
+- 🏛️ **[Proposta Funcional da Arquitetura Agêntica](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/PROPOSTA_ARQUITETURA_AGENTICA_E_GOVERNANCA.md):** Separação conceitual entre o Cockpit (Corpo) e a Frota Agêntica (Inteligência), além da Regra Estrita de Governança (Deploy exclusivo do Fundador).
 - 🏛️ **[Estrutura Organizacional & Batalhão de Agentes](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura_organizacional/INDEX.md):** Organograma da empresa, 8 departamentos em diretórios físicos, permissões por escopo e time de IA.
 - 🎼 **[Pasta Lincoln — Contexto Inicial & Handover](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura_organizacional/01_DIRETORIA_EXECUTIVA/Lincoln/SESSION_HANDOVER.md):** Histórico de sessões, roadmap Q4, visão de médio prazo e checklist de tarefas.
 - ⚖️ **[02. Jurídico & Compliance](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura_organizacional/02_JURIDICO_E_COMPLIANCE/INDEX.md):** Processo JUCEES, CNAEs, Simples Nacional, INPI e Políticas LGPD.

@@ -42,6 +42,16 @@ Com a nova arquitetura física por diretórios, o sistema de permissões de aces
 
 ---
 
+## 🔒 Regra de Governança de Infraestrutura & Deploy
+
+> [!IMPORTANT]
+> **DEPLOY EXCLUSIVO DO FUNDADOR:**  
+> A execução de scripts de deploy (`deploy.sh`), atualizações no PM2 da VPS Contabo ou promoções para produção são de **EXCLUSIVIDADE DO FUNDADOR (ARMANDO SINKOVITZ)**.  
+> Nenhum agente de IA ou assistente autônomo está autorizado a acionar deploys ou alterar infraestrutura remota sem comando manual direto do Fundador.  
+> Para detalhamento completo da arquitetura e separação de papéis entre o Cockpit (Corpo) e os Agentes (Inteligência), consulte a [Proposta Funcional da Arquitetura Agêntica](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/PROPOSTA_ARQUITETURA_AGENTICA_E_GOVERNANCA.md).
+
+---
+
 ## 🗺️ Matriz de Departamentos & Diretórios Físicos
 
 | Departamento | Foco Principal | Diretório Físico | Agentes Alocados |
