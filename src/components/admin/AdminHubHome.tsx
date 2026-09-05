@@ -56,9 +56,6 @@ export default function AdminHubHome() {
       agents: ['Maestro Lincoln (Orquestrador)', 'Armando (Decisor Soberano)'],
       href: '/admin/dashboard',
       icon: Crown,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'Orquestração Ativa',
       kpiLabel: 'Meta Comercial Q4',
       kpiValue: '420+ peças / R$ 60k',
@@ -72,9 +69,6 @@ export default function AdminHubHome() {
       agents: ['Dr. Lex (JusChat)', 'Tax & Fiscal Bot'],
       href: '/admin/dashboard',
       icon: Scale,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'JUCEES ESP2605453571',
       kpiLabel: 'Marca INPI',
       kpiValue: 'Processo 944841171',
@@ -88,9 +82,6 @@ export default function AdminHubHome() {
       agents: ['Minimal Change Engineer', 'Software Architect', 'Backend Architect'],
       href: '/admin/dashboard',
       icon: Cpu,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'VPS Contabo 99.9% Uptime',
       kpiLabel: 'Rotas GEO AI',
       kpiValue: '/llms.txt Ativo',
@@ -104,9 +95,6 @@ export default function AdminHubHome() {
       agents: ['PoD Dispatch Agent', 'Logistics Tracker'],
       href: '/admin/producao',
       icon: PackageCheck,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'Reserva INK 48h SLA',
       kpiLabel: 'Estoque Insumos',
       kpiValue: 'Ziplock Fosco OK',
@@ -120,9 +108,6 @@ export default function AdminHubHome() {
       agents: ['Agente Discriminador', 'Concierge IA 24/7'],
       href: '/admin/atendimento',
       icon: SearchCheck,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'Concierge 24/7 Ativo',
       kpiLabel: 'Portal de Trocas',
       kpiValue: '/trocas Operacional',
@@ -136,9 +121,6 @@ export default function AdminHubHome() {
       agents: ['Traffic Manager', 'Feed & Visual Curator', 'Content Creator'],
       href: '/admin/catalogo',
       icon: TrendingUp,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'Sacolinha IG Sincronizada',
       kpiLabel: 'Mídia Paga Meta',
       kpiValue: 'R$ 15,00 / dia',
@@ -152,9 +134,6 @@ export default function AdminHubHome() {
       agents: ['ASK Nexus', 'PLAN Narrative', 'Artwork Architect'],
       href: '/admin/catalogo',
       icon: Palette,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: '12 Artes Matrizes A3',
       kpiLabel: 'Proof of Concept',
       kpiValue: 'Prompts JSON A3',
@@ -168,9 +147,6 @@ export default function AdminHubHome() {
       agents: ['CFO Virtual & FP&A', 'Financial Reconciler', 'Unit Economics Engineer'],
       href: '/admin/financeiro',
       icon: Landmark,
-      color: 'from-amber-500/20 to-amber-600/5',
-      borderColor: 'border-amber-500/30 hover:border-amber-400',
-      badgeColor: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
       badgeText: 'Bling ERP v3 Conectado',
       kpiLabel: 'Lucro Líquido / Peça',
       kpiValue: 'R$ 122,00 (67.7%)',
@@ -181,8 +157,8 @@ export default function AdminHubHome() {
   return (
     <div className="space-y-8 pb-16">
       {/* Top Banner Status (24/7 Cloud Telemetry) */}
-      <div className="p-5 rounded-2xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-4 shadow-xl relative overflow-hidden">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-[var(--border-subtle)] pb-4">
+      <div className="p-5 rounded-2xl bg-[#131316] border border-zinc-800/80 space-y-4 shadow-2xl relative overflow-hidden">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-zinc-800/60 pb-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-[var(--accent-cyan)] uppercase tracking-wider mb-1">
               <Zap className="w-4 h-4 fill-[var(--accent-cyan)]" />
@@ -201,7 +177,7 @@ export default function AdminHubHome() {
 
             <button
               onClick={fetchTelemetry}
-              className={`p-2 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-main)] text-zinc-400 hover:text-white transition-colors ${loading ? 'animate-spin' : ''}`}
+              className={`p-2 rounded-lg border border-zinc-800 bg-[#0d0d0f] text-zinc-400 hover:text-white transition-colors ${loading ? 'animate-spin' : ''}`}
               title="Atualizar Telemetria dos Agentes"
             >
               <RefreshCw className="w-4 h-4" />
@@ -209,12 +185,12 @@ export default function AdminHubHome() {
           </div>
         </div>
 
-        <p className="text-xs text-[var(--text-secondary)] leading-relaxed max-w-4xl font-mono">
+        <p className="text-xs text-zinc-400 leading-relaxed max-w-4xl font-mono">
           Operação solo-founder alavancada por 19 Agentes de IA em nuvem. Cada um dos 8 departamentos possui sua própria telemetria em tempo real, time de IA dedicado e alça de governança humana.
         </p>
       </div>
 
-      {/* Grid dos 8 Departamentos (2x4 / 4x2 Responsivo) */}
+      {/* Grid dos 8 Departamentos (2x4 / 4x2 Responsivo) com Fundo Cinza Chumbo Sólido (#131316) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {departments.map((dept) => {
           const Icon = dept.icon;
@@ -223,13 +199,13 @@ export default function AdminHubHome() {
           return (
             <div
               key={dept.id}
-              className={`bg-[var(--bg-card)] border rounded-2xl p-5 space-y-4 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl bg-gradient-to-b ${dept.color} ${dept.borderColor}`}
+              className="bg-[#131316] border border-zinc-800/80 hover:border-amber-500/40 rounded-2xl p-5 space-y-4 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl shadow-xl"
             >
               {/* Card Top: Number, Icon & Status Badge */}
               <div className="space-y-3">
                 <div className="flex justify-between items-start gap-2">
                   <div className="flex items-center gap-2.5">
-                    <span className="text-xs font-mono font-bold text-zinc-500 bg-white/5 px-2 py-0.5 rounded border border-white/10">
+                    <span className="text-xs font-mono font-bold text-zinc-400 bg-black/40 px-2 py-0.5 rounded border border-white/5">
                       {dept.code}
                     </span>
                     <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-white group-hover:scale-110 transition-transform">
@@ -237,7 +213,7 @@ export default function AdminHubHome() {
                     </div>
                   </div>
 
-                  <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${dept.badgeColor} truncate max-w-[140px]`}>
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border bg-amber-500/10 text-amber-300 border-amber-500/30 truncate max-w-[140px]">
                     {dept.badgeText}
                   </span>
                 </div>
@@ -247,27 +223,27 @@ export default function AdminHubHome() {
                   <h3 className="text-base font-bold text-white tracking-tight group-hover:text-[var(--accent-cyan)] transition-colors">
                     {dept.title}
                   </h3>
-                  <p className="text-xs text-[var(--text-secondary)] mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
                     {dept.subtitle}
                   </p>
                 </div>
               </div>
 
-              {/* Middle KPI Highlight Box */}
-              <div className="bg-[var(--bg-main)] border border-[var(--border-subtle)] p-3 rounded-xl space-y-1 font-mono">
-                <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider block">
+              {/* Middle KPI Highlight Box (Fundo Escuro Sólido) */}
+              <div className="bg-[#0b0b0d] border border-zinc-800/60 p-3 rounded-xl space-y-1 font-mono">
+                <span className="text-[10px] text-zinc-500 uppercase tracking-wider block">
                   {dept.kpiLabel}
                 </span>
                 <span className="text-sm font-bold text-white block">
                   {dept.kpiValue}
                 </span>
-                <span className="text-[10px] text-zinc-500 block truncate">
+                <span className="text-[10px] text-zinc-400 block truncate">
                   {dept.kpiSub}
                 </span>
               </div>
 
               {/* Bottom Agents List & Access Button */}
-              <div className="pt-3 border-t border-[var(--border-subtle)] space-y-3">
+              <div className="pt-3 border-t border-zinc-800/60 space-y-3">
                 <div className="space-y-1.5">
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block">
                     Agentes de IA Alocados:
@@ -278,7 +254,7 @@ export default function AdminHubHome() {
                           <button
                             key={agent.id}
                             onClick={() => setSelectedAgent(agent)}
-                            className="text-[9px] font-mono bg-white/5 hover:bg-amber-500/20 text-amber-200 px-1.5 py-0.5 rounded border border-amber-500/30 flex items-center gap-1 transition-colors"
+                            className="text-[9px] font-mono bg-black/40 hover:bg-amber-500/20 text-amber-200 px-1.5 py-0.5 rounded border border-amber-500/30 flex items-center gap-1 transition-colors"
                             title="Clique para inspecionar a telemetria do Agente"
                           >
                             <Bot className="w-3 h-3 text-amber-400" />
@@ -286,7 +262,7 @@ export default function AdminHubHome() {
                           </button>
                         ))
                       : dept.agents.map((agent, idx) => (
-                          <span key={idx} className="text-[9px] font-mono bg-white/5 text-zinc-300 px-1.5 py-0.5 rounded border border-white/10">
+                          <span key={idx} className="text-[9px] font-mono bg-black/40 text-zinc-300 px-1.5 py-0.5 rounded border border-white/10">
                             {agent}
                           </span>
                         ))}
@@ -309,7 +285,7 @@ export default function AdminHubHome() {
       {/* Modal / Drawer de Inspeção do Agente Selecionado */}
       {selectedAgent && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[var(--bg-card)] border border-amber-500/40 rounded-2xl p-6 max-w-lg w-full space-y-5 shadow-2xl relative">
+          <div className="bg-[#131316] border border-amber-500/40 rounded-2xl p-6 max-w-lg w-full space-y-5 shadow-2xl relative">
             <button
               onClick={() => setSelectedAgent(null)}
               className="absolute top-4 right-4 p-1.5 rounded-lg bg-white/5 text-zinc-400 hover:text-white transition-colors"
@@ -317,7 +293,7 @@ export default function AdminHubHome() {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-3 border-b border-[var(--border-subtle)] pb-4">
+            <div className="flex items-center gap-3 border-b border-zinc-800 pb-4">
               <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400">
                 <Bot className="w-6 h-6" />
               </div>
@@ -328,14 +304,14 @@ export default function AdminHubHome() {
                 <h3 className="text-xl font-bold text-white tracking-tight">
                   {selectedAgent.name}
                 </h3>
-                <p className="text-xs text-[var(--text-secondary)] font-mono mt-0.5">
+                <p className="text-xs text-zinc-400 font-mono mt-0.5">
                   {selectedAgent.role}
                 </p>
               </div>
             </div>
 
             <div className="space-y-3 font-mono text-xs">
-              <div className="flex justify-between items-center bg-[var(--bg-main)] p-3 rounded-xl border border-[var(--border-subtle)]">
+              <div className="flex justify-between items-center bg-[#0b0b0d] p-3 rounded-xl border border-zinc-800">
                 <span className="text-zinc-400">Status Operacional:</span>
                 <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
                   <CheckCircle2 className="w-4 h-4" />
@@ -343,7 +319,7 @@ export default function AdminHubHome() {
                 </span>
               </div>
 
-              <div className="flex justify-between items-center bg-[var(--bg-main)] p-3 rounded-xl border border-[var(--border-subtle)]">
+              <div className="flex justify-between items-center bg-[#0b0b0d] p-3 rounded-xl border border-zinc-800">
                 <span className="text-zinc-400">Última Execução de Rotina:</span>
                 <span className="flex items-center gap-1.5 text-zinc-300">
                   <Clock className="w-3.5 h-3.5 text-amber-400" />
@@ -351,19 +327,19 @@ export default function AdminHubHome() {
                 </span>
               </div>
 
-              <div className="bg-[var(--bg-main)] p-3 rounded-xl border border-[var(--border-subtle)] space-y-1">
+              <div className="bg-[#0b0b0d] p-3 rounded-xl border border-zinc-800 space-y-1">
                 <span className="text-zinc-400 block text-[10px] uppercase">Métrica / KPI de Governança:</span>
                 <span className="text-white font-bold block">{selectedAgent.kpiHighlight}</span>
               </div>
 
-              <div className="bg-[var(--bg-main)] p-3 rounded-xl border border-[var(--border-subtle)] space-y-2">
+              <div className="bg-[#0b0b0d] p-3 rounded-xl border border-zinc-800 space-y-2">
                 <span className="text-zinc-400 block text-[10px] uppercase flex items-center gap-1">
                   <Activity className="w-3 h-3 text-[var(--accent-cyan)]" />
                   <span>Logs de Execução Recentes:</span>
                 </span>
                 <div className="space-y-1 text-[11px] text-zinc-300">
                   {selectedAgent.recentLogs.map((log, idx) => (
-                    <div key={idx} className="bg-black/40 p-2 rounded border border-white/5">
+                    <div key={idx} className="bg-black/50 p-2 rounded border border-white/5">
                       {log}
                     </div>
                   ))}
