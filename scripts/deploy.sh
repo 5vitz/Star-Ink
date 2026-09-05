@@ -144,11 +144,11 @@ else
   fi
 fi
 
-# Aguarda a confirmação do usuário antes de encerrar o terminal
-if [ -t 0 ] && [ -e /dev/tty ]; then
+# Aguarda a confirmação do usuário se rodando em terminal interativo
+if [ -t 0 ] && [ -c /dev/tty ]; then
   echo ""
   echo "============================================================"
-  read -r -p "Pressione [Enter] para fechar esta janela..." </dev/tty || true
+  read -r -p "Pressione [Enter] para fechar esta janela..." </dev/tty 2>/dev/null || true
 fi
 
 
