@@ -18,14 +18,95 @@ import {
   X,
   Activity,
   CheckCircle2,
-  Clock
+  Clock,
+  ShieldAlert,
+  Check,
+  ThumbsDown,
+  Sparkles,
+  AlertTriangle
 } from 'lucide-react';
 import { AgentFleetOverview, AgentTelemetrySpec } from '@/lib/agents/telemetry';
+
+export interface ExecutiveApprovalItem {
+  id: string;
+  departmentCode: string;
+  departmentName: string;
+  agentName: string;
+  title: string;
+  description: string;
+  impact: string;
+  priority: 'HIGH' | 'MEDIUM' | 'LOW';
+  status: 'PENDING' | 'APPROVED' | 'REJECTED';
+  actionLabel: string;
+  timestamp: string;
+}
 
 export default function AdminHubHome() {
   const [telemetry, setTelemetry] = useState<AgentFleetOverview | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedAgent, setSelectedAgent] = useState<AgentTelemetrySpec | null>(null);
+
+  // Fila de Decisões Executivas (Human-in-the-Loop) alimentada pelos Agentes
+  const [approvals, setApprovals] = useState<ExecutiveApprovalItem[]>([
+    {
+      id: 'app_01',
+      departmentCode: '07',
+      departmentName: 'Atelier de Artes & Prompts',
+      agentName: 'Artwork Architect',
+      title: 'Aprovação de Matriz A3 para Estampa "XVII. A ESTRELA"',
+      description: 'Arte autoral gerada e otimizada sob os princípios da Estética da Subtração. Matriz 4200x4800px @ 300 DPI em PNG transparente pronta para impressão DTG HD.',
+      impact: 'Liberar no catálogo D2C e vitrine 9:16 do Drop 01.',
+      priority: 'HIGH',
+      status: 'PENDING',
+      actionLabel: 'Aprovar Matriz e Publicar',
+      timestamp: 'Há 12 minutos'
+    },
+    {
+      id: 'app_02',
+      departmentCode: '02',
+      departmentName: 'Jurídico, Fiscal & Compliance',
+      agentName: 'Tax & Fiscal Bot',
+      title: 'Homologação do Protocolo JUCEES ESP2605453571 & Guia DAS',
+      description: 'DBE limpo validado na Receita Federal e FCN emitida na JUCEES com sucesso. Apuração do Simples Nacional calculada na alíquota base (4.0%).',
+      impact: 'Autorizar emissão automática de NF-e Modelo 55 no Bling ERP.',
+      priority: 'MEDIUM',
+      status: 'PENDING',
+      actionLabel: 'Homologar Emissão NF-e',
+      timestamp: 'Há 45 minutos'
+    },
+    {
+      id: 'app_03',
+      departmentCode: '08',
+      departmentName: 'Financeiro & Contábil',
+      agentName: 'Financial Reconciler',
+      title: 'Discrepância de Taxa Adquirente na Venda Cartão #104',
+      description: 'O gateway cobrou taxa de 3.8% na transação #104, sendo que o contrato prevê alíquota máxima de 3.2% (divergência acumulada de R$ 14,20).',
+      impact: 'Disparar e-mail de contestação automática com o suporte da adquirente.',
+      priority: 'HIGH',
+      status: 'PENDING',
+      actionLabel: 'Enviar Contestação Automática',
+      timestamp: 'Há 2 horas'
+    },
+    {
+      id: 'app_04',
+      departmentCode: '05',
+      departmentName: 'SAC, Pós-Venda & Discriminador',
+      agentName: 'Agente Discriminador',
+      title: 'Solicitação de Logística Reversa / Troca #109 (Tam. G ➔ M)',
+      description: 'Cliente enviou foto da peça. Análise por visão computacional confirma: tecido sem manchas, estampa 100% íntegra, dentro do prazo legal de 7 dias.',
+      impact: 'Gerar e enviar código de postagem reversa dos Correios no WhatsApp.',
+      priority: 'MEDIUM',
+      status: 'PENDING',
+      actionLabel: 'Aprovar Logística Reversa',
+      timestamp: 'Há 3 horas'
+    }
+  ]);
+
+  const handleApprovalAction = (id: string, newStatus: 'APPROVED' | 'REJECTED') => {
+    setApprovals(prev =>
+      prev.map(item => (item.id === id ? { ...item, status: newStatus } : item))
+    );
+  };
 
   // Busca dados de telemetria da frota agêntica
   const fetchTelemetry = async () => {
@@ -188,6 +269,97 @@ export default function AdminHubHome() {
         <p className="text-xs text-zinc-400 leading-relaxed max-w-4xl font-mono">
           Operação solo-founder alavancada por 19 Agentes de IA em nuvem. Cada um dos 8 departamentos possui sua própria telemetria em tempo real, time de IA dedicado e alça de governança humana.
         </p>
+      </div>
+
+      {/* SEÇÃO 2: Fila de Decisões Executivas (Human-in-the-Loop / Cards de 1-Clique) */}
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-zinc-800 pb-3">
+          <div className="flex items-center gap-2 font-mono text-xs text-amber-400 font-bold uppercase tracking-wider">
+            <ShieldAlert className="w-4 h-4 text-amber-400" />
+            <span>Fila de Decisões Executivas • Alça de Governança Humana (Human-in-the-Loop)</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">
+              {approvals.filter(a => a.status === 'PENDING').length} Decisões Pendentes
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {approvals.map((item) => (
+            <div
+              key={item.id}
+              className={`p-5 rounded-2xl border transition-all space-y-4 shadow-xl relative overflow-hidden ${
+                item.status === 'APPROVED'
+                  ? 'bg-emerald-950/20 border-emerald-500/40'
+                  : item.status === 'REJECTED'
+                  ? 'bg-rose-950/20 border-rose-500/40 opacity-70'
+                  : 'bg-[#131316] border-amber-500/30 hover:border-amber-500/60'
+              }`}
+            >
+              {/* Header do Card */}
+              <div className="flex justify-between items-start gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono font-bold bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded">
+                    Depto {item.departmentCode}
+                  </span>
+                  <span className="text-xs font-mono text-zinc-400 flex items-center gap-1">
+                    <Bot className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{item.agentName}</span>
+                  </span>
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500">{item.timestamp}</span>
+              </div>
+
+              {/* Título e Descrição */}
+              <div>
+                <h3 className="text-sm font-bold text-white tracking-tight">{item.title}</h3>
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed">{item.description}</p>
+              </div>
+
+              {/* Impacto da Decisão */}
+              <div className="bg-[#0b0b0d] p-3 rounded-xl border border-zinc-800/80 space-y-1">
+                <span className="text-[10px] font-mono text-amber-400 uppercase font-bold block">
+                  Impacto Proposto pelo Agente:
+                </span>
+                <span className="text-xs font-mono text-zinc-300 block">{item.impact}</span>
+              </div>
+
+              {/* Ações de 1-Clique */}
+              <div className="pt-2 flex items-center justify-between border-t border-zinc-800/60">
+                {item.status === 'PENDING' ? (
+                  <div className="flex items-center gap-2 w-full justify-end">
+                    <button
+                      onClick={() => handleApprovalAction(item.id, 'REJECTED')}
+                      className="px-3 py-1.5 rounded-lg border border-rose-500/30 bg-rose-500/10 hover:bg-rose-500/20 text-rose-300 text-xs font-mono font-bold transition-colors flex items-center gap-1.5"
+                    >
+                      <ThumbsDown className="w-3.5 h-3.5" />
+                      <span>Rejeitar / Ajustar</span>
+                    </button>
+
+                    <button
+                      onClick={() => handleApprovalAction(item.id, 'APPROVED')}
+                      className="px-4 py-1.5 rounded-lg bg-emerald-500 text-black hover:bg-emerald-400 text-xs font-mono font-bold transition-colors flex items-center gap-1.5 shadow-lg"
+                    >
+                      <Check className="w-4 h-4" />
+                      <span>{item.actionLabel}</span>
+                    </button>
+                  </div>
+                ) : item.status === 'APPROVED' ? (
+                  <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-lg w-full justify-center">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                    <span>Aprovado & Executado pelo Fundador</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2 text-rose-400 font-mono text-xs font-bold bg-rose-500/10 border border-rose-500/30 px-3 py-1 rounded-lg w-full justify-center">
+                    <X className="w-4 h-4 text-rose-400" />
+                    <span>Rejeitado / Solicitada Revisão ao Agente</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Grid dos 8 Departamentos (2x4 / 4x2 Responsivo) com Fundo Cinza Chumbo Sólido (#131316) */}
