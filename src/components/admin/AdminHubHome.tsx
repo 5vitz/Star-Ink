@@ -135,7 +135,7 @@ export default function AdminHubHome() {
       title: 'Diretoria Executiva & Estratégia',
       subtitle: 'Visão Macro, KPIs Globais, Roadmap Q4 & Governance',
       agents: ['Maestro Lincoln (Orquestrador)', 'Armando (Decisor Soberano)'],
-      href: '/admin/dashboard',
+      href: '/admin/diretoria',
       icon: Crown,
       badgeText: 'Orquestração Ativa',
       kpiLabel: 'Meta Comercial Q4',
