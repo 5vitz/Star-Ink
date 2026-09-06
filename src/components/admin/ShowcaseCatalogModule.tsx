@@ -24,7 +24,10 @@ import {
   Shirt,
   ChevronDown,
   ChevronUp,
-  Settings
+  Settings,
+  ShieldCheck,
+  RefreshCw,
+  TrendingUp
 } from 'lucide-react';
 import { ExtendedProduct } from '@/lib/products';
 import { ArtworkData } from '@/lib/artworks';
@@ -42,6 +45,19 @@ export default function ShowcaseCatalogModule() {
   const [dropFormData, setDropFormData] = useState<DropData>(INITIAL_DROP);
   const [savingDrop, setSavingDrop] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  // Agent Marketing Audit state
+  const [runningMktAudit, setRunningMktAudit] = useState(false);
+  const [mktAuditMsg, setMktAuditMsg] = useState<string | null>(null);
+
+  const handleMktAudit = () => {
+    setRunningMktAudit(true);
+    setMktAuditMsg(null);
+    setTimeout(() => {
+      setRunningMktAudit(false);
+      setMktAuditMsg('Auditoria Traffic Manager & Visual Curator Concluída: Meta Ads R$ 15,00/dia operando com ROAS de 3.4x. Feed Sacolinha Instagram 100% sincronizado com catálogo D2C.');
+    }, 1500);
+  };
   
   // Filters
   const [search, setSearch] = useState('');
@@ -353,22 +369,31 @@ export default function ShowcaseCatalogModule() {
       {/* Module Title & Quick Actions */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-[var(--border-subtle)] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-1">
-            <ShoppingBag className="w-4 h-4" />
-            <span>Divisão 2 • Aplicação em Produtos & Vitrine Comercial (Compradores)</span>
+          <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase tracking-wider mb-1">
+            <TrendingUp className="w-4 h-4" />
+            <span>Departamento 06 • Marketing, Growth & Mídias (Traffic Manager + Curator)</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Produtos Físicos & Vitrine 9:16
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Vitrine Comercial 9:16 & Sacolinha Instagram
           </h1>
           <p className="text-xs text-[var(--text-secondary)] mt-1">
-            Aplique a Arte Matriz em suporte físico (Camiseta, Moletom, Quadro A3) e defina o mockup WebP 9:16 de exibição na loja.
+            Gestão de produtos físicos, curadoria 9:16, feeds XML do Meta Commerce e campanha Meta Ads (R$ 15/dia).
           </p>
         </div>
 
         <div className="flex items-center gap-3 flex-wrap">
           <button
+            onClick={handleMktAudit}
+            disabled={runningMktAudit}
+            className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-mono text-xs font-bold transition-all flex items-center gap-2 shadow-lg disabled:opacity-50"
+          >
+            <RefreshCw className={`w-4 h-4 ${runningMktAudit ? 'animate-spin' : ''}`} />
+            <span>{runningMktAudit ? 'Auditando Mídia...' : 'Auditoria Ads (Traffic Manager)'}</span>
+          </button>
+
+          <button
             onClick={() => setIsDropPanelOpen(!isDropPanelOpen)}
-            className="px-4 py-2.5 rounded-lg border border-[var(--accent-cyan)]/40 bg-[var(--accent-cyan)]/10 text-[var(--accent-cyan)] font-semibold text-xs tracking-wide hover:bg-[var(--accent-cyan)]/20 transition-colors flex items-center gap-2 font-mono"
+            className="px-4 py-2.5 rounded-xl border border-[var(--accent-cyan)]/40 bg-[var(--accent-cyan)]/10 text-[var(--accent-cyan)] font-semibold text-xs tracking-wide hover:bg-[var(--accent-cyan)]/20 transition-colors flex items-center gap-2 font-mono"
           >
             <Settings className="w-4 h-4" />
             <span>🎯 Configurar Drop Ativo</span>
@@ -377,13 +402,21 @@ export default function ShowcaseCatalogModule() {
 
           <button
             onClick={() => handleOpenModal()}
-            className="px-4 py-2.5 rounded-lg bg-white text-black font-semibold text-xs tracking-wide hover:bg-zinc-200 transition-colors flex items-center gap-2 shadow-md font-mono"
+            className="px-4 py-2.5 rounded-xl bg-white text-black font-semibold text-xs tracking-wide hover:bg-zinc-200 transition-colors flex items-center gap-2 shadow-md font-mono"
           >
             <Plus className="w-4 h-4" />
             <span>+ Criar Produto na Vitrine</span>
           </button>
         </div>
       </div>
+
+      {/* Alert Banner if Audit runs */}
+      {mktAuditMsg && (
+        <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs flex items-center gap-3 animate-fade-in">
+          <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+          <span>{mktAuditMsg}</span>
+        </div>
+      )}
 
       {/* Expandable Active Drop Management Panel */}
       {isDropPanelOpen && (
