@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+
 import { 
   Scale, 
   ShieldCheck, 
@@ -16,13 +17,116 @@ import {
   Landmark, 
   Building2, 
   BadgeCheck,
-  FileCheck
+  FileCheck,
+  Paperclip,
+  Send,
+  Sparkles,
+  User
 } from 'lucide-react';
+
+interface Message {
+  id: string;
+  sender: 'user' | 'agent';
+  content: string;
+  timestamp: string;
+  attachmentName?: string;
+}
 
 export default function JuridicoComplianceModule() {
   const [activeTab, setActiveTab] = useState<'jucees' | 'inpi' | 'fiscal' | 'lgpd'>('jucees');
   const [runningInpiCheck, setRunningInpiCheck] = useState(false);
   const [inpiStatusMsg, setInpiStatusMsg] = useState<string | null>(null);
+
+  // Dr. Lex Chat State
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: '1',
+      sender: 'agent',
+      content: 'Olá, Armando! Sou o Dr. Lex (JusChat GraphRAG AI), seu assistente jurídico, regulatório e fiscal especialista na operação da STAR INK LTDA.\n\nComo posso ajudar na sua gestão hoje? Você pode tirar dúvidas sobre o acompanhamento do protocolo JUCEES (ESP2605453571), a proteção da marca no INPI (Processo 944841171), o enquadramento no Simples Nacional (Anexo I - 4.0%) ou enviar minutas de contratos e documentos para auditoria legal.',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    }
+  ]);
+  const [inputText, setInputText] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, chatLoading]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const text = e.target.value;
+    setInputText(text);
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 160)}px`;
+    }
+  };
+
+  const handleSendMessage = async (textToSend?: string) => {
+    const text = textToSend !== undefined ? textToSend : inputText;
+    if (!text.trim() && !selectedFile) return;
+
+    const userMsgId = Date.now().toString();
+    const userMsg: Message = {
+      id: userMsgId,
+      sender: 'user',
+      content: text,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      attachmentName: selectedFile ? selectedFile.name : undefined
+    };
+
+    setMessages((prev) => [...prev, userMsg]);
+    if (textToSend === undefined) {
+      setInputText('');
+      if (textareaRef.current) {
+        textareaRef.current.style.height = '44px';
+      }
+    }
+    setSelectedFile(null);
+    setChatLoading(true);
+
+    try {
+      const response = await fetch('/api/dr-lex/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, fileName: userMsg.attachmentName })
+      });
+
+      const data = await response.json();
+
+      const agentMsg: Message = {
+        id: (Date.now() + 1).toString(),
+        sender: 'agent',
+        content: data.reply || 'Desculpe, ocorreu um erro ao consultar a inteligência do Dr. Lex.',
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      setMessages((prev) => [...prev, agentMsg]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          sender: 'agent',
+          content: 'Ocorreu uma indisponibilidade temporária na conexão com o Dr. Lex. Por favor, tente novamente.',
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        }
+      ]);
+    } finally {
+      setChatLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
+    }
+  };
+
 
   const cnaes = [
     { code: '4790-3/00', desc: 'Comércio varejista via internet (E-commerce D2C Principal)', type: 'Principal' },
@@ -353,6 +457,155 @@ export default function JuridicoComplianceModule() {
           </div>
         </div>
       )}
+
+      {/* Permanent Dr. Lex Chat (Visible across all tabs) */}
+      <div className="p-6 rounded-2xl bg-[#131316] border border-zinc-800/80 space-y-4 shadow-2xl">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-zinc-800/60 pb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
+              <Bot className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white tracking-tight">
+                  Dr. Lex — Consultor Jurídico, Fiscal & Compliance
+                </h3>
+                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-mono font-bold uppercase">
+                  GraphRAG AI 24/7
+                </span>
+              </div>
+              <p className="text-xs text-zinc-400 font-mono">
+                Inteligência Jurídica Especializada em Legislação Societária, INPI, Simples Nacional & CDC
+              </p>
+            </div>
+          </div>
+
+          <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold flex items-center gap-1.5 shrink-0">
+            <ShieldCheck className="w-3.5 h-3.5" />
+            <span>Sessão Privada Protegida</span>
+          </span>
+        </div>
+
+        {/* Message Stream */}
+        <div className="space-y-4 max-h-[380px] overflow-y-auto pr-1">
+          {messages.map((msg) => (
+            <div
+              key={msg.id}
+              className={`flex gap-3 ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}
+            >
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
+                msg.sender === 'user'
+                  ? 'bg-amber-500/20 border border-amber-500/40 text-amber-300'
+                  : 'bg-zinc-800 text-white'
+              }`}>
+                {msg.sender === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4 text-amber-400" />}
+              </div>
+
+              <div className={`max-w-[85%] p-4 rounded-2xl text-xs font-mono leading-relaxed space-y-2 ${
+                msg.sender === 'user'
+                  ? 'bg-amber-500 text-black font-semibold rounded-tr-none'
+                  : 'bg-[#0b0b0d] text-zinc-200 border border-zinc-800 rounded-tl-none shadow-md'
+              }`}>
+                {msg.attachmentName && (
+                  <div className="flex items-center gap-2 bg-black/20 p-2 rounded-lg text-[11px]">
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Anexo: {msg.attachmentName}</span>
+                  </div>
+                )}
+
+                <div className="whitespace-pre-wrap word-break">{msg.content}</div>
+
+                <div className={`text-[10px] text-right mt-1 ${
+                  msg.sender === 'user' ? 'text-black/60' : 'text-zinc-500'
+                }`}>
+                  {msg.timestamp}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {chatLoading && (
+            <div className="flex gap-3">
+              <div className="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center">
+                <Bot className="w-4 h-4 text-amber-400 animate-pulse" />
+              </div>
+              <div className="bg-[#0b0b0d] p-3 rounded-2xl border border-zinc-800 text-zinc-400 text-xs font-mono flex items-center gap-2">
+                <RefreshCw className="w-3.5 h-3.5 animate-spin text-amber-400" />
+                <span>Dr. Lex está pesquisando na Legislação Societária e Normas Fiscais...</span>
+              </div>
+            </div>
+          )}
+
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* Quick Suggestion Chips */}
+        <div className="flex gap-2 overflow-x-auto pt-2 pb-1 font-mono text-[11px]">
+          <button
+            onClick={() => handleSendMessage('Qual o status atualizado do processo JUCEES protocolo ESP2605453571 e próximos passos?')}
+            className="px-3 py-1.5 rounded-xl bg-[#0b0b0d] hover:bg-zinc-800 border border-zinc-800 text-amber-400 transition-all flex items-center gap-1.5 whitespace-nowrap"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>⚡ Status JUCEES Protocolo ESP2605453571</span>
+          </button>
+
+          <button
+            onClick={() => handleSendMessage('Como está garantida a anterioridade e a proteção da marca STAR INK no INPI (Processo 944841171)?')}
+            className="px-3 py-1.5 rounded-xl bg-[#0b0b0d] hover:bg-zinc-800 border border-zinc-800 text-amber-400 transition-all flex items-center gap-1.5 whitespace-nowrap"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>🛡️ Proteção de Marca INPI (944841171)</span>
+          </button>
+
+          <button
+            onClick={() => handleSendMessage('Quais são as obrigações tributárias e alíquotas do Simples Nacional (Anexo I - 4.0%) para os nossos CNAEs?')}
+            className="px-3 py-1.5 rounded-xl bg-[#0b0b0d] hover:bg-zinc-800 border border-zinc-800 text-amber-400 transition-all flex items-center gap-1.5 whitespace-nowrap"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>🏛️ CNAEs & Simples Nacional (4.0%)</span>
+          </button>
+        </div>
+
+        {/* Multiline Input Bar */}
+        <div className="p-3 rounded-xl bg-[#0b0b0d] border border-zinc-800 flex items-end gap-3">
+          <label className="cursor-pointer text-zinc-400 hover:text-amber-400 p-2 mb-0.5 transition-colors" title="Anexar PDF / Contrato">
+            <Paperclip className="w-5 h-5" />
+            <input
+              type="file"
+              accept=".pdf,.doc,.docx"
+              className="hidden"
+              onChange={(e) => e.target.files && setSelectedFile(e.target.files[0])}
+            />
+          </label>
+
+          {selectedFile && (
+            <span className="px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-[11px] mb-1">
+              {selectedFile.name}
+            </span>
+          )}
+
+          <textarea
+            ref={textareaRef}
+            className="flex-1 bg-transparent border-none outline-none text-white text-xs font-mono placeholder:text-zinc-600 resize-none min-h-[44px] max-h-[160px] p-2 leading-relaxed whitespace-pre-wrap word-break"
+            placeholder="Pergunte ao Dr. Lex sobre atos societários, contratos, INPI, impostos ou CDC..."
+            value={inputText}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            rows={1}
+          />
+
+          <button
+            onClick={() => handleSendMessage()}
+            disabled={chatLoading}
+            className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold transition-all flex items-center justify-center shrink-0 mb-0.5 shadow-lg disabled:opacity-50"
+            title="Enviar mensagem (Enter)"
+          >
+            <Send className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
+

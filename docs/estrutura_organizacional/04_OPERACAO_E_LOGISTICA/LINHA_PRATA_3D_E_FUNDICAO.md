@@ -1,24 +1,36 @@
 # 💍 Planejamento Estratégico: Linha de Prata 925 & Fundição 3D (Star-Ink)
 
-**Última Atualização:** Agosto de 2026  
-**Status:** Planejamento de Expansão (Pós-Lançamento Drop 01)  
-**Objetivo:** Criação da linha de acessórios autorais em **Prata 925** (anéis, pingentes e amuletos dos Arcanos) combinando modelagem 3D, fundição terceirizada por cera perdida e altas margens de lucro.
+**Última Atualização:** Setembro de 2026  
+**Status:** Planejamento de Expansão (Médio Prazo - Pós-Lançamento Drop 01 Connection)  
+**Objetivo:** Expansão estratégica para o segmento de joalheria autoral em **Prata 925** (pingentes, amuletos e anéis), conectando a arte das camisetas a acessórios físicos de alto valor percebido.
 
 ---
 
-## 🎯 Conceito & Posicionamento
+## 🎯 1. Foco do Lançamento vs. Roadmap de Médio Prazo
 
-A linha de joalheria em Prata 925 conecta-se perfeitamente com a proposta estética do **Tarô Negro / Geometria Sagrada / Dark Mode** da STAR INK. Enquanto as camisetas DTG atendem a vestuário diário, os anéis e amuletos em prata consolidam o posicionamento de **marca autoral de alto luxo**.
-
-* **Matéria-Prima:** Prata 925 (Sterling Silver) com acabamento envelhecido/oxidado (para destacar os sulcos da arte 3D).
-* **Margem Bruta Estimada:** **250% a 400%** por peça.
-* **Modelo Operacional:** Zero investimento em maquinário de fundição; terceirização de fundição *Private Label* por demanda/lote.
+> [!IMPORTANT]
+> **DIRETRIZ DE LANÇAMENTO (DROP 01 - CONNECTION):**
+> * **Escopo do Drop 01:** 100% focado em **Camisetas em Algodão 100% Pura Fibra** produzidas via **Reserva INK** (PoD).
+> * **Objetivo Inicial:** Priorizar o teste, validação e afinamento das dezenas de integrações críticas (Bling ERP v3, Batalhão de 19 Agentes, Instagram Shopping, Cockpit Admin, gateway de pagamento e conciliação).
+> * **Entrada da Linha de Prata:** Ocorrerá no **Médio Prazo (pós-estabilização operacional do Drop 01)**, quando a esteira principal de vestuário estiver operando de forma autônoma e com baixa fricção.
 
 ---
 
-## 🏛️ Enquadramento Fiscal & Societário (Dr. Lex / JUCEES)
+## 🎨 2. Conceito da Coleção Complementar (Combo Camiseta + Pingente)
 
-Na Alteração Contratual da **STAR INK LTDA** via Gov.br OURO na JUCEES (`simplifica.es.gov.br`), serão mantidos e incluídos **estritamente CNAEs de Comércio e Serviços de Design (100% Baixo Risco / Isenção CBMES)**:
+Enquanto a camiseta estampada em DTG atende ao vestuário de alto padrão, o **pingente em Prata 925** atua como um **amuleto físico complementar**:
+
+* **Narrativa do Amuleto:** Cada estampa marcante de camiseta terá seu elemento central/ícone chave extraído e traduzido em um pingente 3D em Prata 925 (ex: medalha escultórica, runa ou silhueta).
+* **Alavancagem de Ticket Médio (AOV):**
+  * Camiseta isolada: ~R$ 180,00 a R$ 220,00.
+  * Kit Collector (Camiseta + Pingente de Prata 925): R$ 380,00 a R$ 490,00 (dobrando o faturamento por pedido sem exigir estoque massivo).
+* **Acabamento Estético:** Prata 925 com acabamento envelhecido/oxidado nos sulcos para destacar os detalhes 3D e ressaltar a identidade autoral.
+
+---
+
+## 🏛️ 3. Enquadramento Fiscal & Societário (Dr. Lex / JUCEES)
+
+A Alteração Contratual da **STAR INK LTDA** via JUCEES já contemplou antecipadamente os CNAEs para essa futura área de atuação, mantendo **100% de Isenção Automática CBMES (Baixo Risco)**:
 
 | CNAE | Atividade Oficial IBGE | Aplicação na STAR INK | Simples Nacional | Risco CBMES / Alvará |
 | :--- | :--- | :--- | :--- | :--- |
@@ -28,31 +40,42 @@ Na Alteração Contratual da **STAR INK LTDA** via Gov.br OURO na JUCEES (`simpl
 | **`7410-2/03`** *(Secundário)* | Design de produto e criação de modelos | Modelagem 3D de Joalheria | **Anexo III** (Serviços) | **Baixo Risco (Isento)** |
 | **`4783-1/01`** *(Secundário)* | **Comércio varejista de artigos de joalheria** | **Venda D2C de Anéis e Acessórios em Prata 925** | **Anexo I (Permitido)** | **Baixo Risco (Isento)** |
 
-> 🚨 **ATENÇÃO JURÍDICA E DE SEGURANÇA (GOVERNANÇA CBMES):**  
-> É **PROIBIDO** incluir o CNAE `3211-6/02` (*Fabricação de artefatos de joalheria e ourivesaria*) no CNPJ da STAR INK. Por ser uma atividade industrial/fabril, a inclusão desse CNAE exigiria habite-se industrial, licença ambiental e vistoria presencial obrigatória do **Corpo de Bombeiros Militar do Espírito Santo (CBMES)**, o que reprovaria a sede da empresa. Como **100% da fundição física de prata é terceirizada via Private Label** em fundições licenciadas (ex: Casa de Fundição Skaf), a STAR INK atua exclusivamente no **Design 3D** (`7410-2/03`) e no **Comércio Varejista D2C de Joias** (`4783-1/01`), mantendo **100% de Isenção Automática de Vistoria de Bombeiros e Licenciamento**.
+> 🚨 **GOVERNANÇA FISCAL E DE SEGURANÇA:**  
+> A STAR INK opera 100% via terceirização de fundição (Private Label). É proibido incluir o CNAE industrial `3211-6/02` (*Fabricação de joias*), o que exigiria licença ambiental e bombeiros industriais. Com o CNAE de **Design 3D (`7410-2/03`)** e **Venda Varejista (`4783-1/01`)**, mantemos **100% de Isenção Automática de Vistoria de Bombeiros**.
 
 ---
 
-## ⚙️ Fluxo Técnico de Produção (Private Label)
+## 🤖 4. Esteira de Criação 3D com Inteligência Artificial
 
-```
-[1. Design 3D] ➔ [2. Impressão 3D Resina] ➔ [3. Fundição Cera Perdida] ➔ [4. Polimento/Oxidação] ➔ [5. Venda D2C]
-```
+A geração do modelo tridimensional da peça será integrada ao workflow do **Atelier de Artes** (`/admin/atelier`):
 
-1. **Modelagem 3D (In-House):** Criação do modelo tridimensional no software 3D (formatos `.STL` ou `.OBJ`).
-2. **Impressão 3D em Resina Calcinável:** O arquivo é impresso em resina calcinável (própria para fundição, que queima sem deixar cinzas).
-3. **Fundição Terceirizada (Cera Perdida):** A fundição parceira monta a árvore de fundição, coloca no gesso refratário e injeta a Prata 925 pura.
-4. **Acabamento & Polimento:** Remoção do jito, polimento e aplicação do banho/oxidação para o contraste escuro nos sulcos.
-5. **Embalagem VIP:** Envio no **Saco Ziplock Preto STAR INK + Veludo/Caixinha Rígida** com certificado de autenticidade da Prata 925.
+1. **Geração do Conceito Visual (Image-to-3D):**
+   * Ferramentas como **Meshy.ai**, **Tripo3D**, **FormaNova** e **3D AI Studio** convertem o desenho 2D da estampa em uma malha 3D (.STL / .OBJ).
+2. **Ajuste CAD & Engenharia de Joias:**
+   * Validação em software CAD (Blender/Rhino) para garantir malha fechada (*Watertight / Manifold*), espessura mínima de parede (0.8mm a 1.2mm) e fator de encolhimento do metal (~2%).
 
 ---
 
-## 🏢 Parceiros & Fundições Terceirizadas Mapeadas (Brasil)
+## ⚙️ 5. Fluxo de Fabricação PoD / Private Label (Cera Perdida)
 
-1. **Casa de Fundição Skaf (São Paulo - SP):**
-   * Especializada em fundição de Prata 925 *Private Label*.
-   * Aceita arquivos 3D (`.STL`) para impressão, fundição por cera perdida, ourivesaria e acabamento final.
-2. **Terracota Fundição e Prototipagem:**
-   * Suporte completo desde prototipagem em resina 3D, moldes de silicone de alta precisão e fundição de Prata 925.
-3. **Polos de Ourivesaria / Fundições Regionais (SP / Limeira / RJ / ES):**
-   * Fornecem tanto o serviço de fundição quanto a venda da prata em liga 925 com certificado de pureza.
+```
+[1. Geração IA + CAD 3D] ➔ [2. Impressão 3D Resina Calcinável] ➔ [3. Fundição Prata 925] ➔ [4. Acabamento/Polimento] ➔ [5. Packaging VIP]
+```
+
+* **Tempo de Produção:** 5 a 10 dias úteis por lote ou ordem sob demanda.
+* **Fornecimento do Metal:** A própria fundição parceira fornece a Prata 925 cobrada pelo peso consumido em gramas + taxa de serviço.
+* **Envio Direct-to-Consumer (White-Label):**
+  * As embalagensVIP da Star-Ink (saco ziplock + caixinha/veludo) são enviadas em lote para a oficina parceira.
+  * Ao finalizar a produção, a peça é embalada na caixa da marca e despachada com a etiqueta gerada pelo e-commerce da Star-Ink.
+
+---
+
+## 🏢 6. Fornecedores Mapeados de Fundição 3D em Prata (Brasil)
+
+1. **Voxar Prototipagem & Fundição (São Paulo / SP - Centro):**
+   * Especializada no ciclo completo: recepção de arquivo STL, impressão em resina calcinável de alta precisão, fundição em Prata 925 e polimento.
+2. **Terracota Fundição e Prototipagem (São Paulo / SP):**
+   * Focada no atendimento a marcas autorais independentes, com suporte para prototipagem 3D e fundição de pequenos lotes.
+3. **Mega Fundição (Limeira / SP - Polo Joalheiro):**
+   * Estrutura de alta capacidade para fundição em cera perdida de Prata 925, ideal para escala de produção a partir de modelos 3D.
+

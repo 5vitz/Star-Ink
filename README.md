@@ -13,10 +13,10 @@ Bem-vindo ao repositório oficial do projeto **Star-Ink**, uma operação de e-c
 
 ## 🛠️ Tecnologia & Arquitetura Visual
 
-- **Frontend público (D2C):** HTML5, Vanilla CSS3 em **Light Mode 100% limpo (`#ffffff`)**, JavaScript.
-- **Cockpit Admin:** Painel de controle em Dark Mode para gestão interna com 8 módulos departamentais.
-- **ERP & Fiscal:** Bling ERP com emissão automática de NF-e Modelo 55.
-- **Canais Integrados:** Loja D2C, Mercado Livre, Amazon Brasil, Shopee, SHEIN Seller Center e TikTok Shop.
+- **Frontend público (D2C):** HTML5, Vanilla CSS3 em **Light Mode 100% limpo (`#ffffff`)**, JavaScript (Next.js 15 App Router).
+- **Cockpit Admin:** Central de Comando em Dark Mode com Fila de Decisões Executivas (Human-in-the-Loop de 1-Clique) e 8 Módulos Departamentais conectados à Frota de 19 Agentes.
+- **ERP & Fiscal:** Bling ERP v3 com emissão automática de NF-e Modelo 55 e integração OAuth 2.0.
+- **Canais Integrados:** Loja D2C, Sacolinha Instagram Shopping, Mercado Livre, Amazon Brasil e Feed GEO AI (`/llms.txt`).
 
 ---
 
