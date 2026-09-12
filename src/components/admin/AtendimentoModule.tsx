@@ -19,8 +19,10 @@ import {
   Phone,
   Mail,
   FileText,
-  CheckCircle2
+  CheckCircle2,
+  AlertCircle
 } from 'lucide-react';
+
 import { Customer, ReturnRequest } from '@/lib/concierge';
 
 export default function AtendimentoModule() {
@@ -168,6 +170,39 @@ export default function AtendimentoModule() {
         </div>
       )}
 
+      {/* High Priority Red Alert Banner for Human Takeover Requests */}
+      {customers.some((c) => c.status === 'HUMAN_TAKEOVER_REQUESTED' || c.status === 'SOLICITOU ATENDENTE') && (
+        <div className="p-4 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-200 font-mono text-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 animate-pulse shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-lg bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-rose-400 font-bold shrink-0">
+              <AlertCircle className="w-5 h-5 text-rose-400" />
+            </div>
+            <div>
+              <span className="font-bold text-rose-300 block text-sm uppercase">🚨 Transbordo Humano Solicitado (Alta Prioridade)</span>
+              <span className="text-[11px] text-rose-200/80">
+                A IA Concierge identificou solicitação de suporte humano ou caso atípico. Atendimento necessário!
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {customers
+              .filter((c) => c.status === 'HUMAN_TAKEOVER_REQUESTED' || c.status === 'SOLICITOU ATENDENTE')
+              .map((cust) => (
+                <button
+                  key={cust.id}
+                  onClick={() => setSelectedCustomer(cust)}
+                  className="px-3 py-1.5 rounded-lg bg-rose-500 hover:bg-rose-400 text-black font-bold text-xs transition-all flex items-center gap-1.5 shadow"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>Atender {cust.name}</span>
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
+
+
       {/* Metric Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border-subtle)] space-y-1">
@@ -269,9 +304,14 @@ export default function AtendimentoModule() {
                           </div>
                           <div>
                             <span className="block">{cust.name}</span>
-                            <span className="text-[10px] font-mono text-emerald-400">
-                              {cust.status}
+                            <span className={`text-[10px] font-mono font-bold ${
+                              cust.status === 'HUMAN_TAKEOVER_REQUESTED' || cust.status === 'SOLICITOU ATENDENTE'
+                                ? 'text-rose-400 animate-pulse uppercase'
+                                : 'text-emerald-400'
+                            }`}>
+                              {cust.status === 'HUMAN_TAKEOVER_REQUESTED' ? '🚨 SOLICITOU ATENDENTE' : cust.status}
                             </span>
+
                           </div>
                         </div>
                       </td>

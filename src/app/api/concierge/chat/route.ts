@@ -29,15 +29,20 @@ export async function POST(request: Request) {
 
     let aiResult = null;
 
-    // If message comes from customer, simulate Gemini AI response
+    // If message comes from customer, process Gemini AI response
     if (sender === 'customer') {
-      aiResult = processGeminiConciergeAI(message, customer.name);
+      aiResult = await processGeminiConciergeAI(message, customer.name);
       customer.chatHistory.push({
         sender: 'ai',
         text: aiResult.reply,
         time: timeStr,
       });
+
+      if (aiResult.functionCalled && aiResult.functionCalled.includes('escalar_humano')) {
+        customer.status = 'HUMAN_TAKEOVER_REQUESTED';
+      }
     }
+
 
     saveCustomers(customers);
 
