@@ -1,0 +1,56 @@
+{
+  "$schema": "https://star-ink.com.br/schemas/operational_spec.v1.json",
+  "operational_level": {
+    "suppliers": {
+      "reserva_ink": {
+        "name": "Reserva INK",
+        "role": "Fornecedor Principal PoD (Vestuário)",
+        "units": ["Rio de Janeiro - RJ", "São Paulo - SP"],
+        "sla_production_days": "1 a 3 dias úteis",
+        "print_spec": {
+          "technology": "DTG Kornit Digital",
+          "resolution_dpi": 300,
+          "canvas_dimensions_px": "4200x4800",
+          "color_profile": "sRGB / CMYK FOGRA39",
+          "min_line_thickness_px": 1.5
+        },
+        "guarantee_policy": "Reprint 100% gratuito mediante envio de 2 fotos comprovando defeito de fabricação ou avaria."
+      },
+      "hotprinti_dimona": {
+        "name": "Hotprinti / Dimona",
+        "role": "Fornecedores Secundários & Linhas Especiais",
+        "categories": ["Quadros Fine Art A3", "Ecobags Lona", "Linha Prata 3D"]
+      }
+    },
+    "product_categories_spec": {
+      "camiseta_oversized": {
+        "composition": "100% Algodão Pura Fibra Penteado (Fio 26.1)",
+        "gramatura_g_m2": 220,
+        "modeling": "Streetwear Oversized com gola canelada 3cm e costura reforçada de ombro a ombro",
+        "sizes_available": ["P", "M", "G", "GG", "XGG"]
+      },
+      "moletom_heavyweight": {
+        "composition": "100% Algodão Flanelado",
+        "gramatura_g_m2": 320,
+        "sizes_available": ["P", "M", "G", "GG"]
+      },
+      "quadro_fine_art_a3": {
+        "paper_spec": "Papel Algodão 300g/m² com moldura de madeira sustentável",
+        "dimensions_cm": "30x42 cm (A3)"
+      }
+    },
+    "logistics_hub": {
+      "carrier_integrator": "Melhor Envio (Correios Sedex / PAC / Jadlog)",
+      "reverse_logistics_portal": "https://www.star-ink.com.br/trocas",
+      "desistencia_cdc_art49": "7 dias corridos pós-recebimento com código de postagem reversa 100% gratuito.",
+      "troca_tamanho": "Até 30 dias corridos com emissão de cupom de crédito na loja."
+    },
+    "kanban_production_stages": [
+      "1. Pedido Confirmado / Bling Integrado",
+      "2. Arte Validadora A3 300 DPI Gerada",
+      "3. Transmitido para Fábrica PoD (Reserva INK)",
+      "4. Em Confecção / Impressão DTG",
+      "5. Expedição Bipada & Rastreio Notificado"
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 # 🎨 Star-Ink — E-Commerce D2C Moda Autoral & Print-on-Demand
 
+> *"Quando você veste Star-Ink, você veste uma criação autêntica, protegida e única!"*
+
 Bem-vindo ao repositório oficial do projeto **Star-Ink**, uma operação de e-commerce de moda autoral de alto padrão, combinando arte gerada via Inteligência Artificial, estampas exclusivamente em **DTG (Direct-to-Garment) em Algodão 100% Pura Fibra**, e integração multicanal via Bling ERP.
 
 ---

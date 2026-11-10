@@ -52,16 +52,19 @@ A experiência de abertura de cada pedido é composta por **4 elementos de alto 
 ```text
  ┌──────────────────────────────────────────────────────────────────────────┐
  │                                                                          │
- │   STAR INK — DROPS EDICIÓN LIMITADA                                      │
+ │   STAR INK — DROPS EDIÇÃO LIMITADA                                       │
+ │                                                                          │
+ │   "Quando você veste Star-Ink, você veste uma criação autêntica,         │
+ │    protegida e única!"                                                   │
  │                                                                          │
  │   "A arte está pronta quando não se pode retirar mais nada."             │
  │                                                                          │
  │   Obrigado por fazer parte da história do Drop 01.                       │
  │   Cada peça foi produzida sob demanda com algodão penteado               │
- │   e a máxima fidelidade de impressão gráfica.                            │
+ │   e matriz autoral registrada com carimbo de tempo na Blockchain.        │
  │                                                                          │
- │   [ QR CODE PARA SUPORTE & CONCIERGE WHATSAPP 24/7 ]                    │
- │   Dúvidas, trocas ou atendimento exclusivo? Escaneie o código acima.    │
+ │   [ QR CODE: CONCIERGE 24/7 & CERTIFICADO DE AUTORIA BLOCKCHAIN ]        │
+ │   Escaneie para atendimento exclusivo ou verificar o hash da obra.       │
  │                                                                          │
  │   www.star-ink.com.br  •  @starink.oficial                               │
  │                                                                          │

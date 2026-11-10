@@ -1,0 +1,35 @@
+{
+  "$schema": "https://star-ink.com.br/schemas/financial_governance_spec.v1.json",
+  "financial_and_governance_level": {
+    "company_legal_data": {
+      "legal_name": "Studio X Ltda",
+      "trade_name": "Star INK",
+      "cnpj": "01.376.773/0001-30",
+      "cnpj_status": "100% ATIVO na Receita Federal",
+      "jucees_protocol": "ESP2605453571 (Ato Constitutivo em Análise)",
+      "inpi_trademark": "Processo Nº 944841171 (STAR INK)",
+      "tax_regime": "Simples Nacional (Anexo II / III)",
+      "address": "Rua Marquês de Olinda, 60, Jardim da Penha, Vitória/ES"
+    },
+    "unit_economics": {
+      "target_retail_price": "R$ 189,00 a R$ 219,00",
+      "pod_cost_per_unit": "R$ 67,00 a R$ 75,00",
+      "target_net_margin_per_unit": "R$ 122,00 por peça vendida",
+      "breakeven_roas_meta_ads": 2.1,
+      "daily_test_ad_budget": "R$ 15,00 / dia"
+    },
+    "fiscal_integration": {
+      "erp_system": "Bling ERP v3 (OAuth 2.0)",
+      "nfe_model": "Modelo 55 (Emissão Automática Pós-Pagamento)",
+      "payment_gateways": {
+        "pix": "Liquidação D+0 (Instantâneo)",
+        "credit_card": "Liquidação D+30 ou Antecipação Selecionada"
+      }
+    },
+    "sovereignty_governance_rules": {
+      "founder_exclusive_deploy": "Execução de scripts de deploy (deploy.sh), comandos PM2 na VPS Contabo e modificações no PostgreSQL de produção são de EXCLUSIVIDADE ABSOLUTA do Fundador (Armando Sinkovitz).",
+      "ai_deploy_prohibition": "Assistentes e Agentes de IA NUNCA disparam deploys ou modificações de infraestrutura remota sem comando manual direto.",
+      "human_in_the_loop_requirement": "Toda ação sugerida pelos 19 agentes deve passar pela alça de decisão de 1-clique do Fundador no Cockpit Admin."
+    }
+  }
+}

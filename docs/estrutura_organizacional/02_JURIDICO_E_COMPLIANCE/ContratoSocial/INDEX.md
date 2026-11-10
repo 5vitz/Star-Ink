@@ -2,40 +2,47 @@
 
 > **Empresa:** STUDIO X LTDA / STAR INK LTDA  
 > **CNPJ:** `01.376.773/0001-30`  
-> **Última Atualização:** 27 de Agosto de 2026  
+> **Última Atualização:** 14 de Setembro de 2026  
 
 ---
 
 ## 📂 Estrutura de Pastas
 
 ```
-docs/juridico/ContratoSocial/
+02_JURIDICO_E_COMPLIANCE/ContratoSocial/
 ├── INDEX.md                            <-- Este índice centralizador
+├── Alteracao_Atual_2026/               <-- 🟢 PROCESSO ATIVO LIMPO (1ª Alteração Contratual)
+│   ├── 1a_Alteracao_Contratual_STUDIO_X_LTDA.pdf <-- Minuta final em PDF
+│   ├── Procuracao_Especifica_Paulo_Cesar_de_Souza_assinado.pdf <-- Procuração Gov.br Nível OURO do Paulo
+│   ├── DUA_JUCEES_4032157905.pdf       <-- Comprovante de Pagamento DUA JUCEES R$ 437,43 (Conciliado)
+│   ├── Certidao_Justica_Eleitoral_Armando.pdf <-- Certidão de Quitação Eleitoral de Armando
+│   ├── ConsultaPrevia_ESP2605586246.pdf <-- Consulta Prévia Deferida (ESP2605586246)
+│   └── Recibo_DBE_ESN2622270716.png    <-- Recibo de Transmissão DBE Transmitido em 14/09/2026 às 21:01
 ├── Contrato_Original_2009/              <-- Contrato Social Original de 2009 & Certidões da JUCEES
 │   ├── JUCEES_Certidao_Inteiro_Teor_Contrato_2009.pdf
 │   └── JUCEES_DUA_Pagamento_Certidao_ESC2600645030.pdf
-├── Alteracao_Atual_2026/               <-- 🟡 NOVO PROCESSO LIMPO (Endereço + CNAEs + Nome Fantasia)
-│   └── (Aqui serão salvos a nova Minuta, o Contrato Social Assinado e o Deferimento da JUCEES)
-└── OLDS/                               <-- 📦 ARQUIVO HISTÓRICO (Documentos e Tentativas Abandonadas)
-    ├── ESP2605433824.pdf               <-- Viabilidade/DBE anterior (com cessão de cotas do Paulo)
-    ├── ESP2605423853.pdf               <-- Protocolo anterior
-    ├── Consulta-previa.pdf              <-- Consulta prévia antiga
-    ├── DBE.pdf / DBE (1).pdf           <-- Rascunhos antigos de DBE
-    └── REDESIM.pdf / REDESIM2.pdf      <-- Prints de acompanhamento anteriores
+└── OLDS/                               <-- 📦 ARQUIVO HISTÓRICO (Documentos, Minutas e DBEs Anteriores)
+    ├── ESP2605453571.pdf               <-- Viabilidade/DUA de agosto (substituída por ESP2605586246)
+    ├── DBE_APROVADO_ESN2657988649.png  <-- DBE de 14/09 16h (substituído por ESN2622270716)
+    ├── Recibo_DBE_ESN2657988649.png    <-- Recibo anterior de 14/09
+    └── (demais rascunhos, prints e PDFs anteriores arquivados)
 ```
 
 ---
 
 ## 📋 Resumo das Subpastas
 
-### 🏛️ 1. `Contrato_Original_2009/`
+### 🟢 1. `Alteracao_Atual_2026/`
+Destinado a armazenar o **Processo Ativo Vigente** de Alteração Contratual:
+* Minuta da 1ª Alteração Contratual (Endereço, CNAEs `4781-4/00`, `4790-3/00`, `7410-2/02` e Nome Fantasia **STAR INK**).
+* Procuração Específica de Paulo César outorgando poderes a Armando Sinkovitz (Assinada em 13/09/2026 via Gov.br OURO).
+* Comprovante da DUA JUCEES paga e conciliada (R$ 437,43).
+* Consulta Prévia Deferida (`ESP2605586246`).
+* Recibo de Transmissão do DBE (`ESN2622270716`).
+
+### 🏛️ 2. `Contrato_Original_2009/`
 Documentos históricos oficiais obtidos junto à JUCEES (Certidão de Inteiro Teor do contrato primitivo de 2009 sob protocolo `ESC2600645030`).
 
-### ✍️ 2. `Alteracao_Atual_2026/`
-Destinado a armazenar o **Novo Processo Limpo** sem a alteração do Quadro Social (QSA):
-* Minuta da Alteração Contratual (Endereço, CNAEs `4790-3/00` E-Commerce D2C Principal, Nome Fantasia **STAR INK**).
-* Contrato Assinado via **Gov.br OURO** por Armando Sinkovitz (Sócio-Administrador 99%).
-* Comprovante de Pagamento da DUA JUCEES e Certidão de Registro Aprovado.
-
 ### 📦 3. `OLDS/`
-Guarda de segurança de todas as minutas, simulações e protocolos gerados em tentativas anteriores que foram descontinuados para evitar poluição dos arquivos ativos.
+Guarda de segurança de todas as minutas, simulações e protocolos gerados em tentativas anteriores que foram descontinuados para manter os arquivos ativos totalmente limpos e organizados.
+

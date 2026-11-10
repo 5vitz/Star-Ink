@@ -1,16 +1,20 @@
 # ⚖️ Regularização do CNPJ & Alteração Contratual — STAR INK LTDA
 
-> **Status:** 🟢 **ASSINATURAS DIGITAIS GOV.BR OURO 100% CONCLUÍDAS E GRAVADAS EM 27/08/2026!**  
-> **CNPJ:** `01.376.773/0001-30` (Studio X LTDA ➔ STAR INK LTDA)  
-> **Protocolo REDESIM / Viabilidade:** `ESP2605453571` (Versão Limpa sem QSA)  
-> **Status Assinatura Digital:** *Processo assinado com sucesso via Gov.br OURO por Armando Sinkovitz (Sócio-Administrador 99%)*.  
-> **Taxa JUCEES:** *DUA Nº 4032157905 (R$ 437,43) PAGO (NSU: `bacd6d00-abcf-4c9b-b20b-3157eff01cab`)*.  
-> **Matriz de Eventos Unificados Liberados:**  
->   1. **Evento 211:** Alteração de Endereço (Rua Marquês de Olinda, 60, Jardim da Penha, Vitória/ES)  
->   2. **Evento 244:** Alteração de Atividades Econômicas (`4781-4/00.67` Vestuário Principal + `4783-1/01.65` Joalheria + `7410-2/03.466` Design)  
-> **Próxima Etapa:** Clicar no botão **Protocolar** no Simplifica ES para envio final à JUCEES. Prazo de homologação automática / deferimento em 24h-48h!  
-> **Responsáveis:** Genera / Armando (Proprietário) & Dr. Lex / Lincoln (Suporte Técnico)  
-> **Última Atualização:** 27 de Agosto de 2026 (17:00)  
+> **Status:** 🟢 **DBE `ESN2623490338` TRANSMITIDO E RECEPCIONADO COM SUCESSO PELO SERPRO EM 22/09/2026 ÀS 12:15:54!**  
+> **CNPJ:** `01.376.773/0001-30` (Studio X LTDA ➔ Sociedade Limitada Unipessoal SLU)  
+> **Protocolo Simplifica ES (Junta):** `ESP2605645122` (com os eventos marcados: Procuração, Consolidação, QSA, Endereço, Atividades e Nome)  
+> **Protocolo REDESIM / DBE Receita Federal:** `ESN2623490338` (Recepcionado pelo SERPRO em 22/09/2026 às 12:15:54)  
+> **Procuração Digital Gov.br:** *Procuração Específica de Paulo Cesar de Souza outorgando poderes de assinatura a Armando Sinkovitz*.  
+> **Taxa JUCEES:** *DUA Nº 4032157905 (R$ 437,43) PAGO E REAPROVEITADO COM SUCESSO!*  
+> **Próxima Etapa:** Aguardar a liberação do SERPRO na base da Receita Federal (~15-30 min), para retornar ao Simplifica ES no protocolo `ESP2605627738`, anexar os PDFs (Procuração + 2ª Alteração Contratual) e assinar via Gov.br OURO!  
+> **Responsáveis:** Armando Sinkovitz (Proprietário) & Dr. Lex / Lincoln (Suporte Técnico)  
+> **Última Atualização:** 19 de Setembro de 2026 (18:55)  
+> **Arquivos Salvos e Organizados:**  
+>   - 📄 [ESP2605627738.pdf](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura_organizacional/02_JURIDICO_E_COMPLIANCE/ContratoSocial/Alteracao_Atual_2026/ESP2605627738.pdf)  
+>   - 📄 [ESN2676668892.pdf](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura_organizacional/02_JURIDICO_E_COMPLIANCE/ContratoSocial/Alteracao_Atual_2026/ESN2676668892.pdf)  
+> **Próxima Etapa:** Acompanhar o deferimento automático do DBE `ESN2676668892` na Receita Federal / SERPRO (~15-30 min), para preencher a FCN final no Simplifica ES, anexar os PDFs e assinar via Gov.br OURO!  
+> **Responsáveis:** Armando Sinkovitz (Proprietário) & Dr. Lex / Lincoln (Suporte Técnico)  
+> **Última Atualização:** 19 de Setembro de 2026  
 
 ---
 

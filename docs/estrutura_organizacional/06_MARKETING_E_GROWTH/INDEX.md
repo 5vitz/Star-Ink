@@ -15,6 +15,7 @@ Todos os documentos, estratégias, especificações de produtos e automações d
 ```
 docs/marketing/
 ├── INDEX.md                             <-- Este índice centralizador
+├── MANIFESTO_DA_MARCA.md                <-- Manifesto Oficial da Marca & Lema Autoral
 ├── PLANO_DE_CATALOGO_E_MIX_DROP01.md    <-- Desdobramento das 12 Artes Mestre no Mix Ampliado (60+ SKUs)
 ├── ESTRATEGIA_DE_MARKETING_E_TRAFEGO.md  <-- Plano de Mídia Meta Ads (R$ 15/dia), Google Ads & Pixels
 ├── SUITE_MARKETING_STARINK.md           <-- A Orquestra de Agentes & Comandos Virtuais (/starink-*)

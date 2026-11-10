@@ -50,3 +50,16 @@ CREATE TABLE stock_variants (
     CONSTRAINT unique_variant UNIQUE (product_id, size, color)
 );
 ```
+
+---
+
+## 2. Conector MCP (Model Context Protocol) para PostgreSQL
+
+> [!NOTE]
+> Para suportar alto volume transacional no e-commerce da Star-Ink, a infraestrutura contará com o servidor **`mcp-server-postgres`**.
+
+* **Finalidade:** Permitir leitura e consulta direta de esquemas e tabelas PostgreSQL pelos agentes de IA sem alterar a lógica de aplicação no Next.js.
+* **Casos de Uso:**
+  * Geração instantânea de relatórios financeiros e operacionais (DRE, vendas por SKU, curva ABC).
+  * Inspeção de divergências de estoque PoD e status de pedidos em tempo real.
+  * Automação de telemetria para a Cockpit / Central Hub (`/admin`).

@@ -1,49 +1,72 @@
-# 🔄 Plano de Melhoria Contínua das Habilidades (Skills) dos Agentes
+# 🔄 Plano de Melhoria Contínua da Frota de Agentes (Metodologia Lincoln & Fine-Tuning Orientado à Intenção)
 
-> **Metodologia:** Continuous Agent Skill Upgrade (CASU)  
-> **Objetivo:** Estabelecer o protocolo de auditoria, testes, refinamento de *System Prompts* e expansão de capacidades dos 16 Agentes de IA da Star-Ink.  
-
----
-
-## 🏛️ O Ciclo de Evolução em 4 Passos
-
-```
-  ┌─────────────────────────────────────────────────────────────┐
-  │ 1. OBSERVAÇÃO & MTRICAS (Audit de Respostas e KPIs)         │
-  └──────────────────────────────┬──────────────────────────────┘
-                                 │
-                                 ▼
-  ┌─────────────────────────────────────────────────────────────┐
-  │ 2. REFINAMENTO DE PROMPT & SKILLS (Ajustes nas Fichas .md)  │
-  └──────────────────────────────┬──────────────────────────────┘
-                                 │
-                                 ▼
-  ┌─────────────────────────────────────────────────────────────┐
-  │ 3. TESTE DE AMBIENTE & VALIDAÇÃO (Simulação sem Risco)      │
-  └──────────────────────────────┬──────────────────────────────┘
-                                 │
-                                 ▼
-  ┌─────────────────────────────────────────────────────────────┐
-  │ 4. HOMOLOGAÇÃO & PRODUÇÃO (Atualização das Versões)         │
-  └─────────────────────────────────────────────────────────────┘
-```
+> **Empresa:** Star INK Ltda (`Star INK`)  
+> **Metodologia de Treinamento:** Fine-Tuning Orientado à Intenção (Framework *It's Fine* do Prof. Dr. Sandeco Macedo)  
+> **Filosofia de Gestão:** Metodologia Lincoln (*"Afiamos o machado primeiro para executar com precisão cirúrgica"*).  
+> **Objetivo:** Treinamento, auditoria e evolução contínua da frota de 19 Agentes Virtuais de IA integrando a Tríade de Informação Proprietária (Tônica Espiritual, Terça Operacional e Quinta Financeira).
 
 ---
 
-## 🛠️ Como Estudar e Aprimorar um Agente
+## 🏛️ A Tríade da Informação Proprietária (O DNA Vivo da Star INK)
 
-Cada agente possui uma ficha técnica individual em [`docs/estrutura_organizacional/agentes/`](file:///home/artz/Documentos/Antigravity/Star-Ink/docs/estrutura_organizacional/agentes/INDEX.md). Para evoluir suas habilidades:
+A inteligência da frota é guiada por 3 arquivos canônicos de configuração situados em `src/config/`:
 
-1. **Abra a Ficha do Agente:** Analise a seção `🧠 System Prompt` e `⚡ Skills & Ferramentas`.
-2. **Identifique Lacunas ou Novas Necessidades:** Exemplo: *"O Agente Discriminador precisa aprender a reconhecer novo tipo de defeito em estampas DTF além de DTG"*.
-3. **Atualize o Prompt & Skills na Ficha:** Modifique as instruções no arquivo `.md` do agente.
-4. **Atualize o Histórico de Versão:** Registre a data, a mudança feita e o ganho esperado na seção `🔄 Ficha de Evolução`.
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│              1. TÔNICA (NÍVEL ESPIRITUAL & IDENTIDADE - brand_dna.json)          │
+│  • Estética da Subtração, Transparência Radical, Identidade pública "Assistente IA" │
+│  • Manifesto de Matéria-Prima (Fibras Naturais Puras / Impressão DTG Ecológica)  │
+└────────────────────────────────────────┬────────────────────────────────────────┘
+                                         │
+┌────────────────────────────────────────┴────────────────────────────────────────┐
+│            2. TERÇA (NÍVEL OPERACIONAL & PRODUÇÃO - operational_spec.json)      │
+│  • Matriz de Fornecedores PoD (Reserva INK / Hotprinti / Dimona)                │
+│  • Fichas Técnicas por SKU, Gabaritos 4200x4800px @ 300 DPI, CDC Art. 49 / Trocas │
+└────────────────────────────────────────┬────────────────────────────────────────┘
+                                         │
+┌────────────────────────────────────────┴────────────────────────────────────────┐
+│     3. QUINTA (NÍVEL FINANCEIRO & GOVERNANÇA - financial_governance_spec.json)  │
+│  • Unit Economics (Margem R$ 122/pç), Simples Nacional, NFe Bling ERP v3         │
+│  • Protocolo JUCEES ESP2605453571, INPI 944841171, Trava Soberana do Fundador   │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🎓 Ciclo de Aprendizado via Framework *It's Fine* (11 Etapas)
+
+O treinamento dos agentes transita da injeção de prompts para o aprendizado baseado nas decisões reais aprovadas pelo Fundador no Cockpit Admin (`/admin`):
+
+1. **Intenção Mapeada:** Identificação do tipo de ocorrência por departamento.
+2. **Curadoria do Acervo:** Consolidação do conhecimento nos 3 Níveis JSON.
+3. **Captura Human-in-the-Loop:** Cada clique de aprovação (`[ 🟢 Aprovar ]`) grava o par `(Contexto + Prompt ➔ Resposta Ideal)`.
+4. **Harness & Preparação:** Normalização dos datasets em formato JSONL.
+5. **Fine-Tuning Privado:** Ajuste fino via LoRA/QLoRA em modelos locais ou VPS.
+6. **Deploy Soberano:** Liberação manual e exclusiva do Fundador (Armando).
+
+---
+
+## 🤖 Identidade Pública & Tom de Atendimento
+
+* **Identidade Pública Oficial:** **Assistente IA Star INK** (ou **Atendente IA Star INK**).
+* **Diretriz de Transparência Radical:** A IA se identifica abertamente como inteligência artificial. *Não simulamos ser um ser humano; entregamos atendimento rápido, cortês, empático e resolutivo.*
+
+---
+
+## 🛠️ Injeção de Contexto em Cascata (`src/lib/brandContext.ts`)
+
+Todos os agentes carregam o contexto em cascata via utilitário centralizado:
+```typescript
+import { getFormattedPromptContext } from '@/lib/brandContext';
+const promptContext = getFormattedPromptContext('sac'); // Injeta Tônica + Operacional
+```
 
 ---
 
 ## 📊 Critérios Globais de Desempenho (KPIs)
 
+* **Transparência & Cortesia (SAC):** 100% de identificação como Assistente IA e atendimento cortês.
 * **Respeito ao Mínimo Diff (Engenharia):** 0% de alterações desnecessárias em código funcional.
-* **Fidelidade Fiscal (Jurídico):** 100% de emissão correta de NFe 55 no Bling sem divergência de alíquota.
-* **Precisão de Triagem (SAC):** > 98% de assertividade ao classificar Defeito de Fabricação (Reserva INK) vs. Troca (Star-Ink).
-* **Rigor Estético (Atelier):** 100% de conformidade com a Estética da Subtração e traço de 1px hairline.
+* **Fidelidade Fiscal (Jurídico):** 100% de emissão correta de NFe 55 no Bling ERP sem divergência.
+* **Precisão de Triagem (Operações):** > 98% de assertividade ao classificar Defeito Reserva INK (Reprint R$ 0) vs. Troca por tamanho.
+* **Rigor Estético (Atelier):** 100% de conformidade com a Estética da Subtração e traço 1px hairline.

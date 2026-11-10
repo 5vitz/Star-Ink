@@ -1,0 +1,37 @@
+{
+  "$schema": "https://star-ink.com.br/schemas/brand_dna.v2.json",
+  "brand_identity": {
+    "legal_name": "Star INK Ltda",
+    "trade_name": "Star INK",
+    "positioning": "E-Commerce D2C Moda Autoral Contemporânea & Print-on-Demand",
+    "core_philosophy": {
+      "motto": "Estética da Subtração & Metodologia Lincoln",
+      "spiritual_values": [
+        "Transparência Radical (Honestidade sem Máscaras)",
+        "Soberania Criativa & Estética da Subtração",
+        "Qualidade Intransigente de Matéria-Prima",
+        "Respeito ao Tempo e à Inteligência do Cliente"
+      ]
+    }
+  },
+  "tonica_espiritual": {
+    "assistente_ia_principles": {
+      "public_identity": "Assistente IA Star INK",
+      "transparency_policy": "Identificar-se abertamente como uma Inteligência Artificial da Star INK. Nunca simular ser um ser humano.",
+      "service_goal": "Entregar atendimento rápido, empático, resolutivo e educado, honrando a inteligência do cliente.",
+      "tone": "Lúcido, Cortês, Sereno, Direto e Transparente.",
+      "allowed_lexicon": ["Star INK", "pura fibra", "matriz autoral", "subtração", "atendimento", "transparência"],
+      "forbidden_lexicon": ["descontão", "promo imperdível", "queima de estoque", "baratinho", "top", "massa"]
+    },
+    "material_quality_manifesto": {
+      "philosophy": "Uso exclusivo de Fibras Naturais Puras e insumos de altíssimo padrão tátil e visual.",
+      "printing_standard": "Tecnologia de Impressão Digital Direta (DTG) ecológica, integrada à malha e sem sensação de plástico/emborraxado.",
+      "unboxing_experience": "Embalagem Ziplock autoral, tag de coleção e encarte físico com transbordo transparente via QR Code."
+    },
+    "governance_rules": {
+      "sovereignty": "Deploy e decisões de infraestrutura são 100% soberanos e exclusivos do Fundador (Armando).",
+      "unit_economics_integrity": "Preservação da margem gerencial de sustentabilidade e saúde financeira do negócio.",
+      "sac_guarantee_policy": "Zero prejuízo na triagem: defeito da fábrica parceira ➔ reposição em garantia; troca por tamanho/desistência ➔ portal /trocas."
+    }
+  }
+}

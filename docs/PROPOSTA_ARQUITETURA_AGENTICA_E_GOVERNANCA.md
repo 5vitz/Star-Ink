@@ -98,3 +98,16 @@ O modelo de governança e arquitetura foi aprovado e implementado com sucesso no
 2. ✅ **Fila de Decisões Executivas (Human-in-the-Loop)** implementada na Central Hub (`/admin`) com cards de 1-Clique para aprovação e rejeição de ações sugeridas pelos Agentes.
 3. ✅ **8 Módulos Departamentais Conectados**: Construídos componentes dedicados e rotas físicas para os 8 Departamentos (`/admin/diretoria`, `/admin/juridico`, `/admin/engenharia`, `/admin/producao`, `/admin/atendimento`, `/admin/marketing`, `/admin/atelier`, `/admin/financeiro`).
 4. ✅ **Verificação do Inspetor de Códigos**: 100% tsc limpo (`0 erros TypeScript`) e pronto para escala no Q4.
+
+---
+
+## ⚡ 7. Demanda Futura: Conector MCP (Model Context Protocol) para PostgreSQL
+
+> [!TIP]
+> **OBJETIVO E ARQUITETURA DE DADOS EM TEMPO REAL:**
+> Com o aumento no volume de transações, pedidos e vendas PoD no e-commerce **STAR INK**, será implementada a integração com o **`mcp-server-postgres`**.
+
+### 7.1. Propósito e Benefícios
+* **Inspeção Direta e Leitura em Tempo Real:** Permitir que assistentes de IA e os Agentes do Batalhão (como o `CFO Virtual`, `Inspetor de Códigos` e `Financial Reconciler`) acessem esquemas, tabelas e métricas do banco PostgreSQL sem necessidade de alterar o código interno da aplicação.
+* **Geração de Relatórios On-Demand:** Leitura instantânea de tabelas (`products`, `stock_variants`, `orders`, `financialRecord`) para compilar dashboards dinâmicos, relatórios de faturamento e alertas de conciliação.
+* **Segurança e Isolamento:** Conexão via protocolo padrão MCP em modo seguro de consulta (Read-Only por padrão), preservando a Soberania do Fundador e a integridade da base de dados de produção.
